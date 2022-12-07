@@ -28,7 +28,7 @@ class RouterConfig extends StatelessWidget {
       routerDelegate: appRouter.delegate(),
       routeInformationParser: appRouter.defaultRouteParser(),
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: true,
     );

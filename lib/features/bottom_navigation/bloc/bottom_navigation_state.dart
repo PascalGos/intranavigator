@@ -1,7 +1,7 @@
 part of 'bottom_navigation_bloc.dart';
 
 @freezed
-abstract class BottomNavigationState with _$BottomNavigationState {
+class BottomNavigationState with _$BottomNavigationState {
   const factory BottomNavigationState.initial({
     required bool willPop,
   }) = _InitialPage;

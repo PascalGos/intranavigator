@@ -11,66 +11,91 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i5;
-import 'package:flutter/material.dart' as _i6;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
+import 'package:intranavigator/features/account_settings/account_settings.dart'
+    as _i6;
 import 'package:intranavigator/features/bottom_navigation/bottom_navigation.dart'
     as _i2;
+import 'package:intranavigator/features/favorites/favorites.dart' as _i5;
 import 'package:intranavigator/features/onboarding/onboarding.dart' as _i1;
-import 'package:intranavigator/features/product_overview/product_overview.dart'
+import 'package:intranavigator/features/product_category_overview/product_category_overview.dart'
     as _i3;
-import 'package:intranavigator/features/shopping_cart/shopping_cart.dart'
+import 'package:intranavigator/features/shopping_list/shopping_list.dart'
     as _i4;
 
-class AppRouter extends _i5.RootStackRouter {
-  AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
+class AppRouter extends _i7.RootStackRouter {
+  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i5.PageFactory> pagesMap = {
+  final Map<String, _i7.PageFactory> pagesMap = {
     OnboardingRoute.name: (routeData) {
-      return _i5.AdaptivePage<dynamic>(
+      return _i7.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i1.OnboardingPage(),
       );
     },
     BottomNavigationWrapperRoute.name: (routeData) {
-      return _i5.AdaptivePage<dynamic>(
+      return _i7.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i2.BottomNavigationWrapperPage(),
       );
     },
-    ProductOverviewRoute.name: (routeData) {
-      return _i5.AdaptivePage<dynamic>(
+    ProductCategoryOverviewRoute.name: (routeData) {
+      return _i7.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ProductOverviewPage(),
+        child: const _i3.ProductCategoryOverviewPage(),
       );
     },
-    ShoppingCartRoute.name: (routeData) {
-      return _i5.AdaptivePage<dynamic>(
+    ShoppingListRoute.name: (routeData) {
+      return _i7.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ShoppingCartPage(),
+        child: const _i4.ShoppingListPage(),
+      );
+    },
+    FavoritesRoute.name: (routeData) {
+      return _i7.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.FavoritesPage(),
+      );
+    },
+    AccountSettingsRoute.name: (routeData) {
+      return _i7.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i6.AccountSettingsPage(),
       );
     },
   };
 
   @override
-  List<_i5.RouteConfig> get routes => [
-        _i5.RouteConfig(
+  List<_i7.RouteConfig> get routes => [
+        _i7.RouteConfig(
           OnboardingRoute.name,
           path: '/',
         ),
-        _i5.RouteConfig(
+        _i7.RouteConfig(
           BottomNavigationWrapperRoute.name,
           path: '/',
           children: [
-            _i5.RouteConfig(
-              ProductOverviewRoute.name,
+            _i7.RouteConfig(
+              ProductCategoryOverviewRoute.name,
               path: 'home',
               parent: BottomNavigationWrapperRoute.name,
             ),
-            _i5.RouteConfig(
-              ShoppingCartRoute.name,
+            _i7.RouteConfig(
+              ShoppingListRoute.name,
               path: 'shopping-cart',
+              parent: BottomNavigationWrapperRoute.name,
+            ),
+            _i7.RouteConfig(
+              FavoritesRoute.name,
+              path: 'favorites',
+              parent: BottomNavigationWrapperRoute.name,
+            ),
+            _i7.RouteConfig(
+              AccountSettingsRoute.name,
+              path: 'account-settings',
               parent: BottomNavigationWrapperRoute.name,
             ),
           ],
@@ -80,7 +105,7 @@ class AppRouter extends _i5.RootStackRouter {
 
 /// generated route for
 /// [_i1.OnboardingPage]
-class OnboardingRoute extends _i5.PageRouteInfo<void> {
+class OnboardingRoute extends _i7.PageRouteInfo<void> {
   const OnboardingRoute()
       : super(
           OnboardingRoute.name,
@@ -92,8 +117,8 @@ class OnboardingRoute extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.BottomNavigationWrapperPage]
-class BottomNavigationWrapperRoute extends _i5.PageRouteInfo<void> {
-  const BottomNavigationWrapperRoute({List<_i5.PageRouteInfo>? children})
+class BottomNavigationWrapperRoute extends _i7.PageRouteInfo<void> {
+  const BottomNavigationWrapperRoute({List<_i7.PageRouteInfo>? children})
       : super(
           BottomNavigationWrapperRoute.name,
           path: '/',
@@ -104,25 +129,49 @@ class BottomNavigationWrapperRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.ProductOverviewPage]
-class ProductOverviewRoute extends _i5.PageRouteInfo<void> {
-  const ProductOverviewRoute()
+/// [_i3.ProductCategoryOverviewPage]
+class ProductCategoryOverviewRoute extends _i7.PageRouteInfo<void> {
+  const ProductCategoryOverviewRoute()
       : super(
-          ProductOverviewRoute.name,
+          ProductCategoryOverviewRoute.name,
           path: 'home',
         );
 
-  static const String name = 'ProductOverviewRoute';
+  static const String name = 'ProductCategoryOverviewRoute';
 }
 
 /// generated route for
-/// [_i4.ShoppingCartPage]
-class ShoppingCartRoute extends _i5.PageRouteInfo<void> {
-  const ShoppingCartRoute()
+/// [_i4.ShoppingListPage]
+class ShoppingListRoute extends _i7.PageRouteInfo<void> {
+  const ShoppingListRoute()
       : super(
-          ShoppingCartRoute.name,
+          ShoppingListRoute.name,
           path: 'shopping-cart',
         );
 
-  static const String name = 'ShoppingCartRoute';
+  static const String name = 'ShoppingListRoute';
+}
+
+/// generated route for
+/// [_i5.FavoritesPage]
+class FavoritesRoute extends _i7.PageRouteInfo<void> {
+  const FavoritesRoute()
+      : super(
+          FavoritesRoute.name,
+          path: 'favorites',
+        );
+
+  static const String name = 'FavoritesRoute';
+}
+
+/// generated route for
+/// [_i6.AccountSettingsPage]
+class AccountSettingsRoute extends _i7.PageRouteInfo<void> {
+  const AccountSettingsRoute()
+      : super(
+          AccountSettingsRoute.name,
+          path: 'account-settings',
+        );
+
+  static const String name = 'AccountSettingsRoute';
 }

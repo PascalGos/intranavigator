@@ -23,7 +23,7 @@ class BottomNavigationWrapperPage extends StatelessWidget {
               appBarBuilder: (context, tabsRouter) => AppBar(
                 title: const Text('Loky'),
                 centerTitle: true,
-                leading: fillWithNoWidget(),
+                automaticallyImplyLeading: false,
               ),
               routes: bottomNavigationRoutes,
               bottomNavigationBuilder: bottomNavigationBuilder,
@@ -41,16 +41,8 @@ class BottomNavigationWrapperPage extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: tabsRouter.activeIndex,
       onTap: tabsRouter.setActiveIndex,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart),
-          label: 'Shopping Cart',
-        ),
-      ],
+      type: BottomNavigationBarType.fixed,
+      items: navigationItems,
     );
   }
 
@@ -61,6 +53,23 @@ class BottomNavigationWrapperPage extends StatelessWidget {
         .add(const BottomNavigationEvent.backButtonPressed());
     return state.willPop;
   }
-
-  Widget? fillWithNoWidget() => null;
 }
+
+const navigationItems = [
+  BottomNavigationBarItem(
+    icon: Icon(Icons.home),
+    label: 'Home',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.shopping_cart),
+    label: 'Shopping Cart',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.favorite),
+    label: 'Favorite',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.person),
+    label: 'Account',
+  ),
+];

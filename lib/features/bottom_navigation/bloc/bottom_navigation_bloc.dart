@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intranavigator/features/account_settings/account_settings.dart';
 import 'package:intranavigator/routes/routes.dart';
 
 part 'bottom_navigation_event.dart';
@@ -31,7 +30,9 @@ class BottomNavigationBloc
   }
 
   List<PageRouteInfo<dynamic>> bottomNavigationRoutes = const [
-    ProductOverviewRoute(),
-    ShoppingCartRoute(),
+    ProductCategoryOverviewRoute(),
+    ShoppingListRoute(),
+    FavoritesRoute(),
+    AccountSettingsRoute(),
   ];
 }
