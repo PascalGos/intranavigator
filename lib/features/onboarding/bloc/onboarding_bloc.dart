@@ -18,6 +18,6 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   }
 
   void onButtonPressed(OnboardingEvent event, Emitter<OnboardingState> emit) {
-    getDependency<AppRouter>().navigate(const BottomNavigationWrapperRoute());
+    getDependency<AppRouter>().navigate(const MainNavigationWrapperRoute());
   }
 }

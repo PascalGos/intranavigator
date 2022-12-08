@@ -6,14 +6,14 @@ import 'package:injectable/injectable.dart';
 import 'package:intranavigator/features/account_settings/account_settings.dart';
 import 'package:intranavigator/routes/routes.dart';
 
-part 'bottom_navigation_event.dart';
-part 'bottom_navigation_state.dart';
-part 'bottom_navigation_bloc.freezed.dart';
+part 'main_navigation_event.dart';
+part 'main_navigation_state.dart';
+part 'main_navigation_bloc.freezed.dart';
 
 @injectable
-class BottomNavigationBloc
-    extends Bloc<BottomNavigationEvent, BottomNavigationState> {
-  BottomNavigationBloc()
+class MainNavigationBloc
+    extends Bloc<MainNavigationEvent, MainNavigationState> {
+  MainNavigationBloc()
       : super(const _InitialPage(
           willPop: false,
         )) {
@@ -22,14 +22,14 @@ class BottomNavigationBloc
   }
 
   void onNavigationItemPressed(
-      BottomNavigationEvent event, Emitter<BottomNavigationState> emit) {}
+      MainNavigationEvent event, Emitter<MainNavigationState> emit) {}
 
   void onBackButtonPressed(
-      BottomNavigationEvent event, Emitter<BottomNavigationState> emit) {
+      MainNavigationEvent event, Emitter<MainNavigationState> emit) {
     emit(state.copyWith(willPop: false));
   }
 
-  List<PageRouteInfo<dynamic>> bottomNavigationRoutes = const [
+  List<PageRouteInfo<dynamic>> navigationRoutes = const [
     ProductCategoryOverviewRoute(),
     ShoppingListRoute(),
     FavoritesRoute(),

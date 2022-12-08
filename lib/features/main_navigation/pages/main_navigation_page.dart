@@ -4,19 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/dependency_injection.dart';
 import 'package:intranavigator/routes/routes.dart';
 
-import '../bloc/bottom_navigation_bloc.dart';
+import '../bloc/main_navigation_bloc.dart';
 
-class BottomNavigationWrapperPage extends StatelessWidget {
-  const BottomNavigationWrapperPage({super.key});
+class MainNavigationWrapperPage extends StatelessWidget {
+  const MainNavigationWrapperPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getDependency<BottomNavigationBloc>(),
-      child: BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
+      create: (context) => getDependency<MainNavigationBloc>(),
+      child: BlocBuilder<MainNavigationBloc, MainNavigationState>(
         builder: (context, state) {
           final bottomNavigationRoutes =
-              context.read<BottomNavigationBloc>().bottomNavigationRoutes;
+              context.read<MainNavigationBloc>().navigationRoutes;
           return WillPopScope(
             onWillPop: () => onWillPop(context, state),
             child: AutoTabsScaffold(
@@ -47,10 +47,10 @@ class BottomNavigationWrapperPage extends StatelessWidget {
   }
 
   Future<bool> onWillPop(
-      BuildContext context, BottomNavigationState state) async {
+      BuildContext context, MainNavigationState state) async {
     context
-        .read<BottomNavigationBloc>()
-        .add(const BottomNavigationEvent.backButtonPressed());
+        .read<MainNavigationBloc>()
+        .add(const MainNavigationEvent.backButtonPressed());
     return state.willPop;
   }
 }

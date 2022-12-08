@@ -15,9 +15,9 @@ import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:flutter/material.dart' as _i8;
 import 'package:intranavigator/features/account_settings/account_settings.dart'
     as _i6;
-import 'package:intranavigator/features/bottom_navigation/bottom_navigation.dart'
-    as _i2;
 import 'package:intranavigator/features/favorites/favorites.dart' as _i5;
+import 'package:intranavigator/features/main_navigation/main_navigation.dart'
+    as _i2;
 import 'package:intranavigator/features/onboarding/onboarding.dart' as _i1;
 import 'package:intranavigator/features/product_category_overview/product_category_overview.dart'
     as _i3;
@@ -36,10 +36,10 @@ class AppRouter extends _i7.RootStackRouter {
         child: const _i1.OnboardingPage(),
       );
     },
-    BottomNavigationWrapperRoute.name: (routeData) {
+    MainNavigationWrapperRoute.name: (routeData) {
       return _i7.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i2.BottomNavigationWrapperPage(),
+        child: const _i2.MainNavigationWrapperPage(),
       );
     },
     ProductCategoryOverviewRoute.name: (routeData) {
@@ -75,28 +75,28 @@ class AppRouter extends _i7.RootStackRouter {
           path: '/',
         ),
         _i7.RouteConfig(
-          BottomNavigationWrapperRoute.name,
+          MainNavigationWrapperRoute.name,
           path: '/',
           children: [
             _i7.RouteConfig(
               ProductCategoryOverviewRoute.name,
               path: 'home',
-              parent: BottomNavigationWrapperRoute.name,
+              parent: MainNavigationWrapperRoute.name,
             ),
             _i7.RouteConfig(
               ShoppingListRoute.name,
               path: 'shopping-cart',
-              parent: BottomNavigationWrapperRoute.name,
+              parent: MainNavigationWrapperRoute.name,
             ),
             _i7.RouteConfig(
               FavoritesRoute.name,
               path: 'favorites',
-              parent: BottomNavigationWrapperRoute.name,
+              parent: MainNavigationWrapperRoute.name,
             ),
             _i7.RouteConfig(
               AccountSettingsRoute.name,
               path: 'account-settings',
-              parent: BottomNavigationWrapperRoute.name,
+              parent: MainNavigationWrapperRoute.name,
             ),
           ],
         ),
@@ -116,16 +116,16 @@ class OnboardingRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.BottomNavigationWrapperPage]
-class BottomNavigationWrapperRoute extends _i7.PageRouteInfo<void> {
-  const BottomNavigationWrapperRoute({List<_i7.PageRouteInfo>? children})
+/// [_i2.MainNavigationWrapperPage]
+class MainNavigationWrapperRoute extends _i7.PageRouteInfo<void> {
+  const MainNavigationWrapperRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          BottomNavigationWrapperRoute.name,
+          MainNavigationWrapperRoute.name,
           path: '/',
           initialChildren: children,
         );
 
-  static const String name = 'BottomNavigationWrapperRoute';
+  static const String name = 'MainNavigationWrapperRoute';
 }
 
 /// generated route for

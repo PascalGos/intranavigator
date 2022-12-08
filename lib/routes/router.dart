@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 
 import '../features/onboarding/onboarding.dart';
-import '../features/bottom_navigation/bottom_navigation.dart';
+import '../features/main_navigation/main_navigation.dart';
 import '../features/shopping_list/shopping_list.dart';
 import '../features/favorites/favorites.dart';
 import '../features/account_settings/account_settings.dart';
@@ -15,7 +15,7 @@ import '../features/product_category_overview/product_category_overview.dart';
   ),
   AutoRoute(
     path: '/',
-    page: BottomNavigationWrapperPage,
+    page: MainNavigationWrapperPage,
     children: [
       AutoRoute(path: 'home', page: ProductCategoryOverviewPage),
       AutoRoute(path: 'shopping-cart', page: ShoppingListPage),

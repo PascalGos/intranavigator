@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'bottom_navigation_bloc.dart';
+part of 'main_navigation_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$BottomNavigationEvent {
+mixin _$MainNavigationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() navigationItemPressed,
@@ -58,17 +58,16 @@ mixin _$BottomNavigationEvent {
 }
 
 /// @nodoc
-abstract class $BottomNavigationEventCopyWith<$Res> {
-  factory $BottomNavigationEventCopyWith(BottomNavigationEvent value,
-          $Res Function(BottomNavigationEvent) then) =
-      _$BottomNavigationEventCopyWithImpl<$Res, BottomNavigationEvent>;
+abstract class $MainNavigationEventCopyWith<$Res> {
+  factory $MainNavigationEventCopyWith(
+          MainNavigationEvent value, $Res Function(MainNavigationEvent) then) =
+      _$MainNavigationEventCopyWithImpl<$Res, MainNavigationEvent>;
 }
 
 /// @nodoc
-class _$BottomNavigationEventCopyWithImpl<$Res,
-        $Val extends BottomNavigationEvent>
-    implements $BottomNavigationEventCopyWith<$Res> {
-  _$BottomNavigationEventCopyWithImpl(this._value, this._then);
+class _$MainNavigationEventCopyWithImpl<$Res, $Val extends MainNavigationEvent>
+    implements $MainNavigationEventCopyWith<$Res> {
+  _$MainNavigationEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -85,7 +84,7 @@ abstract class _$$_NavigationItemPressedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_NavigationItemPressedCopyWithImpl<$Res>
-    extends _$BottomNavigationEventCopyWithImpl<$Res, _$_NavigationItemPressed>
+    extends _$MainNavigationEventCopyWithImpl<$Res, _$_NavigationItemPressed>
     implements _$$_NavigationItemPressedCopyWith<$Res> {
   __$$_NavigationItemPressedCopyWithImpl(_$_NavigationItemPressed _value,
       $Res Function(_$_NavigationItemPressed) _then)
@@ -99,7 +98,7 @@ class _$_NavigationItemPressed implements _NavigationItemPressed {
 
   @override
   String toString() {
-    return 'BottomNavigationEvent.navigationItemPressed()';
+    return 'MainNavigationEvent.navigationItemPressed()';
   }
 
   @override
@@ -175,7 +174,7 @@ class _$_NavigationItemPressed implements _NavigationItemPressed {
   }
 }
 
-abstract class _NavigationItemPressed implements BottomNavigationEvent {
+abstract class _NavigationItemPressed implements MainNavigationEvent {
   const factory _NavigationItemPressed() = _$_NavigationItemPressed;
 }
 
@@ -188,7 +187,7 @@ abstract class _$$_BackButtonPressedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_BackButtonPressedCopyWithImpl<$Res>
-    extends _$BottomNavigationEventCopyWithImpl<$Res, _$_BackButtonPressed>
+    extends _$MainNavigationEventCopyWithImpl<$Res, _$_BackButtonPressed>
     implements _$$_BackButtonPressedCopyWith<$Res> {
   __$$_BackButtonPressedCopyWithImpl(
       _$_BackButtonPressed _value, $Res Function(_$_BackButtonPressed) _then)
@@ -202,7 +201,7 @@ class _$_BackButtonPressed implements _BackButtonPressed {
 
   @override
   String toString() {
-    return 'BottomNavigationEvent.backButtonPressed()';
+    return 'MainNavigationEvent.backButtonPressed()';
   }
 
   @override
@@ -278,12 +277,12 @@ class _$_BackButtonPressed implements _BackButtonPressed {
   }
 }
 
-abstract class _BackButtonPressed implements BottomNavigationEvent {
+abstract class _BackButtonPressed implements MainNavigationEvent {
   const factory _BackButtonPressed() = _$_BackButtonPressed;
 }
 
 /// @nodoc
-mixin _$BottomNavigationState {
+mixin _$MainNavigationState {
   bool get willPop => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -325,24 +324,23 @@ mixin _$BottomNavigationState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $BottomNavigationStateCopyWith<BottomNavigationState> get copyWith =>
+  $MainNavigationStateCopyWith<MainNavigationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BottomNavigationStateCopyWith<$Res> {
-  factory $BottomNavigationStateCopyWith(BottomNavigationState value,
-          $Res Function(BottomNavigationState) then) =
-      _$BottomNavigationStateCopyWithImpl<$Res, BottomNavigationState>;
+abstract class $MainNavigationStateCopyWith<$Res> {
+  factory $MainNavigationStateCopyWith(
+          MainNavigationState value, $Res Function(MainNavigationState) then) =
+      _$MainNavigationStateCopyWithImpl<$Res, MainNavigationState>;
   @useResult
   $Res call({bool willPop});
 }
 
 /// @nodoc
-class _$BottomNavigationStateCopyWithImpl<$Res,
-        $Val extends BottomNavigationState>
-    implements $BottomNavigationStateCopyWith<$Res> {
-  _$BottomNavigationStateCopyWithImpl(this._value, this._then);
+class _$MainNavigationStateCopyWithImpl<$Res, $Val extends MainNavigationState>
+    implements $MainNavigationStateCopyWith<$Res> {
+  _$MainNavigationStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -365,7 +363,7 @@ class _$BottomNavigationStateCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$_InitialPageCopyWith<$Res>
-    implements $BottomNavigationStateCopyWith<$Res> {
+    implements $MainNavigationStateCopyWith<$Res> {
   factory _$$_InitialPageCopyWith(
           _$_InitialPage value, $Res Function(_$_InitialPage) then) =
       __$$_InitialPageCopyWithImpl<$Res>;
@@ -376,7 +374,7 @@ abstract class _$$_InitialPageCopyWith<$Res>
 
 /// @nodoc
 class __$$_InitialPageCopyWithImpl<$Res>
-    extends _$BottomNavigationStateCopyWithImpl<$Res, _$_InitialPage>
+    extends _$MainNavigationStateCopyWithImpl<$Res, _$_InitialPage>
     implements _$$_InitialPageCopyWith<$Res> {
   __$$_InitialPageCopyWithImpl(
       _$_InitialPage _value, $Res Function(_$_InitialPage) _then)
@@ -406,7 +404,7 @@ class _$_InitialPage implements _InitialPage {
 
   @override
   String toString() {
-    return 'BottomNavigationState.initial(willPop: $willPop)';
+    return 'MainNavigationState.initial(willPop: $willPop)';
   }
 
   @override
@@ -489,7 +487,7 @@ class _$_InitialPage implements _InitialPage {
   }
 }
 
-abstract class _InitialPage implements BottomNavigationState {
+abstract class _InitialPage implements MainNavigationState {
   const factory _InitialPage({required final bool willPop}) = _$_InitialPage;
 
   @override
@@ -502,7 +500,7 @@ abstract class _InitialPage implements BottomNavigationState {
 
 /// @nodoc
 abstract class _$$_PageChangedCopyWith<$Res>
-    implements $BottomNavigationStateCopyWith<$Res> {
+    implements $MainNavigationStateCopyWith<$Res> {
   factory _$$_PageChangedCopyWith(
           _$_PageChanged value, $Res Function(_$_PageChanged) then) =
       __$$_PageChangedCopyWithImpl<$Res>;
@@ -513,7 +511,7 @@ abstract class _$$_PageChangedCopyWith<$Res>
 
 /// @nodoc
 class __$$_PageChangedCopyWithImpl<$Res>
-    extends _$BottomNavigationStateCopyWithImpl<$Res, _$_PageChanged>
+    extends _$MainNavigationStateCopyWithImpl<$Res, _$_PageChanged>
     implements _$$_PageChangedCopyWith<$Res> {
   __$$_PageChangedCopyWithImpl(
       _$_PageChanged _value, $Res Function(_$_PageChanged) _then)
@@ -543,7 +541,7 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   String toString() {
-    return 'BottomNavigationState.pageChanged(willPop: $willPop)';
+    return 'MainNavigationState.pageChanged(willPop: $willPop)';
   }
 
   @override
@@ -626,7 +624,7 @@ class _$_PageChanged implements _PageChanged {
   }
 }
 
-abstract class _PageChanged implements BottomNavigationState {
+abstract class _PageChanged implements MainNavigationState {
   const factory _PageChanged({required final bool willPop}) = _$_PageChanged;
 
   @override
