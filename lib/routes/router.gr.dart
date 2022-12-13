@@ -71,13 +71,26 @@ class AppRouter extends _i7.RootStackRouter {
   @override
   List<_i7.RouteConfig> get routes => [
         _i7.RouteConfig(
-          OnboardingRoute.name,
+          '/#redirect',
           path: '/',
+          redirectTo: 'onboarding',
+          fullMatch: true,
+        ),
+        _i7.RouteConfig(
+          OnboardingRoute.name,
+          path: 'onboarding',
         ),
         _i7.RouteConfig(
           MainNavigationWrapperRoute.name,
-          path: '/',
+          path: '',
           children: [
+            _i7.RouteConfig(
+              '#redirect',
+              path: '',
+              parent: MainNavigationWrapperRoute.name,
+              redirectTo: 'home',
+              fullMatch: true,
+            ),
             _i7.RouteConfig(
               ProductCategoryOverviewRoute.name,
               path: 'home',
@@ -109,7 +122,7 @@ class OnboardingRoute extends _i7.PageRouteInfo<void> {
   const OnboardingRoute()
       : super(
           OnboardingRoute.name,
-          path: '/',
+          path: 'onboarding',
         );
 
   static const String name = 'OnboardingRoute';
@@ -121,7 +134,7 @@ class MainNavigationWrapperRoute extends _i7.PageRouteInfo<void> {
   const MainNavigationWrapperRoute({List<_i7.PageRouteInfo>? children})
       : super(
           MainNavigationWrapperRoute.name,
-          path: '/',
+          path: '',
           initialChildren: children,
         );
 

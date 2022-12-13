@@ -18,40 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainNavigationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() navigationItemPressed,
-    required TResult Function() backButtonPressed,
+    required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function() navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? navigationItemPressed,
-    TResult? Function()? backButtonPressed,
+    TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function()? navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? navigationItemPressed,
-    TResult Function()? backButtonPressed,
+    TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function()? navigateBack,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NavigationItemPressed value)
-        navigationItemPressed,
-    required TResult Function(_BackButtonPressed value) backButtonPressed,
+    required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateBack value) navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NavigationItemPressed value)? navigationItemPressed,
-    TResult? Function(_BackButtonPressed value)? backButtonPressed,
+    TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateBack value)? navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NavigationItemPressed value)? navigationItemPressed,
-    TResult Function(_BackButtonPressed value)? backButtonPressed,
+    TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateBack value)? navigateBack,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,35 +75,181 @@ class _$MainNavigationEventCopyWithImpl<$Res, $Val extends MainNavigationEvent>
 }
 
 /// @nodoc
-abstract class _$$_NavigationItemPressedCopyWith<$Res> {
-  factory _$$_NavigationItemPressedCopyWith(_$_NavigationItemPressed value,
-          $Res Function(_$_NavigationItemPressed) then) =
-      __$$_NavigationItemPressedCopyWithImpl<$Res>;
+abstract class _$$NavigateToMainPageCopyWith<$Res> {
+  factory _$$NavigateToMainPageCopyWith(_$NavigateToMainPage value,
+          $Res Function(_$NavigateToMainPage) then) =
+      __$$NavigateToMainPageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({NavigationItem destination});
+
+  $NavigationItemCopyWith<$Res> get destination;
 }
 
 /// @nodoc
-class __$$_NavigationItemPressedCopyWithImpl<$Res>
-    extends _$MainNavigationEventCopyWithImpl<$Res, _$_NavigationItemPressed>
-    implements _$$_NavigationItemPressedCopyWith<$Res> {
-  __$$_NavigationItemPressedCopyWithImpl(_$_NavigationItemPressed _value,
-      $Res Function(_$_NavigationItemPressed) _then)
+class __$$NavigateToMainPageCopyWithImpl<$Res>
+    extends _$MainNavigationEventCopyWithImpl<$Res, _$NavigateToMainPage>
+    implements _$$NavigateToMainPageCopyWith<$Res> {
+  __$$NavigateToMainPageCopyWithImpl(
+      _$NavigateToMainPage _value, $Res Function(_$NavigateToMainPage) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? destination = null,
+  }) {
+    return _then(_$NavigateToMainPage(
+      destination: null == destination
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as NavigationItem,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NavigationItemCopyWith<$Res> get destination {
+    return $NavigationItemCopyWith<$Res>(_value.destination, (value) {
+      return _then(_value.copyWith(destination: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_NavigationItemPressed implements _NavigationItemPressed {
-  const _$_NavigationItemPressed();
+class _$NavigateToMainPage implements NavigateToMainPage {
+  const _$NavigateToMainPage({required this.destination});
+
+  @override
+  final NavigationItem destination;
 
   @override
   String toString() {
-    return 'MainNavigationEvent.navigationItemPressed()';
+    return 'MainNavigationEvent.navigateToMainPage(destination: $destination)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NavigationItemPressed);
+        (other.runtimeType == runtimeType &&
+            other is _$NavigateToMainPage &&
+            (identical(other.destination, destination) ||
+                other.destination == destination));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, destination);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NavigateToMainPageCopyWith<_$NavigateToMainPage> get copyWith =>
+      __$$NavigateToMainPageCopyWithImpl<_$NavigateToMainPage>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function() navigateBack,
+  }) {
+    return navigateToMainPage(destination);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function()? navigateBack,
+  }) {
+    return navigateToMainPage?.call(destination);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function()? navigateBack,
+    required TResult orElse(),
+  }) {
+    if (navigateToMainPage != null) {
+      return navigateToMainPage(destination);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateBack value) navigateBack,
+  }) {
+    return navigateToMainPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateBack value)? navigateBack,
+  }) {
+    return navigateToMainPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateBack value)? navigateBack,
+    required TResult orElse(),
+  }) {
+    if (navigateToMainPage != null) {
+      return navigateToMainPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavigateToMainPage implements MainNavigationEvent {
+  const factory NavigateToMainPage(
+      {required final NavigationItem destination}) = _$NavigateToMainPage;
+
+  NavigationItem get destination;
+  @JsonKey(ignore: true)
+  _$$NavigateToMainPageCopyWith<_$NavigateToMainPage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NavigateBackCopyWith<$Res> {
+  factory _$$NavigateBackCopyWith(
+          _$NavigateBack value, $Res Function(_$NavigateBack) then) =
+      __$$NavigateBackCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NavigateBackCopyWithImpl<$Res>
+    extends _$MainNavigationEventCopyWithImpl<$Res, _$NavigateBack>
+    implements _$$NavigateBackCopyWith<$Res> {
+  __$$NavigateBackCopyWithImpl(
+      _$NavigateBack _value, $Res Function(_$NavigateBack) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NavigateBack implements NavigateBack {
+  const _$NavigateBack();
+
+  @override
+  String toString() {
+    return 'MainNavigationEvent.navigateBack()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NavigateBack);
   }
 
   @override
@@ -113,30 +258,30 @@ class _$_NavigationItemPressed implements _NavigationItemPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() navigationItemPressed,
-    required TResult Function() backButtonPressed,
+    required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function() navigateBack,
   }) {
-    return navigationItemPressed();
+    return navigateBack();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? navigationItemPressed,
-    TResult? Function()? backButtonPressed,
+    TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function()? navigateBack,
   }) {
-    return navigationItemPressed?.call();
+    return navigateBack?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? navigationItemPressed,
-    TResult Function()? backButtonPressed,
+    TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function()? navigateBack,
     required TResult orElse(),
   }) {
-    if (navigationItemPressed != null) {
-      return navigationItemPressed();
+    if (navigateBack != null) {
+      return navigateBack();
     }
     return orElse();
   }
@@ -144,187 +289,78 @@ class _$_NavigationItemPressed implements _NavigationItemPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NavigationItemPressed value)
-        navigationItemPressed,
-    required TResult Function(_BackButtonPressed value) backButtonPressed,
+    required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateBack value) navigateBack,
   }) {
-    return navigationItemPressed(this);
+    return navigateBack(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NavigationItemPressed value)? navigationItemPressed,
-    TResult? Function(_BackButtonPressed value)? backButtonPressed,
+    TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateBack value)? navigateBack,
   }) {
-    return navigationItemPressed?.call(this);
+    return navigateBack?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NavigationItemPressed value)? navigationItemPressed,
-    TResult Function(_BackButtonPressed value)? backButtonPressed,
+    TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateBack value)? navigateBack,
     required TResult orElse(),
   }) {
-    if (navigationItemPressed != null) {
-      return navigationItemPressed(this);
+    if (navigateBack != null) {
+      return navigateBack(this);
     }
     return orElse();
   }
 }
 
-abstract class _NavigationItemPressed implements MainNavigationEvent {
-  const factory _NavigationItemPressed() = _$_NavigationItemPressed;
-}
-
-/// @nodoc
-abstract class _$$_BackButtonPressedCopyWith<$Res> {
-  factory _$$_BackButtonPressedCopyWith(_$_BackButtonPressed value,
-          $Res Function(_$_BackButtonPressed) then) =
-      __$$_BackButtonPressedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_BackButtonPressedCopyWithImpl<$Res>
-    extends _$MainNavigationEventCopyWithImpl<$Res, _$_BackButtonPressed>
-    implements _$$_BackButtonPressedCopyWith<$Res> {
-  __$$_BackButtonPressedCopyWithImpl(
-      _$_BackButtonPressed _value, $Res Function(_$_BackButtonPressed) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_BackButtonPressed implements _BackButtonPressed {
-  const _$_BackButtonPressed();
-
-  @override
-  String toString() {
-    return 'MainNavigationEvent.backButtonPressed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_BackButtonPressed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() navigationItemPressed,
-    required TResult Function() backButtonPressed,
-  }) {
-    return backButtonPressed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? navigationItemPressed,
-    TResult? Function()? backButtonPressed,
-  }) {
-    return backButtonPressed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? navigationItemPressed,
-    TResult Function()? backButtonPressed,
-    required TResult orElse(),
-  }) {
-    if (backButtonPressed != null) {
-      return backButtonPressed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NavigationItemPressed value)
-        navigationItemPressed,
-    required TResult Function(_BackButtonPressed value) backButtonPressed,
-  }) {
-    return backButtonPressed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NavigationItemPressed value)? navigationItemPressed,
-    TResult? Function(_BackButtonPressed value)? backButtonPressed,
-  }) {
-    return backButtonPressed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NavigationItemPressed value)? navigationItemPressed,
-    TResult Function(_BackButtonPressed value)? backButtonPressed,
-    required TResult orElse(),
-  }) {
-    if (backButtonPressed != null) {
-      return backButtonPressed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _BackButtonPressed implements MainNavigationEvent {
-  const factory _BackButtonPressed() = _$_BackButtonPressed;
+abstract class NavigateBack implements MainNavigationEvent {
+  const factory NavigateBack() = _$NavigateBack;
 }
 
 /// @nodoc
 mixin _$MainNavigationState {
-  bool get willPop => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool willPop) initial,
-    required TResult Function(bool willPop) pageChanged,
+    required TResult Function(NavigationItem selectedItem) onMainPage,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool willPop)? initial,
-    TResult? Function(bool willPop)? pageChanged,
+    TResult? Function(NavigationItem selectedItem)? onMainPage,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool willPop)? initial,
-    TResult Function(bool willPop)? pageChanged,
+    TResult Function(NavigationItem selectedItem)? onMainPage,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialPage value) initial,
-    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(OnMainPage value) onMainPage,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialPage value)? initial,
-    TResult? Function(_PageChanged value)? pageChanged,
+    TResult? Function(OnMainPage value)? onMainPage,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialPage value)? initial,
-    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(OnMainPage value)? onMainPage,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $MainNavigationStateCopyWith<MainNavigationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -333,8 +369,6 @@ abstract class $MainNavigationStateCopyWith<$Res> {
   factory $MainNavigationStateCopyWith(
           MainNavigationState value, $Res Function(MainNavigationState) then) =
       _$MainNavigationStateCopyWithImpl<$Res, MainNavigationState>;
-  @useResult
-  $Res call({bool willPop});
 }
 
 /// @nodoc
@@ -346,111 +380,107 @@ class _$MainNavigationStateCopyWithImpl<$Res, $Val extends MainNavigationState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? willPop = null,
-  }) {
-    return _then(_value.copyWith(
-      willPop: null == willPop
-          ? _value.willPop
-          : willPop // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_InitialPageCopyWith<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
-  factory _$$_InitialPageCopyWith(
-          _$_InitialPage value, $Res Function(_$_InitialPage) then) =
-      __$$_InitialPageCopyWithImpl<$Res>;
-  @override
+abstract class _$$OnMainPageCopyWith<$Res> {
+  factory _$$OnMainPageCopyWith(
+          _$OnMainPage value, $Res Function(_$OnMainPage) then) =
+      __$$OnMainPageCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool willPop});
+  $Res call({NavigationItem selectedItem});
+
+  $NavigationItemCopyWith<$Res> get selectedItem;
 }
 
 /// @nodoc
-class __$$_InitialPageCopyWithImpl<$Res>
-    extends _$MainNavigationStateCopyWithImpl<$Res, _$_InitialPage>
-    implements _$$_InitialPageCopyWith<$Res> {
-  __$$_InitialPageCopyWithImpl(
-      _$_InitialPage _value, $Res Function(_$_InitialPage) _then)
+class __$$OnMainPageCopyWithImpl<$Res>
+    extends _$MainNavigationStateCopyWithImpl<$Res, _$OnMainPage>
+    implements _$$OnMainPageCopyWith<$Res> {
+  __$$OnMainPageCopyWithImpl(
+      _$OnMainPage _value, $Res Function(_$OnMainPage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? willPop = null,
+    Object? selectedItem = null,
   }) {
-    return _then(_$_InitialPage(
-      willPop: null == willPop
-          ? _value.willPop
-          : willPop // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$OnMainPage(
+      selectedItem: null == selectedItem
+          ? _value.selectedItem
+          : selectedItem // ignore: cast_nullable_to_non_nullable
+              as NavigationItem,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NavigationItemCopyWith<$Res> get selectedItem {
+    return $NavigationItemCopyWith<$Res>(_value.selectedItem, (value) {
+      return _then(_value.copyWith(selectedItem: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_InitialPage implements _InitialPage {
-  const _$_InitialPage({required this.willPop});
+class _$OnMainPage implements OnMainPage {
+  const _$OnMainPage({required this.selectedItem});
 
   @override
-  final bool willPop;
+  final NavigationItem selectedItem;
 
   @override
   String toString() {
-    return 'MainNavigationState.initial(willPop: $willPop)';
+    return 'MainNavigationState.onMainPage(selectedItem: $selectedItem)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InitialPage &&
-            (identical(other.willPop, willPop) || other.willPop == willPop));
+            other is _$OnMainPage &&
+            (identical(other.selectedItem, selectedItem) ||
+                other.selectedItem == selectedItem));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, willPop);
+  int get hashCode => Object.hash(runtimeType, selectedItem);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialPageCopyWith<_$_InitialPage> get copyWith =>
-      __$$_InitialPageCopyWithImpl<_$_InitialPage>(this, _$identity);
+  _$$OnMainPageCopyWith<_$OnMainPage> get copyWith =>
+      __$$OnMainPageCopyWithImpl<_$OnMainPage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool willPop) initial,
-    required TResult Function(bool willPop) pageChanged,
+    required TResult Function(NavigationItem selectedItem) onMainPage,
+    required TResult Function() error,
   }) {
-    return initial(willPop);
+    return onMainPage(selectedItem);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool willPop)? initial,
-    TResult? Function(bool willPop)? pageChanged,
+    TResult? Function(NavigationItem selectedItem)? onMainPage,
+    TResult? Function()? error,
   }) {
-    return initial?.call(willPop);
+    return onMainPage?.call(selectedItem);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool willPop)? initial,
-    TResult Function(bool willPop)? pageChanged,
+    TResult Function(NavigationItem selectedItem)? onMainPage,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(willPop);
+    if (onMainPage != null) {
+      return onMainPage(selectedItem);
     }
     return orElse();
   }
@@ -458,136 +488,105 @@ class _$_InitialPage implements _InitialPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialPage value) initial,
-    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(OnMainPage value) onMainPage,
+    required TResult Function(Error value) error,
   }) {
-    return initial(this);
+    return onMainPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialPage value)? initial,
-    TResult? Function(_PageChanged value)? pageChanged,
+    TResult? Function(OnMainPage value)? onMainPage,
+    TResult? Function(Error value)? error,
   }) {
-    return initial?.call(this);
+    return onMainPage?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialPage value)? initial,
-    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(OnMainPage value)? onMainPage,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (onMainPage != null) {
+      return onMainPage(this);
     }
     return orElse();
   }
 }
 
-abstract class _InitialPage implements MainNavigationState {
-  const factory _InitialPage({required final bool willPop}) = _$_InitialPage;
+abstract class OnMainPage implements MainNavigationState {
+  const factory OnMainPage({required final NavigationItem selectedItem}) =
+      _$OnMainPage;
 
-  @override
-  bool get willPop;
-  @override
+  NavigationItem get selectedItem;
   @JsonKey(ignore: true)
-  _$$_InitialPageCopyWith<_$_InitialPage> get copyWith =>
+  _$$OnMainPageCopyWith<_$OnMainPage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PageChangedCopyWith<$Res>
-    implements $MainNavigationStateCopyWith<$Res> {
-  factory _$$_PageChangedCopyWith(
-          _$_PageChanged value, $Res Function(_$_PageChanged) then) =
-      __$$_PageChangedCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool willPop});
+abstract class _$$ErrorCopyWith<$Res> {
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
+      __$$ErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PageChangedCopyWithImpl<$Res>
-    extends _$MainNavigationStateCopyWithImpl<$Res, _$_PageChanged>
-    implements _$$_PageChangedCopyWith<$Res> {
-  __$$_PageChangedCopyWithImpl(
-      _$_PageChanged _value, $Res Function(_$_PageChanged) _then)
+class __$$ErrorCopyWithImpl<$Res>
+    extends _$MainNavigationStateCopyWithImpl<$Res, _$Error>
+    implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? willPop = null,
-  }) {
-    return _then(_$_PageChanged(
-      willPop: null == willPop
-          ? _value.willPop
-          : willPop // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$_PageChanged implements _PageChanged {
-  const _$_PageChanged({required this.willPop});
-
-  @override
-  final bool willPop;
+class _$Error implements Error {
+  const _$Error();
 
   @override
   String toString() {
-    return 'MainNavigationState.pageChanged(willPop: $willPop)';
+    return 'MainNavigationState.error()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_PageChanged &&
-            (identical(other.willPop, willPop) || other.willPop == willPop));
+        (other.runtimeType == runtimeType && other is _$Error);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, willPop);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_PageChangedCopyWith<_$_PageChanged> get copyWith =>
-      __$$_PageChangedCopyWithImpl<_$_PageChanged>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool willPop) initial,
-    required TResult Function(bool willPop) pageChanged,
+    required TResult Function(NavigationItem selectedItem) onMainPage,
+    required TResult Function() error,
   }) {
-    return pageChanged(willPop);
+    return error();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool willPop)? initial,
-    TResult? Function(bool willPop)? pageChanged,
+    TResult? Function(NavigationItem selectedItem)? onMainPage,
+    TResult? Function()? error,
   }) {
-    return pageChanged?.call(willPop);
+    return error?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool willPop)? initial,
-    TResult Function(bool willPop)? pageChanged,
+    TResult Function(NavigationItem selectedItem)? onMainPage,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (pageChanged != null) {
-      return pageChanged(willPop);
+    if (error != null) {
+      return error();
     }
     return orElse();
   }
@@ -595,42 +594,35 @@ class _$_PageChanged implements _PageChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialPage value) initial,
-    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(OnMainPage value) onMainPage,
+    required TResult Function(Error value) error,
   }) {
-    return pageChanged(this);
+    return error(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialPage value)? initial,
-    TResult? Function(_PageChanged value)? pageChanged,
+    TResult? Function(OnMainPage value)? onMainPage,
+    TResult? Function(Error value)? error,
   }) {
-    return pageChanged?.call(this);
+    return error?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialPage value)? initial,
-    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(OnMainPage value)? onMainPage,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (pageChanged != null) {
-      return pageChanged(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
-abstract class _PageChanged implements MainNavigationState {
-  const factory _PageChanged({required final bool willPop}) = _$_PageChanged;
-
-  @override
-  bool get willPop;
-  @override
-  @JsonKey(ignore: true)
-  _$$_PageChangedCopyWith<_$_PageChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class Error implements MainNavigationState {
+  const factory Error() = _$Error;
 }

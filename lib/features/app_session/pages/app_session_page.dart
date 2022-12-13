@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/features/onboarding/onboarding.dart';
@@ -21,11 +22,15 @@ class AppSession extends StatelessWidget {
 class RouterConfig extends StatelessWidget {
   RouterConfig({super.key});
   final appRouter = getDependency<AppRouter>();
+  final appRouteObserver = getDependency<AppRouteObserver>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerDelegate: appRouter.delegate(),
+      routerDelegate: AutoRouterDelegate(
+        appRouter,
+        navigatorObservers: () => [appRouteObserver],
+      ),
       routeInformationParser: appRouter.defaultRouteParser(),
       theme: ThemeData(
         primarySwatch: Colors.blue,

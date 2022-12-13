@@ -10,13 +10,14 @@ import '../features/product_category_overview/product_category_overview.dart';
 @AdaptiveAutoRouter(replaceInRouteName: 'Page,Route', routes: <AutoRoute>[
   AutoRoute(
     page: OnboardingPage,
-    path: '/',
+    path: 'onboarding',
     initial: true,
   ),
   AutoRoute(
-    path: '/',
+    path: '',
     page: MainNavigationWrapperPage,
     children: [
+      RedirectRoute(path: '', redirectTo: 'home'),
       AutoRoute(path: 'home', page: ProductCategoryOverviewPage),
       AutoRoute(path: 'shopping-cart', page: ShoppingListPage),
       AutoRoute(path: 'favorites', page: FavoritesPage),
