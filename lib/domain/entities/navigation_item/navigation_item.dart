@@ -21,10 +21,10 @@ class NavigationItem with _$NavigationItem {
 
   String get path {
     return when(
-      home: () => 'home',
-      shoppingCart: () => 'shopping-cart',
-      favorites: () => 'favorites',
-      accountSettings: () => 'account-settings',
+      home: () => '/home',
+      shoppingCart: () => '/shopping-cart',
+      favorites: () => '/favorites',
+      accountSettings: () => '/account-settings',
     );
   }
 }

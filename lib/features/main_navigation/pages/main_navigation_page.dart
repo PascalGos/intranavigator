@@ -7,13 +7,6 @@ import '../bloc/main_navigation_bloc.dart';
 import '../widgets/loky_app_bar.dart';
 import '../widgets/loky_bottom_navigation.dart';
 
-const navigationRoutes = [
-  ProductCategoryOverviewRoute(),
-  ShoppingListRoute(),
-  FavoritesRoute(),
-  AccountSettingsRoute(),
-];
-
 class MainNavigationWrapperPage extends StatelessWidget {
   const MainNavigationWrapperPage({super.key});
 
@@ -24,16 +17,14 @@ class MainNavigationWrapperPage extends StatelessWidget {
       child: BlocBuilder<MainNavigationBloc, MainNavigationState>(
         builder: (context, state) {
           return AutoTabsRouter(
-              routes: navigationRoutes,
+              routes: const [
+                ProductRouter(),
+                ShoppingCartRouter(),
+                FavoritesRouter(),
+                AccountSettingsRouter(),
+              ],
+              duration: const Duration(milliseconds: 300),
               builder: (context, child, animation) {
-                final bloc = BlocProvider.of<MainNavigationBloc>(context);
-                final tabsRouter = AutoTabsRouter.of(context);
-                tabsRouter.setActiveIndex(
-                  bloc.state.when(
-                    onMainPage: (selectedItem) => selectedItem.index,
-                    error: () => 0,
-                  ),
-                );
                 return WillPopScope(
                   onWillPop: () => onWillPop(context),
                   child: Scaffold(

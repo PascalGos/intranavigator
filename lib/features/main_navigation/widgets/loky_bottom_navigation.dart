@@ -27,17 +27,19 @@ class _LokyBottomNavigationState extends State<LokyBottomNavigation> {
     );
   }
 
-  int getCurrentIndex(context) {
-    final bloc = BlocProvider.of<MainNavigationBloc>(context);
-    return bloc.state.when(
-      onMainPage: (selectedItem) => selectedItem.index,
-      error: () => 0,
-    );
+  int getCurrentIndex(BuildContext context) {
+    final tabsRouter = AutoTabsRouter.of(context);
+    // final bloc = BlocProvider.of<MainNavigationBloc>(context);
+    //  bloc.state.when(
+    //   onMainPage: (selectedItem) => selectedItem.index,
+    //   error: () => 0,
+    return tabsRouter.activeIndex;
   }
 
   void onTap(int index, BuildContext context) {
     final NavigationItem destination;
     final bloc = BlocProvider.of<MainNavigationBloc>(context);
+    final tabsRouter = AutoTabsRouter.of(context);
     switch (index) {
       case 0:
         destination = const Home();
@@ -55,8 +57,9 @@ class _LokyBottomNavigationState extends State<LokyBottomNavigation> {
         index = 0;
         destination = const Home();
     }
-    bloc.add(NavigateToMainPage(destination: destination));
-    context.router.navigateNamed(destination.path);
-    setState(() {});
+    setState(() {
+      bloc.add(NavigateToMainPage(destination: destination));
+      tabsRouter.setActiveIndex(index);
+    });
   }
 }
