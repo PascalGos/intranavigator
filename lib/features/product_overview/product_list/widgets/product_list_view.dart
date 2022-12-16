@@ -5,25 +5,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/entities.dart';
 import '../bloc/product_list_bloc.dart';
-import 'product_tile.dart';
+import 'product_tile/widgets/product_tile_widget.dart';
 
 class ProductListView extends StatelessWidget {
-  final List<Product> items;
   const ProductListView({
     Key? key,
     required this.items,
   }) : super(key: key);
 
+  final List<Product> items;
+
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<ProductListBloc>(context);
     return items.isEmpty
         ? const Center(child: Text('no content'))
-        : ListView.builder(itemBuilder: (BuildContext context, int index) {
-            return ProductTile(
-              item: items[index],
-              onAddPressed: (item) => bloc.add(AddButtonPressed(item: item)),
-            );
-          });
+        : ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ProductTile(
+                item: items[index],
+              );
+            });
   }
 }

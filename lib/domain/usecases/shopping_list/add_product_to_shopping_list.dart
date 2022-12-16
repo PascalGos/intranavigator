@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../architecture/architecture.dart';
 import 'package:uuid/uuid.dart';
@@ -9,6 +10,7 @@ import 'package:uuid/uuid.dart';
 import '../../entities/entities.dart';
 import '../../repositories/repositories.dart';
 
+@lazySingleton
 class AddProductToShoppingListUseCase
     extends UseCase<ShoppingListItem, AddProductToShoppingListParams> {
   final ShoppingListItemRepository repository;

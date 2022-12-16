@@ -1,13 +1,26 @@
-import 'package:injectable/injectable.dart';
-import 'package:intranavigator/domain/entities/shopping_list_item/shopping_list_item.dart';
-import 'package:intranavigator/architecture/src/failure.dart';
-import 'package:dartz/dartz.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+
+import 'package:intranavigator/architecture/src/failure.dart';
+import 'package:intranavigator/domain/entities/shopping_list_item/shopping_list_item.dart';
+import 'package:intranavigator/domain/exceptions/exceptions.dart';
 import 'package:intranavigator/domain/repositories/shopping_list_item_repository.dart';
+
+import '../../domain/failures/failures.dart';
+import '../datasources/shopping_list_item_local/shopping_list_item_local.dart';
 
 @LazySingleton(as: ShoppingListItemRepository)
 class DataShoppingListItemRepositoryImpl implements ShoppingListItemRepository {
+  DataShoppingListItemRepositoryImpl({
+    required this.localDataSource,
+  });
+
+  final ShoppingListItemLocalDataSource localDataSource;
+  final ShoppingListItemMapper _mapper = ShoppingListItemMapper();
+
   @override
   FutureOr<Either<Failure, dynamic>> aggregate(
       List<ShoppingListItem> entities, String field, String operation) {
@@ -16,9 +29,18 @@ class DataShoppingListItemRepositoryImpl implements ShoppingListItemRepository {
   }
 
   @override
-  FutureOr<Either<Failure, ShoppingListItem>> create(ShoppingListItem entity) {
-    // TODO: implement create
-    throw UnimplementedError();
+  FutureOr<Either<Failure, ShoppingListItem>> create(
+      ShoppingListItem entity) async {
+    try {
+      ShoppingListItemDTO dataItem = _mapper.toDto(entity);
+      ShoppingListItemDTO result = await localDataSource.create(dataItem);
+      ShoppingListItem item = _mapper.toEntity(result);
+      return Right(item);
+    } on MapperException {
+      return Left(MappingFailure());
+    } on CacheException {
+      return Left(CacheFailure());
+    }
   }
 
   @override
@@ -41,9 +63,17 @@ class DataShoppingListItemRepositoryImpl implements ShoppingListItemRepository {
   }
 
   @override
-  FutureOr<Either<Failure, List<ShoppingListItem>>> findAll() {
-    // TODO: implement findAll
-    throw UnimplementedError();
+  FutureOr<Either<Failure, List<ShoppingListItem>>> findAll() async {
+    late List<ShoppingListItem> items;
+    try {
+      List<ShoppingListItemDTO> localItems = await localDataSource.findAll();
+      items = _mapper.toEntities(localItems);
+      return Right(items);
+    } on MapperException {
+      return Left(MappingFailure());
+    } on CacheException {
+      return Left(CacheFailure());
+    }
   }
 
   @override

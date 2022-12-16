@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   auto_route: ^5.0.4
+  cloud_firestore: ^4.2.0
   cross_connectivity: ^3.0.5
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1

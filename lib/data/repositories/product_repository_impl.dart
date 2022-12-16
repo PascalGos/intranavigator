@@ -6,8 +6,19 @@ import 'dart:async';
 
 import 'package:intranavigator/domain/repositories/repositories.dart';
 
+import '../../domain/exceptions/exceptions.dart';
+import '../../domain/failures/failures.dart';
+import '../datasources/product_remote/product_remote.dart';
+
 @LazySingleton(as: ProductRepository)
 class DataProductRepositoryImpl implements ProductRepository {
+  final ProductRemoteDataSource remoteDataSource;
+  final ProductRemoteMapper _mapper = ProductRemoteMapper();
+
+  DataProductRepositoryImpl({
+    required this.remoteDataSource,
+  });
+
   @override
   FutureOr<Either<Failure, dynamic>> aggregate(
       List<Product> entities, String field, String operation) {
@@ -40,9 +51,17 @@ class DataProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  FutureOr<Either<Failure, List<Product>>> findAll() {
-    // TODO: implement findAll
-    throw UnimplementedError();
+  FutureOr<Either<Failure, List<Product>>> findAll() async {
+    late List<Product> items;
+    try {
+      List<ProductRemoteDTO> remoteItems = await remoteDataSource.findAll();
+      items = _mapper.toEntities(remoteItems);
+      return Right(items);
+    } on MapperException {
+      return Left(MappingFailure());
+    } on ServerException {
+      return Left(ServerFailure());
+    }
   }
 
   @override

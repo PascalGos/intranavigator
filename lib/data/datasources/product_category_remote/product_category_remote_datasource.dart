@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:shared_preferences/shared_preferences.dart';
 
-abstract class LocalProductCategoryDataSource {}
+abstract class RemoteProductCategoryDataSource {}
 
-class LocalProductCategoryDataSourceImpl {
+class RemoteProductCategoryDataSourceImpl {
   final SharedPreferences _preferences;
 
-  LocalProductCategoryDataSourceImpl(this._preferences);
+  RemoteProductCategoryDataSourceImpl(this._preferences);
 }

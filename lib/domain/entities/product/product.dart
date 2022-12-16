@@ -13,7 +13,7 @@ class Product with _$Product {
     required String name,
     @Default('') String description,
     required double price,
-    required ProductCategory category,
+    ProductCategory? category,
     required Location location,
   }) = _Product;
 }

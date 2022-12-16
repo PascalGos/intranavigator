@@ -3,20 +3,35 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intranavigator/domain/entities/entities.dart';
 
+import '../../../../architecture/architecture.dart';
+import '../../../../domain/usecases/product_overview/load_all_products.dart';
+
 part 'product_list_event.dart';
 part 'product_list_state.dart';
 part 'product_list_bloc.freezed.dart';
 
 @injectable
 class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
-  ProductListBloc() : super(const _Loading()) {
-    on<ProductListEvent>((event, emit) {
-      on<AddButtonPressed>(onAddButtonPressed);
-    });
+  ProductListBloc({
+    required LoadAllProducts loadAllProductsUsecase,
+  })  : _loadAllProducts = loadAllProductsUsecase,
+        super(const _Initial()) {
+    on<Started>(_onStarted);
   }
 
-  onAddButtonPressed(
+  late final LoadAllProducts _loadAllProducts;
+
+  Future<void> _onStarted(
     ProductListEvent event,
     Emitter<ProductListState> emit,
-  ) {}
+  ) async {
+    emit(const _Loading());
+
+    final failureOrProductList = await _loadAllProducts(NoParams());
+
+    failureOrProductList.fold(
+      (failure) => emit(const _Failure()),
+      (items) => emit(_Success(items: items)),
+    );
+  }
 }

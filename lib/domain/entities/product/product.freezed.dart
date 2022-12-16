@@ -20,7 +20,7 @@ mixin _$Product {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
-  ProductCategory get category => throw _privateConstructorUsedError;
+  ProductCategory? get category => throw _privateConstructorUsedError;
   Location get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -37,10 +37,10 @@ abstract class $ProductCopyWith<$Res> {
       String name,
       String description,
       double price,
-      ProductCategory category,
+      ProductCategory? category,
       Location location});
 
-  $ProductCategoryCopyWith<$Res> get category;
+  $ProductCategoryCopyWith<$Res>? get category;
   $LocationCopyWith<$Res> get location;
 }
 
@@ -61,7 +61,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? name = null,
     Object? description = null,
     Object? price = null,
-    Object? category = null,
+    Object? category = freezed,
     Object? location = null,
   }) {
     return _then(_value.copyWith(
@@ -81,10 +81,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as ProductCategory,
+              as ProductCategory?,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -94,8 +94,12 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 
   @override
   @pragma('vm:prefer-inline')
-  $ProductCategoryCopyWith<$Res> get category {
-    return $ProductCategoryCopyWith<$Res>(_value.category, (value) {
+  $ProductCategoryCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $ProductCategoryCopyWith<$Res>(_value.category!, (value) {
       return _then(_value.copyWith(category: value) as $Val);
     });
   }
@@ -121,11 +125,11 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String name,
       String description,
       double price,
-      ProductCategory category,
+      ProductCategory? category,
       Location location});
 
   @override
-  $ProductCategoryCopyWith<$Res> get category;
+  $ProductCategoryCopyWith<$Res>? get category;
   @override
   $LocationCopyWith<$Res> get location;
 }
@@ -144,7 +148,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? price = null,
-    Object? category = null,
+    Object? category = freezed,
     Object? location = null,
   }) {
     return _then(_$_Product(
@@ -164,10 +168,10 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as ProductCategory,
+              as ProductCategory?,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -184,7 +188,7 @@ class _$_Product implements _Product {
       required this.name,
       this.description = '',
       required this.price,
-      required this.category,
+      this.category,
       required this.location});
 
   @override
@@ -197,7 +201,7 @@ class _$_Product implements _Product {
   @override
   final double price;
   @override
-  final ProductCategory category;
+  final ProductCategory? category;
   @override
   final Location location;
 
@@ -239,7 +243,7 @@ abstract class _Product implements Product {
       required final String name,
       final String description,
       required final double price,
-      required final ProductCategory category,
+      final ProductCategory? category,
       required final Location location}) = _$_Product;
 
   @override
@@ -251,7 +255,7 @@ abstract class _Product implements Product {
   @override
   double get price;
   @override
-  ProductCategory get category;
+  ProductCategory? get category;
   @override
   Location get location;
   @override

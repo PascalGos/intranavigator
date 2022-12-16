@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../dependency_injection.dart';
 import '../../../routes/routes.dart';
 import '../bloc/app_session_bloc.dart';
+import '../widgets/widgets.dart';
 
 class AppSession extends StatelessWidget {
   const AppSession({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class RouterConfig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      scrollBehavior: LokyCustomScrollBehavior(),
       routerDelegate: AutoRouterDelegate(
         appRouter,
       ),
