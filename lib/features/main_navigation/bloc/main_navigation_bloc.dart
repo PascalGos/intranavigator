@@ -10,16 +10,28 @@ part 'main_navigation_bloc.freezed.dart';
 @injectable
 class MainNavigationBloc
     extends Bloc<MainNavigationEvent, MainNavigationState> {
-  MainNavigationBloc() : super(const OnMainPage(selectedItem: Home())) {
+  MainNavigationBloc() : super(const MainPageSelected(selectedItem: Home())) {
     on<NavigateToMainPage>(onNavigateToMainPage);
+    on<NavigateToDetailPage>(onNavigateToDetailPage);
     on<NavigateBack>(onNavigateBack);
   }
 
   void onNavigateToMainPage(
       NavigateToMainPage event, Emitter<MainNavigationState> emit) {
-    emit(OnMainPage(selectedItem: event.destination));
+    emit(MainPageSelected(selectedItem: event.destination));
+  }
+
+  void onNavigateToDetailPage(
+      NavigateToDetailPage event, Emitter<MainNavigationState> emit) {
+    emit(DetailPageSelected(selectedItem: event.destination));
   }
 
   void onNavigateBack(
-      MainNavigationEvent event, Emitter<MainNavigationState> emit) {}
+      MainNavigationEvent event, Emitter<MainNavigationState> emit) {
+    state.when(
+      mainPageSelected: (selectedItem) => null,
+      detailPageSelected: (selectedItem) =>
+          emit(MainPageSelected(selectedItem: selectedItem)),
+    );
+  }
 }

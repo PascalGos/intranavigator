@@ -10,27 +10,34 @@ class ShoppingListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getDependency<ShoppingListBloc>(),
-      child: BlocBuilder<ShoppingListBloc, ShoppingListState>(
-        builder: (context, state) {
-          final bloc = BlocProvider.of<ShoppingListBloc>(context);
-          return state.when(
-            initial: () {
-              bloc.add(const Started());
-              return Container();
-            },
-            success: (items) => RefreshIndicator(
-              onRefresh: () {
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => getDependency<ShoppingListBloc>(),
+        child: BlocBuilder<ShoppingListBloc, ShoppingListState>(
+          builder: (context, state) {
+            final bloc = BlocProvider.of<ShoppingListBloc>(context);
+            return state.when(
+              initial: () {
                 bloc.add(const Started());
-                return Future.delayed(const Duration(seconds: 2));
+                return Container();
               },
-              child: ShoppingListView(items: items),
-            ),
-            loading: () => const LoadingIndicator(),
-            failure: () => const FailureIndicator(),
-          );
-        },
+              success: (items) => RefreshIndicator(
+                onRefresh: () {
+                  bloc.add(const Started());
+                  return Future.delayed(const Duration(seconds: 2));
+                },
+                child: Column(
+                  children: [
+                    const ShoppingListHeading(),
+                    ShoppingListView(items: items),
+                  ],
+                ),
+              ),
+              loading: () => const LoadingIndicator(),
+              failure: () => const FailureIndicator(),
+            );
+          },
+        ),
       ),
     );
   }

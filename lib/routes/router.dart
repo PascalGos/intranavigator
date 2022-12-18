@@ -3,6 +3,7 @@ import 'package:auto_route/empty_router_widgets.dart';
 
 import '../features/onboarding/onboarding.dart';
 import '../features/main_navigation/main_navigation.dart';
+import '../features/product_localization/product_localization.dart';
 import '../features/product_overview/product_overview.dart';
 import '../features/shopping_list/shopping_list.dart';
 import '../features/favorites/favorites.dart';
@@ -45,6 +46,7 @@ const mainNavigationRoutergroup = AutoRoute(
       page: EmptyRouterPage,
       children: [
         AutoRoute(path: '', page: ShoppingListPage),
+        AutoRoute(path: 'locate-product', page: ProductLocalizationPage),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),

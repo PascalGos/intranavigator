@@ -22,6 +22,7 @@ mixin _$NavigationItem {
     required TResult Function() shoppingCart,
     required TResult Function() favorites,
     required TResult Function() accountSettings,
+    required TResult Function(Product product) productLocalization,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$NavigationItem {
     TResult? Function()? shoppingCart,
     TResult? Function()? favorites,
     TResult? Function()? accountSettings,
+    TResult? Function(Product product)? productLocalization,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$NavigationItem {
     TResult Function()? shoppingCart,
     TResult Function()? favorites,
     TResult Function()? accountSettings,
+    TResult Function(Product product)? productLocalization,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$NavigationItem {
     required TResult Function(ShoppingCart value) shoppingCart,
     required TResult Function(Favorites value) favorites,
     required TResult Function(AccountSettings value) accountSettings,
+    required TResult Function(ProductLocalization value) productLocalization,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$NavigationItem {
     TResult? Function(ShoppingCart value)? shoppingCart,
     TResult? Function(Favorites value)? favorites,
     TResult? Function(AccountSettings value)? accountSettings,
+    TResult? Function(ProductLocalization value)? productLocalization,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$NavigationItem {
     TResult Function(ShoppingCart value)? shoppingCart,
     TResult Function(Favorites value)? favorites,
     TResult Function(AccountSettings value)? accountSettings,
+    TResult Function(ProductLocalization value)? productLocalization,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +132,7 @@ class _$Home extends Home {
     required TResult Function() shoppingCart,
     required TResult Function() favorites,
     required TResult Function() accountSettings,
+    required TResult Function(Product product) productLocalization,
   }) {
     return home();
   }
@@ -137,6 +144,7 @@ class _$Home extends Home {
     TResult? Function()? shoppingCart,
     TResult? Function()? favorites,
     TResult? Function()? accountSettings,
+    TResult? Function(Product product)? productLocalization,
   }) {
     return home?.call();
   }
@@ -148,6 +156,7 @@ class _$Home extends Home {
     TResult Function()? shoppingCart,
     TResult Function()? favorites,
     TResult Function()? accountSettings,
+    TResult Function(Product product)? productLocalization,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -163,6 +172,7 @@ class _$Home extends Home {
     required TResult Function(ShoppingCart value) shoppingCart,
     required TResult Function(Favorites value) favorites,
     required TResult Function(AccountSettings value) accountSettings,
+    required TResult Function(ProductLocalization value) productLocalization,
   }) {
     return home(this);
   }
@@ -174,6 +184,7 @@ class _$Home extends Home {
     TResult? Function(ShoppingCart value)? shoppingCart,
     TResult? Function(Favorites value)? favorites,
     TResult? Function(AccountSettings value)? accountSettings,
+    TResult? Function(ProductLocalization value)? productLocalization,
   }) {
     return home?.call(this);
   }
@@ -185,6 +196,7 @@ class _$Home extends Home {
     TResult Function(ShoppingCart value)? shoppingCart,
     TResult Function(Favorites value)? favorites,
     TResult Function(AccountSettings value)? accountSettings,
+    TResult Function(ProductLocalization value)? productLocalization,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -241,6 +253,7 @@ class _$ShoppingCart extends ShoppingCart {
     required TResult Function() shoppingCart,
     required TResult Function() favorites,
     required TResult Function() accountSettings,
+    required TResult Function(Product product) productLocalization,
   }) {
     return shoppingCart();
   }
@@ -252,6 +265,7 @@ class _$ShoppingCart extends ShoppingCart {
     TResult? Function()? shoppingCart,
     TResult? Function()? favorites,
     TResult? Function()? accountSettings,
+    TResult? Function(Product product)? productLocalization,
   }) {
     return shoppingCart?.call();
   }
@@ -263,6 +277,7 @@ class _$ShoppingCart extends ShoppingCart {
     TResult Function()? shoppingCart,
     TResult Function()? favorites,
     TResult Function()? accountSettings,
+    TResult Function(Product product)? productLocalization,
     required TResult orElse(),
   }) {
     if (shoppingCart != null) {
@@ -278,6 +293,7 @@ class _$ShoppingCart extends ShoppingCart {
     required TResult Function(ShoppingCart value) shoppingCart,
     required TResult Function(Favorites value) favorites,
     required TResult Function(AccountSettings value) accountSettings,
+    required TResult Function(ProductLocalization value) productLocalization,
   }) {
     return shoppingCart(this);
   }
@@ -289,6 +305,7 @@ class _$ShoppingCart extends ShoppingCart {
     TResult? Function(ShoppingCart value)? shoppingCart,
     TResult? Function(Favorites value)? favorites,
     TResult? Function(AccountSettings value)? accountSettings,
+    TResult? Function(ProductLocalization value)? productLocalization,
   }) {
     return shoppingCart?.call(this);
   }
@@ -300,6 +317,7 @@ class _$ShoppingCart extends ShoppingCart {
     TResult Function(ShoppingCart value)? shoppingCart,
     TResult Function(Favorites value)? favorites,
     TResult Function(AccountSettings value)? accountSettings,
+    TResult Function(ProductLocalization value)? productLocalization,
     required TResult orElse(),
   }) {
     if (shoppingCart != null) {
@@ -356,6 +374,7 @@ class _$Favorites extends Favorites {
     required TResult Function() shoppingCart,
     required TResult Function() favorites,
     required TResult Function() accountSettings,
+    required TResult Function(Product product) productLocalization,
   }) {
     return favorites();
   }
@@ -367,6 +386,7 @@ class _$Favorites extends Favorites {
     TResult? Function()? shoppingCart,
     TResult? Function()? favorites,
     TResult? Function()? accountSettings,
+    TResult? Function(Product product)? productLocalization,
   }) {
     return favorites?.call();
   }
@@ -378,6 +398,7 @@ class _$Favorites extends Favorites {
     TResult Function()? shoppingCart,
     TResult Function()? favorites,
     TResult Function()? accountSettings,
+    TResult Function(Product product)? productLocalization,
     required TResult orElse(),
   }) {
     if (favorites != null) {
@@ -393,6 +414,7 @@ class _$Favorites extends Favorites {
     required TResult Function(ShoppingCart value) shoppingCart,
     required TResult Function(Favorites value) favorites,
     required TResult Function(AccountSettings value) accountSettings,
+    required TResult Function(ProductLocalization value) productLocalization,
   }) {
     return favorites(this);
   }
@@ -404,6 +426,7 @@ class _$Favorites extends Favorites {
     TResult? Function(ShoppingCart value)? shoppingCart,
     TResult? Function(Favorites value)? favorites,
     TResult? Function(AccountSettings value)? accountSettings,
+    TResult? Function(ProductLocalization value)? productLocalization,
   }) {
     return favorites?.call(this);
   }
@@ -415,6 +438,7 @@ class _$Favorites extends Favorites {
     TResult Function(ShoppingCart value)? shoppingCart,
     TResult Function(Favorites value)? favorites,
     TResult Function(AccountSettings value)? accountSettings,
+    TResult Function(ProductLocalization value)? productLocalization,
     required TResult orElse(),
   }) {
     if (favorites != null) {
@@ -471,6 +495,7 @@ class _$AccountSettings extends AccountSettings {
     required TResult Function() shoppingCart,
     required TResult Function() favorites,
     required TResult Function() accountSettings,
+    required TResult Function(Product product) productLocalization,
   }) {
     return accountSettings();
   }
@@ -482,6 +507,7 @@ class _$AccountSettings extends AccountSettings {
     TResult? Function()? shoppingCart,
     TResult? Function()? favorites,
     TResult? Function()? accountSettings,
+    TResult? Function(Product product)? productLocalization,
   }) {
     return accountSettings?.call();
   }
@@ -493,6 +519,7 @@ class _$AccountSettings extends AccountSettings {
     TResult Function()? shoppingCart,
     TResult Function()? favorites,
     TResult Function()? accountSettings,
+    TResult Function(Product product)? productLocalization,
     required TResult orElse(),
   }) {
     if (accountSettings != null) {
@@ -508,6 +535,7 @@ class _$AccountSettings extends AccountSettings {
     required TResult Function(ShoppingCart value) shoppingCart,
     required TResult Function(Favorites value) favorites,
     required TResult Function(AccountSettings value) accountSettings,
+    required TResult Function(ProductLocalization value) productLocalization,
   }) {
     return accountSettings(this);
   }
@@ -519,6 +547,7 @@ class _$AccountSettings extends AccountSettings {
     TResult? Function(ShoppingCart value)? shoppingCart,
     TResult? Function(Favorites value)? favorites,
     TResult? Function(AccountSettings value)? accountSettings,
+    TResult? Function(ProductLocalization value)? productLocalization,
   }) {
     return accountSettings?.call(this);
   }
@@ -530,6 +559,7 @@ class _$AccountSettings extends AccountSettings {
     TResult Function(ShoppingCart value)? shoppingCart,
     TResult Function(Favorites value)? favorites,
     TResult Function(AccountSettings value)? accountSettings,
+    TResult Function(ProductLocalization value)? productLocalization,
     required TResult orElse(),
   }) {
     if (accountSettings != null) {
@@ -542,4 +572,168 @@ class _$AccountSettings extends AccountSettings {
 abstract class AccountSettings extends NavigationItem {
   const factory AccountSettings() = _$AccountSettings;
   const AccountSettings._() : super._();
+}
+
+/// @nodoc
+abstract class _$$ProductLocalizationCopyWith<$Res> {
+  factory _$$ProductLocalizationCopyWith(_$ProductLocalization value,
+          $Res Function(_$ProductLocalization) then) =
+      __$$ProductLocalizationCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+
+  $ProductCopyWith<$Res> get product;
+}
+
+/// @nodoc
+class __$$ProductLocalizationCopyWithImpl<$Res>
+    extends _$NavigationItemCopyWithImpl<$Res, _$ProductLocalization>
+    implements _$$ProductLocalizationCopyWith<$Res> {
+  __$$ProductLocalizationCopyWithImpl(
+      _$ProductLocalization _value, $Res Function(_$ProductLocalization) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$ProductLocalization(
+      product: null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductCopyWith<$Res> get product {
+    return $ProductCopyWith<$Res>(_value.product, (value) {
+      return _then(_value.copyWith(product: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ProductLocalization extends ProductLocalization {
+  const _$ProductLocalization({required this.product}) : super._();
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'NavigationItem.productLocalization(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProductLocalization &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductLocalizationCopyWith<_$ProductLocalization> get copyWith =>
+      __$$ProductLocalizationCopyWithImpl<_$ProductLocalization>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function() shoppingCart,
+    required TResult Function() favorites,
+    required TResult Function() accountSettings,
+    required TResult Function(Product product) productLocalization,
+  }) {
+    return productLocalization(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? home,
+    TResult? Function()? shoppingCart,
+    TResult? Function()? favorites,
+    TResult? Function()? accountSettings,
+    TResult? Function(Product product)? productLocalization,
+  }) {
+    return productLocalization?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function()? shoppingCart,
+    TResult Function()? favorites,
+    TResult Function()? accountSettings,
+    TResult Function(Product product)? productLocalization,
+    required TResult orElse(),
+  }) {
+    if (productLocalization != null) {
+      return productLocalization(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Home value) home,
+    required TResult Function(ShoppingCart value) shoppingCart,
+    required TResult Function(Favorites value) favorites,
+    required TResult Function(AccountSettings value) accountSettings,
+    required TResult Function(ProductLocalization value) productLocalization,
+  }) {
+    return productLocalization(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Home value)? home,
+    TResult? Function(ShoppingCart value)? shoppingCart,
+    TResult? Function(Favorites value)? favorites,
+    TResult? Function(AccountSettings value)? accountSettings,
+    TResult? Function(ProductLocalization value)? productLocalization,
+  }) {
+    return productLocalization?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Home value)? home,
+    TResult Function(ShoppingCart value)? shoppingCart,
+    TResult Function(Favorites value)? favorites,
+    TResult Function(AccountSettings value)? accountSettings,
+    TResult Function(ProductLocalization value)? productLocalization,
+    required TResult orElse(),
+  }) {
+    if (productLocalization != null) {
+      return productLocalization(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProductLocalization extends NavigationItem {
+  const factory ProductLocalization({required final Product product}) =
+      _$ProductLocalization;
+  const ProductLocalization._() : super._();
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$ProductLocalizationCopyWith<_$ProductLocalization> get copyWith =>
+      throw _privateConstructorUsedError;
 }

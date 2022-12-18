@@ -19,18 +19,21 @@ mixin _$MainNavigationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function(NavigationItem destination) navigateToDetailPage,
     required TResult Function() navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function(NavigationItem destination)? navigateToDetailPage,
     TResult? Function()? navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function(NavigationItem destination)? navigateToDetailPage,
     TResult Function()? navigateBack,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,21 @@ mixin _$MainNavigationEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateToDetailPage value) navigateToDetailPage,
     required TResult Function(NavigateBack value) navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateToDetailPage value)? navigateToDetailPage,
     TResult? Function(NavigateBack value)? navigateBack,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateToDetailPage value)? navigateToDetailPage,
     TResult Function(NavigateBack value)? navigateBack,
     required TResult orElse(),
   }) =>
@@ -151,6 +157,7 @@ class _$NavigateToMainPage implements NavigateToMainPage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function(NavigationItem destination) navigateToDetailPage,
     required TResult Function() navigateBack,
   }) {
     return navigateToMainPage(destination);
@@ -160,6 +167,7 @@ class _$NavigateToMainPage implements NavigateToMainPage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function(NavigationItem destination)? navigateToDetailPage,
     TResult? Function()? navigateBack,
   }) {
     return navigateToMainPage?.call(destination);
@@ -169,6 +177,7 @@ class _$NavigateToMainPage implements NavigateToMainPage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function(NavigationItem destination)? navigateToDetailPage,
     TResult Function()? navigateBack,
     required TResult orElse(),
   }) {
@@ -182,6 +191,7 @@ class _$NavigateToMainPage implements NavigateToMainPage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateToDetailPage value) navigateToDetailPage,
     required TResult Function(NavigateBack value) navigateBack,
   }) {
     return navigateToMainPage(this);
@@ -191,6 +201,7 @@ class _$NavigateToMainPage implements NavigateToMainPage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateToDetailPage value)? navigateToDetailPage,
     TResult? Function(NavigateBack value)? navigateBack,
   }) {
     return navigateToMainPage?.call(this);
@@ -200,6 +211,7 @@ class _$NavigateToMainPage implements NavigateToMainPage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateToDetailPage value)? navigateToDetailPage,
     TResult Function(NavigateBack value)? navigateBack,
     required TResult orElse(),
   }) {
@@ -217,6 +229,158 @@ abstract class NavigateToMainPage implements MainNavigationEvent {
   NavigationItem get destination;
   @JsonKey(ignore: true)
   _$$NavigateToMainPageCopyWith<_$NavigateToMainPage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NavigateToDetailPageCopyWith<$Res> {
+  factory _$$NavigateToDetailPageCopyWith(_$NavigateToDetailPage value,
+          $Res Function(_$NavigateToDetailPage) then) =
+      __$$NavigateToDetailPageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({NavigationItem destination});
+
+  $NavigationItemCopyWith<$Res> get destination;
+}
+
+/// @nodoc
+class __$$NavigateToDetailPageCopyWithImpl<$Res>
+    extends _$MainNavigationEventCopyWithImpl<$Res, _$NavigateToDetailPage>
+    implements _$$NavigateToDetailPageCopyWith<$Res> {
+  __$$NavigateToDetailPageCopyWithImpl(_$NavigateToDetailPage _value,
+      $Res Function(_$NavigateToDetailPage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? destination = null,
+  }) {
+    return _then(_$NavigateToDetailPage(
+      destination: null == destination
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as NavigationItem,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NavigationItemCopyWith<$Res> get destination {
+    return $NavigationItemCopyWith<$Res>(_value.destination, (value) {
+      return _then(_value.copyWith(destination: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$NavigateToDetailPage implements NavigateToDetailPage {
+  const _$NavigateToDetailPage({required this.destination});
+
+  @override
+  final NavigationItem destination;
+
+  @override
+  String toString() {
+    return 'MainNavigationEvent.navigateToDetailPage(destination: $destination)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NavigateToDetailPage &&
+            (identical(other.destination, destination) ||
+                other.destination == destination));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, destination);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NavigateToDetailPageCopyWith<_$NavigateToDetailPage> get copyWith =>
+      __$$NavigateToDetailPageCopyWithImpl<_$NavigateToDetailPage>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function(NavigationItem destination) navigateToDetailPage,
+    required TResult Function() navigateBack,
+  }) {
+    return navigateToDetailPage(destination);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function(NavigationItem destination)? navigateToDetailPage,
+    TResult? Function()? navigateBack,
+  }) {
+    return navigateToDetailPage?.call(destination);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function(NavigationItem destination)? navigateToDetailPage,
+    TResult Function()? navigateBack,
+    required TResult orElse(),
+  }) {
+    if (navigateToDetailPage != null) {
+      return navigateToDetailPage(destination);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateToDetailPage value) navigateToDetailPage,
+    required TResult Function(NavigateBack value) navigateBack,
+  }) {
+    return navigateToDetailPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateToDetailPage value)? navigateToDetailPage,
+    TResult? Function(NavigateBack value)? navigateBack,
+  }) {
+    return navigateToDetailPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateToDetailPage value)? navigateToDetailPage,
+    TResult Function(NavigateBack value)? navigateBack,
+    required TResult orElse(),
+  }) {
+    if (navigateToDetailPage != null) {
+      return navigateToDetailPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NavigateToDetailPage implements MainNavigationEvent {
+  const factory NavigateToDetailPage(
+      {required final NavigationItem destination}) = _$NavigateToDetailPage;
+
+  NavigationItem get destination;
+  @JsonKey(ignore: true)
+  _$$NavigateToDetailPageCopyWith<_$NavigateToDetailPage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -259,6 +423,7 @@ class _$NavigateBack implements NavigateBack {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(NavigationItem destination) navigateToMainPage,
+    required TResult Function(NavigationItem destination) navigateToDetailPage,
     required TResult Function() navigateBack,
   }) {
     return navigateBack();
@@ -268,6 +433,7 @@ class _$NavigateBack implements NavigateBack {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(NavigationItem destination)? navigateToMainPage,
+    TResult? Function(NavigationItem destination)? navigateToDetailPage,
     TResult? Function()? navigateBack,
   }) {
     return navigateBack?.call();
@@ -277,6 +443,7 @@ class _$NavigateBack implements NavigateBack {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationItem destination)? navigateToMainPage,
+    TResult Function(NavigationItem destination)? navigateToDetailPage,
     TResult Function()? navigateBack,
     required TResult orElse(),
   }) {
@@ -290,6 +457,7 @@ class _$NavigateBack implements NavigateBack {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NavigateToMainPage value) navigateToMainPage,
+    required TResult Function(NavigateToDetailPage value) navigateToDetailPage,
     required TResult Function(NavigateBack value) navigateBack,
   }) {
     return navigateBack(this);
@@ -299,6 +467,7 @@ class _$NavigateBack implements NavigateBack {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult? Function(NavigateToDetailPage value)? navigateToDetailPage,
     TResult? Function(NavigateBack value)? navigateBack,
   }) {
     return navigateBack?.call(this);
@@ -308,6 +477,7 @@ class _$NavigateBack implements NavigateBack {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NavigateToMainPage value)? navigateToMainPage,
+    TResult Function(NavigateToDetailPage value)? navigateToDetailPage,
     TResult Function(NavigateBack value)? navigateBack,
     required TResult orElse(),
   }) {
@@ -324,43 +494,48 @@ abstract class NavigateBack implements MainNavigationEvent {
 
 /// @nodoc
 mixin _$MainNavigationState {
+  NavigationItem get selectedItem => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationItem selectedItem) onMainPage,
-    required TResult Function() error,
+    required TResult Function(NavigationItem selectedItem) mainPageSelected,
+    required TResult Function(NavigationItem selectedItem) detailPageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(NavigationItem selectedItem)? onMainPage,
-    TResult? Function()? error,
+    TResult? Function(NavigationItem selectedItem)? mainPageSelected,
+    TResult? Function(NavigationItem selectedItem)? detailPageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationItem selectedItem)? onMainPage,
-    TResult Function()? error,
+    TResult Function(NavigationItem selectedItem)? mainPageSelected,
+    TResult Function(NavigationItem selectedItem)? detailPageSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnMainPage value) onMainPage,
-    required TResult Function(Error value) error,
+    required TResult Function(MainPageSelected value) mainPageSelected,
+    required TResult Function(DetailPageSelected value) detailPageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(OnMainPage value)? onMainPage,
-    TResult? Function(Error value)? error,
+    TResult? Function(MainPageSelected value)? mainPageSelected,
+    TResult? Function(DetailPageSelected value)? detailPageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnMainPage value)? onMainPage,
-    TResult Function(Error value)? error,
+    TResult Function(MainPageSelected value)? mainPageSelected,
+    TResult Function(DetailPageSelected value)? detailPageSelected,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $MainNavigationStateCopyWith<MainNavigationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -369,6 +544,10 @@ abstract class $MainNavigationStateCopyWith<$Res> {
   factory $MainNavigationStateCopyWith(
           MainNavigationState value, $Res Function(MainNavigationState) then) =
       _$MainNavigationStateCopyWithImpl<$Res, MainNavigationState>;
+  @useResult
+  $Res call({NavigationItem selectedItem});
+
+  $NavigationItemCopyWith<$Res> get selectedItem;
 }
 
 /// @nodoc
@@ -380,25 +559,49 @@ class _$MainNavigationStateCopyWithImpl<$Res, $Val extends MainNavigationState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedItem = null,
+  }) {
+    return _then(_value.copyWith(
+      selectedItem: null == selectedItem
+          ? _value.selectedItem
+          : selectedItem // ignore: cast_nullable_to_non_nullable
+              as NavigationItem,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NavigationItemCopyWith<$Res> get selectedItem {
+    return $NavigationItemCopyWith<$Res>(_value.selectedItem, (value) {
+      return _then(_value.copyWith(selectedItem: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$OnMainPageCopyWith<$Res> {
-  factory _$$OnMainPageCopyWith(
-          _$OnMainPage value, $Res Function(_$OnMainPage) then) =
-      __$$OnMainPageCopyWithImpl<$Res>;
+abstract class _$$MainPageSelectedCopyWith<$Res>
+    implements $MainNavigationStateCopyWith<$Res> {
+  factory _$$MainPageSelectedCopyWith(
+          _$MainPageSelected value, $Res Function(_$MainPageSelected) then) =
+      __$$MainPageSelectedCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({NavigationItem selectedItem});
 
+  @override
   $NavigationItemCopyWith<$Res> get selectedItem;
 }
 
 /// @nodoc
-class __$$OnMainPageCopyWithImpl<$Res>
-    extends _$MainNavigationStateCopyWithImpl<$Res, _$OnMainPage>
-    implements _$$OnMainPageCopyWith<$Res> {
-  __$$OnMainPageCopyWithImpl(
-      _$OnMainPage _value, $Res Function(_$OnMainPage) _then)
+class __$$MainPageSelectedCopyWithImpl<$Res>
+    extends _$MainNavigationStateCopyWithImpl<$Res, _$MainPageSelected>
+    implements _$$MainPageSelectedCopyWith<$Res> {
+  __$$MainPageSelectedCopyWithImpl(
+      _$MainPageSelected _value, $Res Function(_$MainPageSelected) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -406,41 +609,33 @@ class __$$OnMainPageCopyWithImpl<$Res>
   $Res call({
     Object? selectedItem = null,
   }) {
-    return _then(_$OnMainPage(
+    return _then(_$MainPageSelected(
       selectedItem: null == selectedItem
           ? _value.selectedItem
           : selectedItem // ignore: cast_nullable_to_non_nullable
               as NavigationItem,
     ));
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NavigationItemCopyWith<$Res> get selectedItem {
-    return $NavigationItemCopyWith<$Res>(_value.selectedItem, (value) {
-      return _then(_value.copyWith(selectedItem: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$OnMainPage implements OnMainPage {
-  const _$OnMainPage({required this.selectedItem});
+class _$MainPageSelected implements MainPageSelected {
+  const _$MainPageSelected({required this.selectedItem});
 
   @override
   final NavigationItem selectedItem;
 
   @override
   String toString() {
-    return 'MainNavigationState.onMainPage(selectedItem: $selectedItem)';
+    return 'MainNavigationState.mainPageSelected(selectedItem: $selectedItem)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnMainPage &&
+            other is _$MainPageSelected &&
             (identical(other.selectedItem, selectedItem) ||
                 other.selectedItem == selectedItem));
   }
@@ -451,36 +646,36 @@ class _$OnMainPage implements OnMainPage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnMainPageCopyWith<_$OnMainPage> get copyWith =>
-      __$$OnMainPageCopyWithImpl<_$OnMainPage>(this, _$identity);
+  _$$MainPageSelectedCopyWith<_$MainPageSelected> get copyWith =>
+      __$$MainPageSelectedCopyWithImpl<_$MainPageSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationItem selectedItem) onMainPage,
-    required TResult Function() error,
+    required TResult Function(NavigationItem selectedItem) mainPageSelected,
+    required TResult Function(NavigationItem selectedItem) detailPageSelected,
   }) {
-    return onMainPage(selectedItem);
+    return mainPageSelected(selectedItem);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(NavigationItem selectedItem)? onMainPage,
-    TResult? Function()? error,
+    TResult? Function(NavigationItem selectedItem)? mainPageSelected,
+    TResult? Function(NavigationItem selectedItem)? detailPageSelected,
   }) {
-    return onMainPage?.call(selectedItem);
+    return mainPageSelected?.call(selectedItem);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationItem selectedItem)? onMainPage,
-    TResult Function()? error,
+    TResult Function(NavigationItem selectedItem)? mainPageSelected,
+    TResult Function(NavigationItem selectedItem)? detailPageSelected,
     required TResult orElse(),
   }) {
-    if (onMainPage != null) {
-      return onMainPage(selectedItem);
+    if (mainPageSelected != null) {
+      return mainPageSelected(selectedItem);
     }
     return orElse();
   }
@@ -488,105 +683,142 @@ class _$OnMainPage implements OnMainPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnMainPage value) onMainPage,
-    required TResult Function(Error value) error,
+    required TResult Function(MainPageSelected value) mainPageSelected,
+    required TResult Function(DetailPageSelected value) detailPageSelected,
   }) {
-    return onMainPage(this);
+    return mainPageSelected(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(OnMainPage value)? onMainPage,
-    TResult? Function(Error value)? error,
+    TResult? Function(MainPageSelected value)? mainPageSelected,
+    TResult? Function(DetailPageSelected value)? detailPageSelected,
   }) {
-    return onMainPage?.call(this);
+    return mainPageSelected?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnMainPage value)? onMainPage,
-    TResult Function(Error value)? error,
+    TResult Function(MainPageSelected value)? mainPageSelected,
+    TResult Function(DetailPageSelected value)? detailPageSelected,
     required TResult orElse(),
   }) {
-    if (onMainPage != null) {
-      return onMainPage(this);
+    if (mainPageSelected != null) {
+      return mainPageSelected(this);
     }
     return orElse();
   }
 }
 
-abstract class OnMainPage implements MainNavigationState {
-  const factory OnMainPage({required final NavigationItem selectedItem}) =
-      _$OnMainPage;
+abstract class MainPageSelected implements MainNavigationState {
+  const factory MainPageSelected({required final NavigationItem selectedItem}) =
+      _$MainPageSelected;
 
+  @override
   NavigationItem get selectedItem;
+  @override
   @JsonKey(ignore: true)
-  _$$OnMainPageCopyWith<_$OnMainPage> get copyWith =>
+  _$$MainPageSelectedCopyWith<_$MainPageSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$DetailPageSelectedCopyWith<$Res>
+    implements $MainNavigationStateCopyWith<$Res> {
+  factory _$$DetailPageSelectedCopyWith(_$DetailPageSelected value,
+          $Res Function(_$DetailPageSelected) then) =
+      __$$DetailPageSelectedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({NavigationItem selectedItem});
+
+  @override
+  $NavigationItemCopyWith<$Res> get selectedItem;
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$MainNavigationStateCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$DetailPageSelectedCopyWithImpl<$Res>
+    extends _$MainNavigationStateCopyWithImpl<$Res, _$DetailPageSelected>
+    implements _$$DetailPageSelectedCopyWith<$Res> {
+  __$$DetailPageSelectedCopyWithImpl(
+      _$DetailPageSelected _value, $Res Function(_$DetailPageSelected) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedItem = null,
+  }) {
+    return _then(_$DetailPageSelected(
+      selectedItem: null == selectedItem
+          ? _value.selectedItem
+          : selectedItem // ignore: cast_nullable_to_non_nullable
+              as NavigationItem,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error();
+class _$DetailPageSelected implements DetailPageSelected {
+  const _$DetailPageSelected({required this.selectedItem});
+
+  @override
+  final NavigationItem selectedItem;
 
   @override
   String toString() {
-    return 'MainNavigationState.error()';
+    return 'MainNavigationState.detailPageSelected(selectedItem: $selectedItem)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Error);
+        (other.runtimeType == runtimeType &&
+            other is _$DetailPageSelected &&
+            (identical(other.selectedItem, selectedItem) ||
+                other.selectedItem == selectedItem));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, selectedItem);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DetailPageSelectedCopyWith<_$DetailPageSelected> get copyWith =>
+      __$$DetailPageSelectedCopyWithImpl<_$DetailPageSelected>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationItem selectedItem) onMainPage,
-    required TResult Function() error,
+    required TResult Function(NavigationItem selectedItem) mainPageSelected,
+    required TResult Function(NavigationItem selectedItem) detailPageSelected,
   }) {
-    return error();
+    return detailPageSelected(selectedItem);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(NavigationItem selectedItem)? onMainPage,
-    TResult? Function()? error,
+    TResult? Function(NavigationItem selectedItem)? mainPageSelected,
+    TResult? Function(NavigationItem selectedItem)? detailPageSelected,
   }) {
-    return error?.call();
+    return detailPageSelected?.call(selectedItem);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationItem selectedItem)? onMainPage,
-    TResult Function()? error,
+    TResult Function(NavigationItem selectedItem)? mainPageSelected,
+    TResult Function(NavigationItem selectedItem)? detailPageSelected,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error();
+    if (detailPageSelected != null) {
+      return detailPageSelected(selectedItem);
     }
     return orElse();
   }
@@ -594,35 +826,43 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(OnMainPage value) onMainPage,
-    required TResult Function(Error value) error,
+    required TResult Function(MainPageSelected value) mainPageSelected,
+    required TResult Function(DetailPageSelected value) detailPageSelected,
   }) {
-    return error(this);
+    return detailPageSelected(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(OnMainPage value)? onMainPage,
-    TResult? Function(Error value)? error,
+    TResult? Function(MainPageSelected value)? mainPageSelected,
+    TResult? Function(DetailPageSelected value)? detailPageSelected,
   }) {
-    return error?.call(this);
+    return detailPageSelected?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnMainPage value)? onMainPage,
-    TResult Function(Error value)? error,
+    TResult Function(MainPageSelected value)? mainPageSelected,
+    TResult Function(DetailPageSelected value)? detailPageSelected,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (detailPageSelected != null) {
+      return detailPageSelected(this);
     }
     return orElse();
   }
 }
 
-abstract class Error implements MainNavigationState {
-  const factory Error() = _$Error;
+abstract class DetailPageSelected implements MainNavigationState {
+  const factory DetailPageSelected(
+      {required final NavigationItem selectedItem}) = _$DetailPageSelected;
+
+  @override
+  NavigationItem get selectedItem;
+  @override
+  @JsonKey(ignore: true)
+  _$$DetailPageSelectedCopyWith<_$DetailPageSelected> get copyWith =>
+      throw _privateConstructorUsedError;
 }

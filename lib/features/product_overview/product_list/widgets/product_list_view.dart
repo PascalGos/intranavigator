@@ -17,14 +17,16 @@ class ProductListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return items.isEmpty
-        ? const Center(child: Text('no content'))
-        : ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ProductTile(
-                item: items[index],
-              );
-            });
+    return Expanded(
+      child: items.isEmpty
+          ? const Center(child: Text('no content'))
+          : ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ProductTile(
+                  item: items[index],
+                );
+              }),
+    );
   }
 }

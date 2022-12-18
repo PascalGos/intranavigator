@@ -2,28 +2,28 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intranavigator/design_system/components/components.dart';
 
 import '../../../domain/entities/entities.dart';
 import '../bloc/main_navigation_bloc.dart';
 import 'bottom_navigation_items.dart';
 
-class LokyBottomNavigation extends StatefulWidget {
-  const LokyBottomNavigation({super.key});
+class BottomNavigationBarBuilder extends StatelessWidget {
+  const BottomNavigationBarBuilder({super.key});
 
-  @override
-  State<LokyBottomNavigation> createState() => _LokyBottomNavigationState();
-}
-
-class _LokyBottomNavigationState extends State<LokyBottomNavigation> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: bottomNavigationItems,
-      type: BottomNavigationBarType.fixed,
-      currentIndex: getCurrentIndex(context),
-      onTap: (index) => onTap(index, context),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+    return BlocBuilder<MainNavigationBloc, MainNavigationState>(
+      builder: (context, state) {
+        if (state is MainPageSelected || state is DetailPageSelected) {
+          return LokyBottomNavigationBar(
+            items: bottomNavigationItems,
+            currentIndex: getCurrentIndex(context),
+            onTap: (index) => onTap(index, context),
+          );
+        }
+        return Container();
+      },
     );
   }
 
@@ -57,9 +57,9 @@ class _LokyBottomNavigationState extends State<LokyBottomNavigation> {
         index = 0;
         destination = const Home();
     }
-    setState(() {
-      bloc.add(NavigateToMainPage(destination: destination));
-      tabsRouter.setActiveIndex(index);
-    });
+
+    bloc.add(NavigateToMainPage(destination: destination));
+
+    tabsRouter.setActiveIndex(index);
   }
 }
