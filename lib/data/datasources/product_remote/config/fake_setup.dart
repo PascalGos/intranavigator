@@ -4,7 +4,7 @@ import 'package:intranavigator/data/datasources/product_remote/dto/dto.dart';
 
 import '../dto/product_remote_dto.dart';
 
-class FakeFirebaseFirestoreInitializer {
+class RemoteProductFakeFirebaseFirestoreInitializer {
   static initialize(FirebaseFirestore instance) {
     List<ProductRemoteDTO> fakeItems = [];
     fakeItems.addAll(_generateFakeProductDTOObjects());
@@ -55,7 +55,7 @@ class FakeFirebaseFirestoreInitializer {
       List<ProductRemoteDTO> items, FirebaseFirestore instance) {
     for (ProductRemoteDTO item in items) {
       instance
-          .collection(FireStoreConfig.productCollectionName)
+          .collection(RemoteProductFireStoreConfig.productCollectionName)
           .add(item.toJson());
     }
   }

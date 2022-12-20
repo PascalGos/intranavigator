@@ -24,7 +24,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
 
     try {
       querySnapshot = await remoteDataSource
-          .collection(FireStoreConfig.productCollectionName)
+          .collection(RemoteProductFireStoreConfig.productCollectionName)
           .get();
     } catch (e) {
       throw ServerException;

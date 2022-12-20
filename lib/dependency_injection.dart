@@ -16,7 +16,7 @@ Future<void> configureDependencies(String environment) async {
     environment: environment,
   );
 
-  FakeFirebaseFirestoreInitializer.initialize(getDependency());
+  RemoteProductFakeFirebaseFirestoreInitializer.initialize(getDependency());
 }
 
 abstract class Env {

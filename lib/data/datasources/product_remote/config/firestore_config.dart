@@ -1,3 +1,3 @@
-class FireStoreConfig {
+class RemoteProductFireStoreConfig {
   static String productCollectionName = 'products';
 }
