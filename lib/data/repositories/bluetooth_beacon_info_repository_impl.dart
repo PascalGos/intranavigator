@@ -8,12 +8,13 @@ import '../../domain/repositories/bluetooth_beacon_info_repository.dart';
 import '../datasources/bluetooth_beacon_info_remote/bluetooth_beacon_info_remote.dart';
 
 @LazySingleton(as: BluetoothBeaconInfoRepository)
-class DataLocationRepositoryImpl implements BluetoothBeaconInfoRepository {
+class DataBluetoothBeaconInfoRepositoryImpl
+    implements BluetoothBeaconInfoRepository {
   final BluetoothBeaconInfoRemoteDataSource remoteDataSource;
   final BluetoothBeaconInfoRemoteMapper _mapper =
       BluetoothBeaconInfoRemoteMapper();
 
-  DataLocationRepositoryImpl(this.remoteDataSource);
+  DataBluetoothBeaconInfoRepositoryImpl(this.remoteDataSource);
 
   @override
   FutureOr<Either<Failure, dynamic>> aggregate(
