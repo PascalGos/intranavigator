@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../dependency_injection.dart';
 import '../../../routes/routes.dart';
+import '../../account_settings/account_settings.dart';
 import '../bloc/app_session_bloc.dart';
 import '../widgets/widgets.dart';
 
@@ -12,8 +13,13 @@ class AppSession extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getDependency<AppSessionBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AppSessionBloc>(
+            create: (_) => getDependency<AppSessionBloc>()),
+        BlocProvider<AccountSettingsBloc>(
+            create: (_) => getDependency<AccountSettingsBloc>()),
+      ],
       child: RouterConfig(),
     );
   }

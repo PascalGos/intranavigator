@@ -1,6 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+export 'setting_item/setting_item.dart';
 
-import '../device_info/device_info.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intranavigator/domain/entities/entities.dart';
 
 part 'app_settings.freezed.dart';
 
@@ -8,11 +9,21 @@ part 'app_settings.freezed.dart';
 class AppSettings with _$AppSettings {
   const factory AppSettings({
     @Default(DeviceInfo.unknown()) DeviceInfo deviceInfo,
-    @Default(false) bool wifiEnabled,
-    @Default(false) bool bluetoothEnabled,
-    @Default(false) bool gpsEnabled,
-    @Default(false) bool gpsAllowed,
-    @Default(false) bool isBroadcasting,
-    @Default(false) bool isScanning,
+    @Default(defaultSettingItems) List<SettingItem> settingItems,
   }) = _AppSettings;
 }
+
+const List<SettingItem> defaultSettingItems = [
+  SettingItem.wifiSettings(
+    active: false,
+  ),
+  SettingItem.bluetoothSettings(
+    active: false,
+    isScanning: false,
+    isBroadcasting: false,
+  ),
+  SettingItem.locationSettings(
+    active: false,
+    permission: LocationPermission.unableToDetermine(),
+  )
+];

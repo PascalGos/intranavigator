@@ -17,12 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppSettings {
   DeviceInfo get deviceInfo => throw _privateConstructorUsedError;
-  bool get wifiEnabled => throw _privateConstructorUsedError;
-  bool get bluetoothEnabled => throw _privateConstructorUsedError;
-  bool get gpsEnabled => throw _privateConstructorUsedError;
-  bool get gpsAllowed => throw _privateConstructorUsedError;
-  bool get isBroadcasting => throw _privateConstructorUsedError;
-  bool get isScanning => throw _privateConstructorUsedError;
+  List<SettingItem> get settingItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppSettingsCopyWith<AppSettings> get copyWith =>
@@ -35,14 +30,7 @@ abstract class $AppSettingsCopyWith<$Res> {
           AppSettings value, $Res Function(AppSettings) then) =
       _$AppSettingsCopyWithImpl<$Res, AppSettings>;
   @useResult
-  $Res call(
-      {DeviceInfo deviceInfo,
-      bool wifiEnabled,
-      bool bluetoothEnabled,
-      bool gpsEnabled,
-      bool gpsAllowed,
-      bool isBroadcasting,
-      bool isScanning});
+  $Res call({DeviceInfo deviceInfo, List<SettingItem> settingItems});
 
   $DeviceInfoCopyWith<$Res> get deviceInfo;
 }
@@ -61,42 +49,17 @@ class _$AppSettingsCopyWithImpl<$Res, $Val extends AppSettings>
   @override
   $Res call({
     Object? deviceInfo = null,
-    Object? wifiEnabled = null,
-    Object? bluetoothEnabled = null,
-    Object? gpsEnabled = null,
-    Object? gpsAllowed = null,
-    Object? isBroadcasting = null,
-    Object? isScanning = null,
+    Object? settingItems = null,
   }) {
     return _then(_value.copyWith(
       deviceInfo: null == deviceInfo
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      wifiEnabled: null == wifiEnabled
-          ? _value.wifiEnabled
-          : wifiEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      bluetoothEnabled: null == bluetoothEnabled
-          ? _value.bluetoothEnabled
-          : bluetoothEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      gpsEnabled: null == gpsEnabled
-          ? _value.gpsEnabled
-          : gpsEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      gpsAllowed: null == gpsAllowed
-          ? _value.gpsAllowed
-          : gpsAllowed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isBroadcasting: null == isBroadcasting
-          ? _value.isBroadcasting
-          : isBroadcasting // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isScanning: null == isScanning
-          ? _value.isScanning
-          : isScanning // ignore: cast_nullable_to_non_nullable
-              as bool,
+      settingItems: null == settingItems
+          ? _value.settingItems
+          : settingItems // ignore: cast_nullable_to_non_nullable
+              as List<SettingItem>,
     ) as $Val);
   }
 
@@ -117,14 +80,7 @@ abstract class _$$_AppSettingsCopyWith<$Res>
       __$$_AppSettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {DeviceInfo deviceInfo,
-      bool wifiEnabled,
-      bool bluetoothEnabled,
-      bool gpsEnabled,
-      bool gpsAllowed,
-      bool isBroadcasting,
-      bool isScanning});
+  $Res call({DeviceInfo deviceInfo, List<SettingItem> settingItems});
 
   @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
@@ -142,42 +98,17 @@ class __$$_AppSettingsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? deviceInfo = null,
-    Object? wifiEnabled = null,
-    Object? bluetoothEnabled = null,
-    Object? gpsEnabled = null,
-    Object? gpsAllowed = null,
-    Object? isBroadcasting = null,
-    Object? isScanning = null,
+    Object? settingItems = null,
   }) {
     return _then(_$_AppSettings(
       deviceInfo: null == deviceInfo
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      wifiEnabled: null == wifiEnabled
-          ? _value.wifiEnabled
-          : wifiEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      bluetoothEnabled: null == bluetoothEnabled
-          ? _value.bluetoothEnabled
-          : bluetoothEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      gpsEnabled: null == gpsEnabled
-          ? _value.gpsEnabled
-          : gpsEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      gpsAllowed: null == gpsAllowed
-          ? _value.gpsAllowed
-          : gpsAllowed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isBroadcasting: null == isBroadcasting
-          ? _value.isBroadcasting
-          : isBroadcasting // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isScanning: null == isScanning
-          ? _value.isScanning
-          : isScanning // ignore: cast_nullable_to_non_nullable
-              as bool,
+      settingItems: null == settingItems
+          ? _value._settingItems
+          : settingItems // ignore: cast_nullable_to_non_nullable
+              as List<SettingItem>,
     ));
   }
 }
@@ -187,38 +118,24 @@ class __$$_AppSettingsCopyWithImpl<$Res>
 class _$_AppSettings implements _AppSettings {
   const _$_AppSettings(
       {this.deviceInfo = const DeviceInfo.unknown(),
-      this.wifiEnabled = false,
-      this.bluetoothEnabled = false,
-      this.gpsEnabled = false,
-      this.gpsAllowed = false,
-      this.isBroadcasting = false,
-      this.isScanning = false});
+      final List<SettingItem> settingItems = defaultSettingItems})
+      : _settingItems = settingItems;
 
   @override
   @JsonKey()
   final DeviceInfo deviceInfo;
+  final List<SettingItem> _settingItems;
   @override
   @JsonKey()
-  final bool wifiEnabled;
-  @override
-  @JsonKey()
-  final bool bluetoothEnabled;
-  @override
-  @JsonKey()
-  final bool gpsEnabled;
-  @override
-  @JsonKey()
-  final bool gpsAllowed;
-  @override
-  @JsonKey()
-  final bool isBroadcasting;
-  @override
-  @JsonKey()
-  final bool isScanning;
+  List<SettingItem> get settingItems {
+    if (_settingItems is EqualUnmodifiableListView) return _settingItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_settingItems);
+  }
 
   @override
   String toString() {
-    return 'AppSettings(deviceInfo: $deviceInfo, wifiEnabled: $wifiEnabled, bluetoothEnabled: $bluetoothEnabled, gpsEnabled: $gpsEnabled, gpsAllowed: $gpsAllowed, isBroadcasting: $isBroadcasting, isScanning: $isScanning)';
+    return 'AppSettings(deviceInfo: $deviceInfo, settingItems: $settingItems)';
   }
 
   @override
@@ -228,23 +145,13 @@ class _$_AppSettings implements _AppSettings {
             other is _$_AppSettings &&
             (identical(other.deviceInfo, deviceInfo) ||
                 other.deviceInfo == deviceInfo) &&
-            (identical(other.wifiEnabled, wifiEnabled) ||
-                other.wifiEnabled == wifiEnabled) &&
-            (identical(other.bluetoothEnabled, bluetoothEnabled) ||
-                other.bluetoothEnabled == bluetoothEnabled) &&
-            (identical(other.gpsEnabled, gpsEnabled) ||
-                other.gpsEnabled == gpsEnabled) &&
-            (identical(other.gpsAllowed, gpsAllowed) ||
-                other.gpsAllowed == gpsAllowed) &&
-            (identical(other.isBroadcasting, isBroadcasting) ||
-                other.isBroadcasting == isBroadcasting) &&
-            (identical(other.isScanning, isScanning) ||
-                other.isScanning == isScanning));
+            const DeepCollectionEquality()
+                .equals(other._settingItems, _settingItems));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, deviceInfo, wifiEnabled,
-      bluetoothEnabled, gpsEnabled, gpsAllowed, isBroadcasting, isScanning);
+  int get hashCode => Object.hash(runtimeType, deviceInfo,
+      const DeepCollectionEquality().hash(_settingItems));
 
   @JsonKey(ignore: true)
   @override
@@ -256,27 +163,12 @@ class _$_AppSettings implements _AppSettings {
 abstract class _AppSettings implements AppSettings {
   const factory _AppSettings(
       {final DeviceInfo deviceInfo,
-      final bool wifiEnabled,
-      final bool bluetoothEnabled,
-      final bool gpsEnabled,
-      final bool gpsAllowed,
-      final bool isBroadcasting,
-      final bool isScanning}) = _$_AppSettings;
+      final List<SettingItem> settingItems}) = _$_AppSettings;
 
   @override
   DeviceInfo get deviceInfo;
   @override
-  bool get wifiEnabled;
-  @override
-  bool get bluetoothEnabled;
-  @override
-  bool get gpsEnabled;
-  @override
-  bool get gpsAllowed;
-  @override
-  bool get isBroadcasting;
-  @override
-  bool get isScanning;
+  List<SettingItem> get settingItems;
   @override
   @JsonKey(ignore: true)
   _$$_AppSettingsCopyWith<_$_AppSettings> get copyWith =>
