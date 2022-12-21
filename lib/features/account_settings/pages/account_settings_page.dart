@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../dependency_injection.dart';
+import '../bloc/account_settings_bloc.dart';
+import '../widgets/widgets.dart';
 
 class AccountSettingsPage extends StatelessWidget {
   const AccountSettingsPage({super.key});
@@ -6,10 +11,13 @@ class AccountSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'Account Settings',
-          style: Theme.of(context).textTheme.displayMedium,
+      body: BlocProvider(
+        create: (context) => getDependency<AccountSettingsBloc>(),
+        child: Column(
+          children: [
+            const SettingsListHeading(),
+            const SettingsListView(items: [])
+          ],
         ),
       ),
     );

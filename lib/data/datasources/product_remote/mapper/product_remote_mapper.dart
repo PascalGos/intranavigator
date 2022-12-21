@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intranavigator/domain/entities/entities.dart';
-import 'package:intranavigator/domain/exceptions/mapper_exception.dart';
+import 'package:intranavigator/domain/entities/exceptions/mapper_exception.dart';
 
 import '../../../../architecture/architecture.dart';
 import '../dto/product_remote_dto.dart';
@@ -47,7 +47,7 @@ class ProductRemoteMapper implements ObjectMapper<ProductRemoteDTO, Product> {
       return Product(
         id: dto.id,
         name: dto.name,
-        location: Location(
+        location: LocationInfo(
           latitude: dto.location.latitude,
           longitude: dto.location.longitude,
         ),

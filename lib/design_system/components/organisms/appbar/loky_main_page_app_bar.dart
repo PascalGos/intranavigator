@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intranavigator/design_system/components/molecules/profile_image_image_button/profile_image_button.dart';
 
 import '../../atoms/atoms.dart';
 
@@ -32,7 +31,7 @@ class LokyMainPageAppBar extends StatelessWidget
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(10, 10, 24, 10),
-          child: LokyCircleImage(
+          child: LokyProfileImageButton(
             imageProvider: profileImageProvider,
             radius: 25,
           ),

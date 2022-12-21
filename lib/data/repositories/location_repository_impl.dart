@@ -10,13 +10,13 @@ import 'package:intranavigator/domain/repositories/location_repository.dart';
 class DataLocationRepositoryImpl implements LocationRepository {
   @override
   FutureOr<Either<Failure, dynamic>> aggregate(
-      List<Location> entities, String field, String operation) {
+      List<LocationInfo> entities, String field, String operation) {
     // TODO: implement aggregate
     throw UnimplementedError();
   }
 
   @override
-  FutureOr<Either<Failure, Location>> create(Location entity) {
+  FutureOr<Either<Failure, LocationInfo>> create(LocationInfo entity) {
     // TODO: implement create
     throw UnimplementedError();
   }
@@ -34,13 +34,14 @@ class DataLocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  FutureOr<Either<Failure, List<Location>>> find(Map<String, dynamic> filters) {
+  FutureOr<Either<Failure, List<LocationInfo>>> find(
+      Map<String, dynamic> filters) {
     // TODO: implement find
     throw UnimplementedError();
   }
 
   @override
-  FutureOr<Either<Failure, List<Location>>> findAll() {
+  FutureOr<Either<Failure, List<LocationInfo>>> findAll() {
     // TODO: implement findAll
     throw UnimplementedError();
   }
@@ -52,21 +53,21 @@ class DataLocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  FutureOr<Either<Failure, Location>> read(id) {
+  FutureOr<Either<Failure, LocationInfo>> read(id) {
     // TODO: implement read
     throw UnimplementedError();
   }
 
   @override
-  FutureOr<Either<Failure, List<Location>>> sort(
-      List<Location> entities, String field,
+  FutureOr<Either<Failure, List<LocationInfo>>> sort(
+      List<LocationInfo> entities, String field,
       {bool ascending = true}) {
     // TODO: implement sort
     throw UnimplementedError();
   }
 
   @override
-  FutureOr<Either<Failure, Location>> update(Location entity) {
+  FutureOr<Either<Failure, LocationInfo>> update(LocationInfo entity) {
     // TODO: implement update
     throw UnimplementedError();
   }

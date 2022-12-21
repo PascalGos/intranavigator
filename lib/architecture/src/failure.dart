@@ -16,6 +16,9 @@ import 'package:equatable/equatable.dart';
 /// application. This can help you handle failures in a more structured and
 /// type-safe way.
 abstract class Failure extends Equatable {
+  final String? message;
+
+  const Failure({this.message});
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [message];
 }

@@ -6,8 +6,8 @@ import 'dart:async';
 
 import 'package:intranavigator/domain/repositories/repositories.dart';
 
-import '../../domain/exceptions/exceptions.dart';
-import '../../domain/failures/failures.dart';
+import '../../domain/entities/exceptions/exceptions.dart';
+import '../../domain/entities/failures/failures.dart';
 import '../datasources/product_remote/product_remote.dart';
 
 @LazySingleton(as: ProductRepository)

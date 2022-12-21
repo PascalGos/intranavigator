@@ -21,7 +21,7 @@ mixin _$Product {
   String get description => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   ProductCategory? get category => throw _privateConstructorUsedError;
-  Location get location => throw _privateConstructorUsedError;
+  LocationInfo get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -38,10 +38,10 @@ abstract class $ProductCopyWith<$Res> {
       String description,
       double price,
       ProductCategory? category,
-      Location location});
+      LocationInfo location});
 
   $ProductCategoryCopyWith<$Res>? get category;
-  $LocationCopyWith<$Res> get location;
+  $LocationInfoCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -88,7 +88,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Location,
+              as LocationInfo,
     ) as $Val);
   }
 
@@ -106,8 +106,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 
   @override
   @pragma('vm:prefer-inline')
-  $LocationCopyWith<$Res> get location {
-    return $LocationCopyWith<$Res>(_value.location, (value) {
+  $LocationInfoCopyWith<$Res> get location {
+    return $LocationInfoCopyWith<$Res>(_value.location, (value) {
       return _then(_value.copyWith(location: value) as $Val);
     });
   }
@@ -126,12 +126,12 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String description,
       double price,
       ProductCategory? category,
-      Location location});
+      LocationInfo location});
 
   @override
   $ProductCategoryCopyWith<$Res>? get category;
   @override
-  $LocationCopyWith<$Res> get location;
+  $LocationInfoCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -175,7 +175,7 @@ class __$$_ProductCopyWithImpl<$Res>
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as Location,
+              as LocationInfo,
     ));
   }
 }
@@ -203,7 +203,7 @@ class _$_Product implements _Product {
   @override
   final ProductCategory? category;
   @override
-  final Location location;
+  final LocationInfo location;
 
   @override
   String toString() {
@@ -244,7 +244,7 @@ abstract class _Product implements Product {
       final String description,
       required final double price,
       final ProductCategory? category,
-      required final Location location}) = _$_Product;
+      required final LocationInfo location}) = _$_Product;
 
   @override
   String get id;
@@ -257,7 +257,7 @@ abstract class _Product implements Product {
   @override
   ProductCategory? get category;
   @override
-  Location get location;
+  LocationInfo get location;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

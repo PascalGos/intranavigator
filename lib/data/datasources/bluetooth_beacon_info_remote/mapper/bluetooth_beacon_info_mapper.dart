@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intranavigator/data/datasources/bluetooth_beacon_info_remote/bluetooth_beacon_info_remote.dart';
 import 'package:intranavigator/domain/entities/entities.dart';
-import 'package:intranavigator/domain/exceptions/mapper_exception.dart';
+import 'package:intranavigator/domain/entities/exceptions/mapper_exception.dart';
 
 import '../../../../architecture/architecture.dart';
 

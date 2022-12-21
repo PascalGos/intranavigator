@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import 'package:intranavigator/data/datasources/product_remote/dto/product_remote_dto.dart';
 
-import '../../../domain/exceptions/exceptions.dart';
+import '../../../domain/entities/exceptions/exceptions.dart';
 import 'config/config.dart';
 import 'product_remote_datasource.dart';
 

@@ -14,6 +14,6 @@ class Product with _$Product {
     @Default('') String description,
     required double price,
     ProductCategory? category,
-    required Location location,
+    required LocationInfo location,
   }) = _Product;
 }

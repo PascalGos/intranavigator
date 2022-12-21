@@ -6,10 +6,10 @@ import 'package:injectable/injectable.dart';
 
 import 'package:intranavigator/architecture/src/failure.dart';
 import 'package:intranavigator/domain/entities/shopping_list_item/shopping_list_item.dart';
-import 'package:intranavigator/domain/exceptions/exceptions.dart';
+import 'package:intranavigator/domain/entities/exceptions/exceptions.dart';
 import 'package:intranavigator/domain/repositories/shopping_list_item_repository.dart';
 
-import '../../domain/failures/failures.dart';
+import '../../domain/entities/failures/failures.dart';
 import '../datasources/shopping_list_item_local/shopping_list_item_local.dart';
 
 @LazySingleton(as: ShoppingListItemRepository)

@@ -3,9 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'location.freezed.dart';
 
 @freezed
-class Location with _$Location {
-  const factory Location({
+class LocationInfo with _$LocationInfo {
+  const factory LocationInfo({
     required double latitude,
     required double longitude,
-  }) = _Location;
+  }) = _LocationInfo;
 }

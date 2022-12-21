@@ -6,14 +6,14 @@ import '../../../architecture/architecture.dart';
 import '../../entities/entities.dart';
 import '../../repositories/repositories.dart';
 
-class GetDirections extends UseCase<Location, NoParams> {
+class GetDirections extends UseCase<LocationInfo, NoParams> {
   final LocationRepository repository;
   GetDirections({
     required this.repository,
   });
 
   @override
-  FutureOr<Either<Failure, Location>> call(NoParams params) {
+  FutureOr<Either<Failure, LocationInfo>> call(NoParams params) {
     //TODO: Write Use Case Class
     throw UnimplementedError();
   }

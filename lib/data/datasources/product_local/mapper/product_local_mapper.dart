@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intranavigator/data/datasources/location_local/dto/dto.dart';
 import 'package:intranavigator/domain/entities/entities.dart';
-import 'package:intranavigator/domain/exceptions/mapper_exception.dart';
+import 'package:intranavigator/domain/entities/exceptions/mapper_exception.dart';
 
 import '../../../../architecture/architecture.dart';
 import '../../location_local/mapper/mapper.dart';

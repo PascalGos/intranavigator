@@ -2,23 +2,24 @@ import 'package:intranavigator/data/datasources/location_local/dto/dto.dart';
 
 import '../../../../architecture/architecture.dart';
 import '../../../../domain/entities/entities.dart';
-import '../../../../domain/exceptions/exceptions.dart';
+import '../../../../domain/entities/exceptions/exceptions.dart';
 
-class LocationLocalMapper implements ObjectMapper<LocationLocalDTO, Location> {
+class LocationLocalMapper
+    implements ObjectMapper<LocationLocalDTO, LocationInfo> {
   @override
-  LocationLocalDTO toDto(Location entity) {
+  LocationLocalDTO toDto(LocationInfo entity) {
     try {
       return LocationLocalDTO(
         latitude: entity.latitude,
         longitude: entity.longitude,
       );
     } catch (e) {
-      throw MapperException<Location, LocationLocalDTO>(e.toString());
+      throw MapperException<LocationInfo, LocationLocalDTO>(e.toString());
     }
   }
 
   @override
-  List<LocationLocalDTO> toDtos(List<Location> entities) {
+  List<LocationLocalDTO> toDtos(List<LocationInfo> entities) {
     final List<LocationLocalDTO> dtos = [];
     for (final entity in entities) {
       dtos.add(toDto(entity));
@@ -27,8 +28,8 @@ class LocationLocalMapper implements ObjectMapper<LocationLocalDTO, Location> {
   }
 
   @override
-  List<Location> toEntities(List<LocationLocalDTO> dtos) {
-    final List<Location> entities = [];
+  List<LocationInfo> toEntities(List<LocationLocalDTO> dtos) {
+    final List<LocationInfo> entities = [];
     for (final dto in dtos) {
       entities.add(toEntity(dto));
     }
@@ -36,14 +37,14 @@ class LocationLocalMapper implements ObjectMapper<LocationLocalDTO, Location> {
   }
 
   @override
-  Location toEntity(LocationLocalDTO dto) {
+  LocationInfo toEntity(LocationLocalDTO dto) {
     try {
-      return Location(
+      return LocationInfo(
         latitude: dto.latitude,
         longitude: dto.longitude,
       );
     } catch (e) {
-      throw MapperException<LocationLocalDTO, Location>(e.toString());
+      throw MapperException<LocationLocalDTO, LocationInfo>(e.toString());
     }
   }
 }

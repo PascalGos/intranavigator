@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:intranavigator/data/datasources/shopping_list_item_local/dto/shopping_list_item_dto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../domain/exceptions/exceptions.dart';
+import '../../../domain/entities/exceptions/exceptions.dart';
 import 'shopping_list_item_local_datasource.dart';
 
 @Injectable(as: ShoppingListItemLocalDataSource)
