@@ -31,6 +31,8 @@ class RouterConfig extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appSettingsBloc = BlocProvider.of<AccountSettingsBloc>(context);
+    appSettingsBloc.add(const Started());
     return MaterialApp.router(
       scrollBehavior: LokyCustomScrollBehavior(),
       routerDelegate: AutoRouterDelegate(

@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cross_connectivity/cross_connectivity.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
@@ -40,11 +43,13 @@ abstract class ExternalModule {
   @lazySingleton
   Connectivity get connectivity => Connectivity();
 
+  @lazySingleton
+  DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();
+
   @Singleton(
     as: FirebaseFirestore,
   )
   FakeFirebaseFirestore get mockFirebaseFirestore => FakeFirebaseFirestore();
-
   @preResolve
   Future<SharedPreferences> get preferences => SharedPreferences.getInstance();
 }

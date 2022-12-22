@@ -15,7 +15,8 @@ class SettingsListView extends StatelessWidget {
           builder: (context, state) {
         final List<SettingItem> items = state.when(
             initial: (settings) => settings.settingItems,
-            success: (settings) => settings.settingItems);
+            success: (settings) => settings.settingItems,
+            error: (settings) => settings.settingItems);
         return ListView.builder(
           itemCount: items.length,
           itemBuilder: (BuildContext context, int index) {

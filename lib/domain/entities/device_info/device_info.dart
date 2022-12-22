@@ -1,5 +1,6 @@
 export 'specific_device_info/specific_device_info.dart';
 export 'display_metrics/display_metrics.dart';
+export 'converter/device_info_output_converter.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intranavigator/domain/entities/device_info/display_metrics/display_metrics.dart';

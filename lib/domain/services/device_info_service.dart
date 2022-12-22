@@ -6,7 +6,5 @@ import 'package:intranavigator/domain/entities/entities.dart';
 import '../../architecture/src/failure.dart';
 
 abstract class DeviceInfoService {
-  FutureOr<Either<Failure, Android>> get androidDeviceInfo;
-  FutureOr<Either<Failure, Ios>> get iosDeviceInfo;
-  FutureOr<Either<Failure, Web>> get webBrowserInfo;
+  FutureOr<Either<Failure, DeviceInfo>> get currentDeviceInfo;
 }

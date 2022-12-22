@@ -4,8 +4,11 @@ part of 'account_settings_bloc.dart';
 class AccountSettingsState with _$AccountSettingsState {
   const factory AccountSettingsState.initial({
     required AppSettings settings,
-  }) = _Initial;
+  }) = Initial;
   const factory AccountSettingsState.success({
     required AppSettings settings,
-  }) = _Success;
+  }) = Success;
+  const factory AccountSettingsState.error({
+    required AppSettings settings,
+  }) = Error;
 }
