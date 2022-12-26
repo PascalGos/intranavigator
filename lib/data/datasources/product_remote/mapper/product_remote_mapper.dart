@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intranavigator/domain/entities/entities.dart';
-import 'package:intranavigator/domain/entities/exceptions/mapper_exception.dart';
 
 import '../../../../architecture/architecture.dart';
 import '../dto/product_remote_dto.dart';

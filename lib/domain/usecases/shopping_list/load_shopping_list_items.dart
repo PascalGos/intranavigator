@@ -10,9 +10,10 @@ import 'package:intranavigator/domain/repositories/shopping_list_item_repository
 import '../../entities/entities.dart';
 
 @lazySingleton
-class LoadShoppingListItems extends UseCase<List<ShoppingListItem>, NoParams> {
+class LoadShoppingListItemsUseCase
+    extends UseCase<List<ShoppingListItem>, NoParams> {
   final ShoppingListItemRepository repository;
-  LoadShoppingListItems({
+  LoadShoppingListItemsUseCase({
     required this.repository,
   });
   @override

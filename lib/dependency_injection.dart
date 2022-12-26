@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cross_connectivity/cross_connectivity.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -7,7 +5,8 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intranavigator/data/datasources/product_remote/config/config.dart';
-import 'package:intranavigator/routes/router.gr.dart';
+import 'package:intranavigator/domain/entities/app_settings/app_settings.dart';
+import 'package:intranavigator/presentation/routes/router.gr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dependency_injection.config.dart';
 

@@ -8,9 +8,9 @@ import '../../../architecture/architecture.dart';
 import '../../entities/entities.dart';
 
 @lazySingleton
-class LoadAllProducts extends UseCase<List<Product>, NoParams> {
+class LoadAllProductsUseCase extends UseCase<List<Product>, NoParams> {
   final ProductRepository repository;
-  LoadAllProducts({
+  LoadAllProductsUseCase({
     required this.repository,
   });
 

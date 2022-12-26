@@ -21,12 +21,9 @@ class ShoppingListItemLocalDataSourceImpl
   @override
   Future<ShoppingListItemDTO> create(ShoppingListItemDTO item) async {
     try {
-      print(item.toJson());
       final data = json.encode(item.toJson());
       await localDataSource.setString(item.id, data);
     } catch (e) {
-      //BUG: Fix this bug
-      print(e);
       throw CacheException();
     }
     return item;

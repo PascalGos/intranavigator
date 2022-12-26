@@ -59,8 +59,8 @@ class DeviceInfoMapper
                 _androidDisplayMetricsMapper.toEntity(dto.displayMetrics),
           );
         } catch (e) {
-          throw MapperException<third_party.AndroidDeviceInfo, Android>(
-              e.toString());
+          throw MapperException<third_party.AndroidDeviceInfo,
+              AndroidDeviceInfo>(e.toString());
         }
       }
       if (dto is third_party.IosDeviceInfo) {
@@ -77,7 +77,8 @@ class DeviceInfoMapper
             utsname: _iosUtsnameMapper.toEntity(dto.utsname),
           );
         } catch (e) {
-          throw MapperException<third_party.IosDeviceInfo, Ios>(e.toString());
+          throw MapperException<third_party.IosDeviceInfo, IosDeviceInfo>(
+              e.toString());
         }
       }
       if (dto is third_party.WebBrowserInfo) {
@@ -99,7 +100,8 @@ class DeviceInfoMapper
             hardwareConcurrency: dto.hardwareConcurrency,
           );
         } catch (e) {
-          throw MapperException<third_party.WebBrowserInfo, Web>(e.toString());
+          throw MapperException<third_party.WebBrowserInfo, WebDeviceInfo>(
+              e.toString());
         }
       }
       return const DeviceInfo.unknown();

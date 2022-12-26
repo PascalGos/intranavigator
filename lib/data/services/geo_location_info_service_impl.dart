@@ -1,43 +1,45 @@
-import 'package:dartz/dartz.dart';
-import 'dart:async';
+//TODO: Rewrite GeoLocationInfoServiceImpl or Delete
 
-import 'package:geolocator/geolocator.dart' as third_party;
-import 'package:intranavigator/architecture/src/failure.dart';
-import 'package:intranavigator/data/datasources/geo_location_info_local/geo_location_info_local.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
-import 'package:intranavigator/domain/entities/failures/geo_location_info_retrieval_failure.dart';
-import 'package:intranavigator/domain/services/services.dart';
+// import 'package:dartz/dartz.dart';
+// import 'dart:async';
 
-class GeoLocationInfoServiceImpl implements GeoLocationInfoService {
-  final LocationPermissionMapper _mapper = LocationPermissionMapper();
+// import 'package:geolocator/geolocator.dart' as third_party;
+// import 'package:intranavigator/architecture/src/failure.dart';
+// import 'package:intranavigator/data/datasources/geo_location_info_local/geo_location_info_local.dart';
+// import 'package:intranavigator/domain/entities/entities.dart';
+// import 'package:intranavigator/domain/entities/failures/geo_location_info_retrieval_failure.dart';
+// import 'package:intranavigator/domain/services/services.dart';
 
-  @override
-  FutureOr<Either<Failure, LocationPermission>> checkPermission() async {
-    final LocationPermission permission;
+// class GeoLocationInfoServiceImpl implements GeoLocationInfoService {
+//   final LocationPermissionMapper _mapper = LocationPermissionMapper();
 
-    try {
-      final result = await third_party.Geolocator.checkPermission();
+//   @override
+//   FutureOr<Either<Failure, LocationPermission>> checkPermission() async {
+//     final LocationPermission permission;
 
-      permission = _mapper.toEntity(result);
+//     try {
+//       final result = await third_party.Geolocator.checkPermission();
 
-      return Right(permission);
-    } catch (e) {
-      return Left(GeoLocationInfoRetrievalFailure(message: e.toString()));
-    }
-  }
+//       permission = _mapper.toEntity(result);
 
-  @override
-  FutureOr<Either<Failure, LocationPermission>> requestPermission() async {
-    final LocationPermission permission;
+//       return Right(permission);
+//     } catch (e) {
+//       return Left(GeoLocationInfoRetrievalFailure(message: e.toString()));
+//     }
+//   }
 
-    try {
-      final result = await third_party.Geolocator.requestPermission();
+//   @override
+//   FutureOr<Either<Failure, LocationPermission>> requestPermission() async {
+//     final LocationPermission permission;
 
-      permission = _mapper.toEntity(result);
+//     try {
+//       final result = await third_party.Geolocator.requestPermission();
 
-      return Right(permission);
-    } catch (e) {
-      return Left(GeoLocationInfoRetrievalFailure(message: e.toString()));
-    }
-  }
-}
+//       permission = _mapper.toEntity(result);
+
+//       return Right(permission);
+//     } catch (e) {
+//       return Left(GeoLocationInfoRetrievalFailure(message: e.toString()));
+//     }
+//   }
+// }

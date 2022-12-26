@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppSettings {
   DeviceInfo get deviceInfo => throw _privateConstructorUsedError;
-  List<SettingItem> get settingItems => throw _privateConstructorUsedError;
+  List<DevicePermission> get permissions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppSettingsCopyWith<AppSettings> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $AppSettingsCopyWith<$Res> {
           AppSettings value, $Res Function(AppSettings) then) =
       _$AppSettingsCopyWithImpl<$Res, AppSettings>;
   @useResult
-  $Res call({DeviceInfo deviceInfo, List<SettingItem> settingItems});
+  $Res call({DeviceInfo deviceInfo, List<DevicePermission> permissions});
 
   $DeviceInfoCopyWith<$Res> get deviceInfo;
 }
@@ -49,17 +49,17 @@ class _$AppSettingsCopyWithImpl<$Res, $Val extends AppSettings>
   @override
   $Res call({
     Object? deviceInfo = null,
-    Object? settingItems = null,
+    Object? permissions = null,
   }) {
     return _then(_value.copyWith(
       deviceInfo: null == deviceInfo
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      settingItems: null == settingItems
-          ? _value.settingItems
-          : settingItems // ignore: cast_nullable_to_non_nullable
-              as List<SettingItem>,
+      permissions: null == permissions
+          ? _value.permissions
+          : permissions // ignore: cast_nullable_to_non_nullable
+              as List<DevicePermission>,
     ) as $Val);
   }
 
@@ -80,7 +80,7 @@ abstract class _$$_AppSettingsCopyWith<$Res>
       __$$_AppSettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DeviceInfo deviceInfo, List<SettingItem> settingItems});
+  $Res call({DeviceInfo deviceInfo, List<DevicePermission> permissions});
 
   @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
@@ -98,17 +98,17 @@ class __$$_AppSettingsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? deviceInfo = null,
-    Object? settingItems = null,
+    Object? permissions = null,
   }) {
     return _then(_$_AppSettings(
       deviceInfo: null == deviceInfo
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      settingItems: null == settingItems
-          ? _value._settingItems
-          : settingItems // ignore: cast_nullable_to_non_nullable
-              as List<SettingItem>,
+      permissions: null == permissions
+          ? _value._permissions
+          : permissions // ignore: cast_nullable_to_non_nullable
+              as List<DevicePermission>,
     ));
   }
 }
@@ -118,24 +118,24 @@ class __$$_AppSettingsCopyWithImpl<$Res>
 class _$_AppSettings implements _AppSettings {
   const _$_AppSettings(
       {this.deviceInfo = const DeviceInfo.unknown(),
-      final List<SettingItem> settingItems = defaultSettingItems})
-      : _settingItems = settingItems;
+      final List<DevicePermission> permissions = emptyPermissions})
+      : _permissions = permissions;
 
   @override
   @JsonKey()
   final DeviceInfo deviceInfo;
-  final List<SettingItem> _settingItems;
+  final List<DevicePermission> _permissions;
   @override
   @JsonKey()
-  List<SettingItem> get settingItems {
-    if (_settingItems is EqualUnmodifiableListView) return _settingItems;
+  List<DevicePermission> get permissions {
+    if (_permissions is EqualUnmodifiableListView) return _permissions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_settingItems);
+    return EqualUnmodifiableListView(_permissions);
   }
 
   @override
   String toString() {
-    return 'AppSettings(deviceInfo: $deviceInfo, settingItems: $settingItems)';
+    return 'AppSettings(deviceInfo: $deviceInfo, permissions: $permissions)';
   }
 
   @override
@@ -146,12 +146,12 @@ class _$_AppSettings implements _AppSettings {
             (identical(other.deviceInfo, deviceInfo) ||
                 other.deviceInfo == deviceInfo) &&
             const DeepCollectionEquality()
-                .equals(other._settingItems, _settingItems));
+                .equals(other._permissions, _permissions));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, deviceInfo,
-      const DeepCollectionEquality().hash(_settingItems));
+      const DeepCollectionEquality().hash(_permissions));
 
   @JsonKey(ignore: true)
   @override
@@ -163,12 +163,12 @@ class _$_AppSettings implements _AppSettings {
 abstract class _AppSettings implements AppSettings {
   const factory _AppSettings(
       {final DeviceInfo deviceInfo,
-      final List<SettingItem> settingItems}) = _$_AppSettings;
+      final List<DevicePermission> permissions}) = _$_AppSettings;
 
   @override
   DeviceInfo get deviceInfo;
   @override
-  List<SettingItem> get settingItems;
+  List<DevicePermission> get permissions;
   @override
   @JsonKey(ignore: true)
   _$$_AppSettingsCopyWith<_$_AppSettings> get copyWith =>

@@ -5,7 +5,7 @@ import 'package:intranavigator/domain/entities/entities.dart';
 
 import '../../architecture/architecture.dart';
 
-abstract class GeoLocationInfoService {
-  FutureOr<Either<Failure, LocationPermission>> checkPermission();
-  FutureOr<Either<Failure, LocationPermission>> requestPermission();
-}
+// abstract class GeoLocationInfoService {
+//   FutureOr<Either<Failure, LocationPermission>> checkPermission();
+//   FutureOr<Either<Failure, LocationPermission>> requestPermission();
+// }
