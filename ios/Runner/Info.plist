@@ -47,5 +47,17 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+  	<!-- ... -->
+  		<!-- Enable the app to access the device's camera -->
+  		<string>PERMISSION_CAMERA</string>
+  		<!-- Enable the app to access the device's location -->
+  		<string>PERMISSION_LOCATION</string>
+  		<!-- Enable the app to access the device's sensors -->
+  		<string>PERMISSION_SENSORS</string>
+  		<!-- Enable the app to access the device's Bluetooth -->
+  		<string>PERMISSION_BLUETOOTH</string>
+	</array>
 </dict>
 </plist>
