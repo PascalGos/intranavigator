@@ -37,9 +37,9 @@ class DataShoppingListItemRepositoryImpl implements ShoppingListItemRepository {
       ShoppingListItem item = _mapper.toEntity(result);
       return Right(item);
     } on MapperException {
-      return Left(MappingFailure());
+      return const Left(MappingFailure());
     } on CacheException {
-      return Left(CacheFailure());
+      return const Left(CacheFailure());
     }
   }
 
@@ -70,9 +70,9 @@ class DataShoppingListItemRepositoryImpl implements ShoppingListItemRepository {
       items = _mapper.toEntities(localItems);
       return Right(items);
     } on MapperException {
-      return Left(MappingFailure());
+      return const Left(MappingFailure());
     } on CacheException {
-      return Left(CacheFailure());
+      return const Left(CacheFailure());
     }
   }
 

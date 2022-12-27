@@ -4,8 +4,8 @@ import 'package:intranavigator/domain/entities/device/device_permission/status/d
 import 'package:intranavigator/domain/entities/entities.dart';
 import 'package:intranavigator/presentation/features/settings/settings.dart';
 
-class SettingsListView extends StatelessWidget {
-  const SettingsListView({
+class PermissionListView extends StatelessWidget {
+  const PermissionListView({
     Key? key,
   }) : super(key: key);
 
@@ -22,12 +22,12 @@ class SettingsListView extends StatelessWidget {
         return ListView.builder(
           itemCount: items.length,
           itemBuilder: (BuildContext context, int index) {
-            return SettingsItemTile(
+            return PermissionItemTile(
               title: items[index].name,
               value: (items[index].status is Granted),
               onChanged: (bool value) {
                 context.read<SettingsBloc>().add(
-                      ToggleSettingItem(item: items[index]),
+                      TogglePermissionItem(item: items[index]),
                     );
               },
             );

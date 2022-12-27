@@ -9,17 +9,17 @@ import '../../../architecture/architecture.dart';
 import '../../services/device_permission_service.dart';
 
 @lazySingleton
-class RequestPermissionUseCase
-    extends UseCase<DevicePermission, RequestPermissionUseCaseParams> {
+class RevokePermissionUseCase
+    extends UseCase<DevicePermission, PermissionUseCaseParams> {
   final DevicePermissionService service;
 
-  RequestPermissionUseCase({required this.service});
+  RevokePermissionUseCase({required this.service});
 
   @override
   FutureOr<Either<Failure, DevicePermission>> call(
-      RequestPermissionUseCaseParams params) async {
+      PermissionUseCaseParams params) async {
     final failureOrPermission =
-        await service.requestDevicePermission(params.permission);
+        await service.revokeDevicePermission(params.permission);
 
     return failureOrPermission.fold(
       (failure) => Left(failure),
@@ -28,10 +28,10 @@ class RequestPermissionUseCase
   }
 }
 
-class RequestPermissionUseCaseParams extends Equatable {
+class PermissionUseCaseParams extends Equatable {
   final DevicePermission permission;
 
-  const RequestPermissionUseCaseParams({
+  const PermissionUseCaseParams({
     required this.permission,
   });
 

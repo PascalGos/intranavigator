@@ -10,6 +10,6 @@ class MapperException<From, To> implements Exception {
   // source and target classes, as well as the error message
   @override
   String toString() {
-    return 'Error when mapping class $From to $To: $message}';
+    return 'Error when mapping class $From to $To: $message';
   }
 }

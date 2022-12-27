@@ -3,32 +3,31 @@ import 'package:intranavigator/domain/entities/entities.dart';
 import '../../../../architecture/architecture.dart';
 import 'package:permission_handler/permission_handler.dart' as third_party;
 
-class DevicePermissionMapper
+class NativeMobileDevicePermissionMapper
     implements ObjectMapper<third_party.Permission, DevicePermission> {
   @override
   third_party.Permission toDto(DevicePermission entity) {
     try {
-      switch (DevicePermission) {
-        case Location:
-          return third_party.Permission.location;
-        case LocationAlways:
-          return third_party.Permission.locationAlways;
-        case LocationWhenInUse:
-          return third_party.Permission.locationWhenInUse;
-        case MotionSensors:
-          return third_party.Permission.sensors;
-        case Bluetooth:
-          return third_party.Permission.bluetooth;
-        case BluetoothScan:
-          return third_party.Permission.bluetoothScan;
-        case BluetoothAdvertise:
-          return third_party.Permission.bluetoothAdvertise;
-        case BluetoothConnect:
-          return third_party.Permission.bluetoothConnect;
-        case Camera:
-          return third_party.Permission.camera;
-        default:
-          throw Exception('No permission type matches');
+      if (entity is Location) {
+        return third_party.Permission.location;
+      } else if (entity is LocationAlways) {
+        return third_party.Permission.locationAlways;
+      } else if (entity is LocationWhenInUse) {
+        return third_party.Permission.locationWhenInUse;
+      } else if (entity is MotionSensors) {
+        return third_party.Permission.sensors;
+      } else if (entity is Bluetooth) {
+        return third_party.Permission.bluetooth;
+      } else if (entity is BluetoothScan) {
+        return third_party.Permission.bluetoothScan;
+      } else if (entity is BluetoothAdvertise) {
+        return third_party.Permission.bluetoothAdvertise;
+      } else if (entity is BluetoothConnect) {
+        return third_party.Permission.bluetoothConnect;
+      } else if (entity is Camera) {
+        return third_party.Permission.camera;
+      } else {
+        throw Exception('No permission type matches');
       }
     } catch (e) {
       throw MapperException<DevicePermission, third_party.Permission>(

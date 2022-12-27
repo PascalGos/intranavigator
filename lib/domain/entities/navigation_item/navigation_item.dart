@@ -10,7 +10,7 @@ class NavigationItem with _$NavigationItem {
   const factory NavigationItem.home() = Home;
   const factory NavigationItem.shoppingCart() = ShoppingCart;
   const factory NavigationItem.favorites() = Favorites;
-  const factory NavigationItem.accountSettings() = AccountSettings;
+  const factory NavigationItem.settings() = AccountSettings;
   const factory NavigationItem.productLocalization({required Product product}) =
       ProductLocalization;
 
@@ -20,7 +20,7 @@ class NavigationItem with _$NavigationItem {
       shoppingCart: () => 1,
       productLocalization: (product) => 1,
       favorites: () => 2,
-      accountSettings: () => 3,
+      settings: () => 3,
     );
   }
 
@@ -30,7 +30,7 @@ class NavigationItem with _$NavigationItem {
       shoppingCart: () => 'Shopping Cart',
       productLocalization: (product) => 'Product Localization',
       favorites: () => 'Favorites',
-      accountSettings: () => 'Account Settings',
+      settings: () => 'Settings',
     );
   }
 }

@@ -30,30 +30,34 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   late final LoadDevicePermissionsUseCase _loadDevicePermissions;
 
   void onStarted(AppEvent event, Emitter<AppState> emit) async {
-    // TODO: Handle Failure State
-    final loadedAppSettings = AppSettings();
+    AppSettings appSettingsDefault = AppSettings();
+    late AppSettings appSettingsWithDeviceInfo;
+    late AppSettings appSettingsWithDevicePermissions;
 
     final failureOrDeviceInfo = await _loadDeviceInfo(NoParams());
 
     failureOrDeviceInfo.fold(
       (failure) => emit(const Failure()),
-      (deviceInfo) => loadedAppSettings.copyWith(deviceInfo: deviceInfo),
+      (deviceInfo) => {
+        appSettingsWithDeviceInfo =
+            appSettingsDefault.copyWith(deviceInfo: deviceInfo)
+      },
     );
 
     final failureOrPermissions = await _loadDevicePermissions(NoParams());
 
     failureOrPermissions.fold(
       (failure) => emit(const Failure()),
-      (permissions) => loadedAppSettings.copyWith(permissions: permissions),
+      (permissions) {
+        appSettingsWithDevicePermissions =
+            appSettingsWithDeviceInfo.copyWith(permissions: permissions);
+      },
     );
 
-    print(loadedAppSettings);
+    emit(Initialized(settings: appSettingsWithDevicePermissions));
 
-    emit(Initialized(settings: loadedAppSettings));
-    // await Future.delayed(const Duration(seconds: 2)).then(
-    //   (value) => emit(
-    //     const Initialized(settings: result),
-    //   ),
-    // );
+    // Future.delayed(const Duration(milliseconds: 1500)).then((_) {
+    //   //TODO:Implement a delay from 1 to 2 seconds to show the Splash Screen
+    // });
   }
 }

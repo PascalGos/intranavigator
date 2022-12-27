@@ -15,7 +15,7 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
   ProductListBloc({
     required LoadAllProductsUseCase loadAllProductsUsecase,
   })  : _loadAllProducts = loadAllProductsUsecase,
-        super(const _Initial()) {
+        super(const Initial()) {
     on<Started>(_onStarted);
   }
 
@@ -25,13 +25,13 @@ class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {
     ProductListEvent event,
     Emitter<ProductListState> emit,
   ) async {
-    emit(const _Loading());
+    emit(const Loading());
 
     final failureOrProductList = await _loadAllProducts(NoParams());
 
     failureOrProductList.fold(
-      (failure) => emit(const _Failure()),
-      (items) => emit(_Success(items: items)),
+      (failure) => emit(const Failure()),
+      (items) => emit(Success(items: items)),
     );
   }
 }

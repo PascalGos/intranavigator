@@ -1,10 +1,9 @@
-import 'package:intranavigator/domain/entities/device/device_permission/status/device_permission_status.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
+import 'dart:html' as third_party;
 
 import '../../../../architecture/architecture.dart';
-import 'package:permission_handler/permission_handler.dart' as third_party;
+import '../../../../domain/entities/entities.dart';
 
-class DevicePermissionStatusMapper
+class WebDevicePermissionStatusMapper
     implements
         ObjectMapper<third_party.PermissionStatus, DevicePermissionStatus> {
   @override
@@ -27,15 +26,26 @@ class DevicePermissionStatusMapper
   @override
   DevicePermissionStatus toEntity(third_party.PermissionStatus dto) {
     try {
-      if (dto.isDenied) {
-        return const DevicePermissionStatus.denied();
-      } else if (dto.isGranted) {
-        return const DevicePermissionStatus.granted();
-      } else if (dto.isRestricted) {
-        return const DevicePermissionStatus.restricted();
-      } else {
+      if (dto.state == "prompt") {
         return const DevicePermissionStatus.undetermined();
       }
+      if (dto.state == "denied") {
+        return const DevicePermissionStatus.denied();
+      }
+      if (dto.state == "granted") {
+        return const DevicePermissionStatus.granted();
+      }
+      if (dto.state == "restricted") {
+        return const DevicePermissionStatus.restricted();
+      }
+      if (dto.state == "limited") {
+        return const DevicePermissionStatus.limited();
+      }
+      if (dto.state == "permanentlyDenied") {
+        return const DevicePermissionStatus.permanentlyDenied();
+      }
+
+      throw Exception('No permissionStatus type matches');
     } catch (e) {
       throw MapperException<third_party.PermissionStatus,
           DevicePermissionStatus>(e.toString());

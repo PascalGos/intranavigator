@@ -2,7 +2,12 @@ part of 'settings_bloc.dart';
 
 @freezed
 class SettingsEvent with _$SettingsEvent {
-  const factory SettingsEvent.started() = Started;
-  const factory SettingsEvent.toggleSettingItem(
-      {required DevicePermission item}) = ToggleSettingItem;
+  const factory SettingsEvent.started({
+    required AppSettings settings,
+  }) = Started;
+  const factory SettingsEvent.update({
+    required AppSettings settings,
+  }) = Update;
+  const factory SettingsEvent.togglePermissionItem(
+      {required DevicePermission item}) = TogglePermissionItem;
 }

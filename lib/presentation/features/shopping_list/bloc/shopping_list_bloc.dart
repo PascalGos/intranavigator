@@ -15,7 +15,7 @@ class ShoppingListBloc extends Bloc<ShoppingListEvent, ShoppingListState> {
   ShoppingListBloc(
       {required LoadShoppingListItemsUseCase loadShoppingListItemsUsecase})
       : _loadItemsUseCase = loadShoppingListItemsUsecase,
-        super(const _Initial()) {
+        super(const Initial()) {
     on<Started>(_onStarted);
   }
 
@@ -25,12 +25,12 @@ class ShoppingListBloc extends Bloc<ShoppingListEvent, ShoppingListState> {
     ShoppingListEvent event,
     Emitter<ShoppingListState> emit,
   ) async {
-    emit(const _Loading());
+    emit(const Loading());
     final failureOrShoppingItemList = await _loadItemsUseCase(NoParams());
 
     failureOrShoppingItemList.fold(
-      (failure) => emit(const _Failure()),
-      (items) => emit(_Success(items: items)),
+      (failure) => emit(const Failure()),
+      (items) => emit(Success(items: items)),
     );
   }
 }

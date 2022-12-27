@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'status/device_permission_status.dart';
 
+export 'status/device_permission_status.dart';
+
 part 'device_permission.freezed.dart';
 
 @freezed

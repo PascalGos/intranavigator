@@ -21,6 +21,8 @@ mixin _$DevicePermissionStatus {
     required TResult Function() denied,
     required TResult Function() granted,
     required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
     required TResult Function() undetermined,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +31,8 @@ mixin _$DevicePermissionStatus {
     TResult? Function()? denied,
     TResult? Function()? granted,
     TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
     TResult? Function()? undetermined,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +41,8 @@ mixin _$DevicePermissionStatus {
     TResult Function()? denied,
     TResult Function()? granted,
     TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
     TResult Function()? undetermined,
     required TResult orElse(),
   }) =>
@@ -46,6 +52,8 @@ mixin _$DevicePermissionStatus {
     required TResult Function(Denied value) denied,
     required TResult Function(Granted value) granted,
     required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
     required TResult Function(Undetermined value) undetermined,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +62,8 @@ mixin _$DevicePermissionStatus {
     TResult? Function(Denied value)? denied,
     TResult? Function(Granted value)? granted,
     TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
     TResult? Function(Undetermined value)? undetermined,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +72,8 @@ mixin _$DevicePermissionStatus {
     TResult Function(Denied value)? denied,
     TResult Function(Granted value)? granted,
     TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
     TResult Function(Undetermined value)? undetermined,
     required TResult orElse(),
   }) =>
@@ -126,6 +138,8 @@ class _$Denied implements Denied {
     required TResult Function() denied,
     required TResult Function() granted,
     required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
     required TResult Function() undetermined,
   }) {
     return denied();
@@ -137,6 +151,8 @@ class _$Denied implements Denied {
     TResult? Function()? denied,
     TResult? Function()? granted,
     TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
     TResult? Function()? undetermined,
   }) {
     return denied?.call();
@@ -148,6 +164,8 @@ class _$Denied implements Denied {
     TResult Function()? denied,
     TResult Function()? granted,
     TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
     TResult Function()? undetermined,
     required TResult orElse(),
   }) {
@@ -163,6 +181,8 @@ class _$Denied implements Denied {
     required TResult Function(Denied value) denied,
     required TResult Function(Granted value) granted,
     required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
     required TResult Function(Undetermined value) undetermined,
   }) {
     return denied(this);
@@ -174,6 +194,8 @@ class _$Denied implements Denied {
     TResult? Function(Denied value)? denied,
     TResult? Function(Granted value)? granted,
     TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
     TResult? Function(Undetermined value)? undetermined,
   }) {
     return denied?.call(this);
@@ -185,6 +207,8 @@ class _$Denied implements Denied {
     TResult Function(Denied value)? denied,
     TResult Function(Granted value)? granted,
     TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
     TResult Function(Undetermined value)? undetermined,
     required TResult orElse(),
   }) {
@@ -238,6 +262,8 @@ class _$Granted implements Granted {
     required TResult Function() denied,
     required TResult Function() granted,
     required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
     required TResult Function() undetermined,
   }) {
     return granted();
@@ -249,6 +275,8 @@ class _$Granted implements Granted {
     TResult? Function()? denied,
     TResult? Function()? granted,
     TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
     TResult? Function()? undetermined,
   }) {
     return granted?.call();
@@ -260,6 +288,8 @@ class _$Granted implements Granted {
     TResult Function()? denied,
     TResult Function()? granted,
     TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
     TResult Function()? undetermined,
     required TResult orElse(),
   }) {
@@ -275,6 +305,8 @@ class _$Granted implements Granted {
     required TResult Function(Denied value) denied,
     required TResult Function(Granted value) granted,
     required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
     required TResult Function(Undetermined value) undetermined,
   }) {
     return granted(this);
@@ -286,6 +318,8 @@ class _$Granted implements Granted {
     TResult? Function(Denied value)? denied,
     TResult? Function(Granted value)? granted,
     TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
     TResult? Function(Undetermined value)? undetermined,
   }) {
     return granted?.call(this);
@@ -297,6 +331,8 @@ class _$Granted implements Granted {
     TResult Function(Denied value)? denied,
     TResult Function(Granted value)? granted,
     TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
     TResult Function(Undetermined value)? undetermined,
     required TResult orElse(),
   }) {
@@ -352,6 +388,8 @@ class _$Restricted implements Restricted {
     required TResult Function() denied,
     required TResult Function() granted,
     required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
     required TResult Function() undetermined,
   }) {
     return restricted();
@@ -363,6 +401,8 @@ class _$Restricted implements Restricted {
     TResult? Function()? denied,
     TResult? Function()? granted,
     TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
     TResult? Function()? undetermined,
   }) {
     return restricted?.call();
@@ -374,6 +414,8 @@ class _$Restricted implements Restricted {
     TResult Function()? denied,
     TResult Function()? granted,
     TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
     TResult Function()? undetermined,
     required TResult orElse(),
   }) {
@@ -389,6 +431,8 @@ class _$Restricted implements Restricted {
     required TResult Function(Denied value) denied,
     required TResult Function(Granted value) granted,
     required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
     required TResult Function(Undetermined value) undetermined,
   }) {
     return restricted(this);
@@ -400,6 +444,8 @@ class _$Restricted implements Restricted {
     TResult? Function(Denied value)? denied,
     TResult? Function(Granted value)? granted,
     TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
     TResult? Function(Undetermined value)? undetermined,
   }) {
     return restricted?.call(this);
@@ -411,6 +457,8 @@ class _$Restricted implements Restricted {
     TResult Function(Denied value)? denied,
     TResult Function(Granted value)? granted,
     TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
     TResult Function(Undetermined value)? undetermined,
     required TResult orElse(),
   }) {
@@ -423,6 +471,256 @@ class _$Restricted implements Restricted {
 
 abstract class Restricted implements DevicePermissionStatus {
   const factory Restricted() = _$Restricted;
+}
+
+/// @nodoc
+abstract class _$$LimitedCopyWith<$Res> {
+  factory _$$LimitedCopyWith(_$Limited value, $Res Function(_$Limited) then) =
+      __$$LimitedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LimitedCopyWithImpl<$Res>
+    extends _$DevicePermissionStatusCopyWithImpl<$Res, _$Limited>
+    implements _$$LimitedCopyWith<$Res> {
+  __$$LimitedCopyWithImpl(_$Limited _value, $Res Function(_$Limited) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$Limited implements Limited {
+  const _$Limited();
+
+  @override
+  String toString() {
+    return 'DevicePermissionStatus.limited()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Limited);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() denied,
+    required TResult Function() granted,
+    required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
+    required TResult Function() undetermined,
+  }) {
+    return limited();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? denied,
+    TResult? Function()? granted,
+    TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
+    TResult? Function()? undetermined,
+  }) {
+    return limited?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? denied,
+    TResult Function()? granted,
+    TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
+    TResult Function()? undetermined,
+    required TResult orElse(),
+  }) {
+    if (limited != null) {
+      return limited();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Denied value) denied,
+    required TResult Function(Granted value) granted,
+    required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
+    required TResult Function(Undetermined value) undetermined,
+  }) {
+    return limited(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Denied value)? denied,
+    TResult? Function(Granted value)? granted,
+    TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
+    TResult? Function(Undetermined value)? undetermined,
+  }) {
+    return limited?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Denied value)? denied,
+    TResult Function(Granted value)? granted,
+    TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
+    TResult Function(Undetermined value)? undetermined,
+    required TResult orElse(),
+  }) {
+    if (limited != null) {
+      return limited(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Limited implements DevicePermissionStatus {
+  const factory Limited() = _$Limited;
+}
+
+/// @nodoc
+abstract class _$$PermanentlyDeniedCopyWith<$Res> {
+  factory _$$PermanentlyDeniedCopyWith(
+          _$PermanentlyDenied value, $Res Function(_$PermanentlyDenied) then) =
+      __$$PermanentlyDeniedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PermanentlyDeniedCopyWithImpl<$Res>
+    extends _$DevicePermissionStatusCopyWithImpl<$Res, _$PermanentlyDenied>
+    implements _$$PermanentlyDeniedCopyWith<$Res> {
+  __$$PermanentlyDeniedCopyWithImpl(
+      _$PermanentlyDenied _value, $Res Function(_$PermanentlyDenied) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PermanentlyDenied implements PermanentlyDenied {
+  const _$PermanentlyDenied();
+
+  @override
+  String toString() {
+    return 'DevicePermissionStatus.permanentlyDenied()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PermanentlyDenied);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() denied,
+    required TResult Function() granted,
+    required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
+    required TResult Function() undetermined,
+  }) {
+    return permanentlyDenied();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? denied,
+    TResult? Function()? granted,
+    TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
+    TResult? Function()? undetermined,
+  }) {
+    return permanentlyDenied?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? denied,
+    TResult Function()? granted,
+    TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
+    TResult Function()? undetermined,
+    required TResult orElse(),
+  }) {
+    if (permanentlyDenied != null) {
+      return permanentlyDenied();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Denied value) denied,
+    required TResult Function(Granted value) granted,
+    required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
+    required TResult Function(Undetermined value) undetermined,
+  }) {
+    return permanentlyDenied(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Denied value)? denied,
+    TResult? Function(Granted value)? granted,
+    TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
+    TResult? Function(Undetermined value)? undetermined,
+  }) {
+    return permanentlyDenied?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Denied value)? denied,
+    TResult Function(Granted value)? granted,
+    TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
+    TResult Function(Undetermined value)? undetermined,
+    required TResult orElse(),
+  }) {
+    if (permanentlyDenied != null) {
+      return permanentlyDenied(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PermanentlyDenied implements DevicePermissionStatus {
+  const factory PermanentlyDenied() = _$PermanentlyDenied;
 }
 
 /// @nodoc
@@ -466,6 +764,8 @@ class _$Undetermined implements Undetermined {
     required TResult Function() denied,
     required TResult Function() granted,
     required TResult Function() restricted,
+    required TResult Function() limited,
+    required TResult Function() permanentlyDenied,
     required TResult Function() undetermined,
   }) {
     return undetermined();
@@ -477,6 +777,8 @@ class _$Undetermined implements Undetermined {
     TResult? Function()? denied,
     TResult? Function()? granted,
     TResult? Function()? restricted,
+    TResult? Function()? limited,
+    TResult? Function()? permanentlyDenied,
     TResult? Function()? undetermined,
   }) {
     return undetermined?.call();
@@ -488,6 +790,8 @@ class _$Undetermined implements Undetermined {
     TResult Function()? denied,
     TResult Function()? granted,
     TResult Function()? restricted,
+    TResult Function()? limited,
+    TResult Function()? permanentlyDenied,
     TResult Function()? undetermined,
     required TResult orElse(),
   }) {
@@ -503,6 +807,8 @@ class _$Undetermined implements Undetermined {
     required TResult Function(Denied value) denied,
     required TResult Function(Granted value) granted,
     required TResult Function(Restricted value) restricted,
+    required TResult Function(Limited value) limited,
+    required TResult Function(PermanentlyDenied value) permanentlyDenied,
     required TResult Function(Undetermined value) undetermined,
   }) {
     return undetermined(this);
@@ -514,6 +820,8 @@ class _$Undetermined implements Undetermined {
     TResult? Function(Denied value)? denied,
     TResult? Function(Granted value)? granted,
     TResult? Function(Restricted value)? restricted,
+    TResult? Function(Limited value)? limited,
+    TResult? Function(PermanentlyDenied value)? permanentlyDenied,
     TResult? Function(Undetermined value)? undetermined,
   }) {
     return undetermined?.call(this);
@@ -525,6 +833,8 @@ class _$Undetermined implements Undetermined {
     TResult Function(Denied value)? denied,
     TResult Function(Granted value)? granted,
     TResult Function(Restricted value)? restricted,
+    TResult Function(Limited value)? limited,
+    TResult Function(PermanentlyDenied value)? permanentlyDenied,
     TResult Function(Undetermined value)? undetermined,
     required TResult orElse(),
   }) {

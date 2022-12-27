@@ -13,7 +13,7 @@ class SettingsListHeading extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: Text(
-            'Account Settings',
+            'Settings',
             style: Theme.of(context).textTheme.headline4,
           ),
         ),

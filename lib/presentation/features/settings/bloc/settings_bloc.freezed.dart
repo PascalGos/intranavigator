@@ -18,39 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(DevicePermission item) toggleSettingItem,
+    required TResult Function(AppSettings settings) started,
+    required TResult Function(AppSettings settings) update,
+    required TResult Function(DevicePermission item) togglePermissionItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(DevicePermission item)? toggleSettingItem,
+    TResult? Function(AppSettings settings)? started,
+    TResult? Function(AppSettings settings)? update,
+    TResult? Function(DevicePermission item)? togglePermissionItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(DevicePermission item)? toggleSettingItem,
+    TResult Function(AppSettings settings)? started,
+    TResult Function(AppSettings settings)? update,
+    TResult Function(DevicePermission item)? togglePermissionItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(ToggleSettingItem value) toggleSettingItem,
+    required TResult Function(Update value) update,
+    required TResult Function(TogglePermissionItem value) togglePermissionItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
-    TResult? Function(ToggleSettingItem value)? toggleSettingItem,
+    TResult? Function(Update value)? update,
+    TResult? Function(TogglePermissionItem value)? togglePermissionItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(ToggleSettingItem value)? toggleSettingItem,
+    TResult Function(Update value)? update,
+    TResult Function(TogglePermissionItem value)? togglePermissionItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +84,10 @@ class _$SettingsEventCopyWithImpl<$Res, $Val extends SettingsEvent>
 abstract class _$$StartedCopyWith<$Res> {
   factory _$$StartedCopyWith(_$Started value, $Res Function(_$Started) then) =
       __$$StartedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AppSettings settings});
+
+  $AppSettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -86,54 +96,90 @@ class __$$StartedCopyWithImpl<$Res>
     implements _$$StartedCopyWith<$Res> {
   __$$StartedCopyWithImpl(_$Started _value, $Res Function(_$Started) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? settings = null,
+  }) {
+    return _then(_$Started(
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as AppSettings,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppSettingsCopyWith<$Res> get settings {
+    return $AppSettingsCopyWith<$Res>(_value.settings, (value) {
+      return _then(_value.copyWith(settings: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$Started implements Started {
-  const _$Started();
+  const _$Started({required this.settings});
+
+  @override
+  final AppSettings settings;
 
   @override
   String toString() {
-    return 'SettingsEvent.started()';
+    return 'SettingsEvent.started(settings: $settings)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Started);
+        (other.runtimeType == runtimeType &&
+            other is _$Started &&
+            (identical(other.settings, settings) ||
+                other.settings == settings));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, settings);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StartedCopyWith<_$Started> get copyWith =>
+      __$$StartedCopyWithImpl<_$Started>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(DevicePermission item) toggleSettingItem,
+    required TResult Function(AppSettings settings) started,
+    required TResult Function(AppSettings settings) update,
+    required TResult Function(DevicePermission item) togglePermissionItem,
   }) {
-    return started();
+    return started(settings);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(DevicePermission item)? toggleSettingItem,
+    TResult? Function(AppSettings settings)? started,
+    TResult? Function(AppSettings settings)? update,
+    TResult? Function(DevicePermission item)? togglePermissionItem,
   }) {
-    return started?.call();
+    return started?.call(settings);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(DevicePermission item)? toggleSettingItem,
+    TResult Function(AppSettings settings)? started,
+    TResult Function(AppSettings settings)? update,
+    TResult Function(DevicePermission item)? togglePermissionItem,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started();
+      return started(settings);
     }
     return orElse();
   }
@@ -142,7 +188,8 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(ToggleSettingItem value) toggleSettingItem,
+    required TResult Function(Update value) update,
+    required TResult Function(TogglePermissionItem value) togglePermissionItem,
   }) {
     return started(this);
   }
@@ -151,7 +198,8 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
-    TResult? Function(ToggleSettingItem value)? toggleSettingItem,
+    TResult? Function(Update value)? update,
+    TResult? Function(TogglePermissionItem value)? togglePermissionItem,
   }) {
     return started?.call(this);
   }
@@ -160,7 +208,8 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(ToggleSettingItem value)? toggleSettingItem,
+    TResult Function(Update value)? update,
+    TResult Function(TogglePermissionItem value)? togglePermissionItem,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -171,14 +220,167 @@ class _$Started implements Started {
 }
 
 abstract class Started implements SettingsEvent {
-  const factory Started() = _$Started;
+  const factory Started({required final AppSettings settings}) = _$Started;
+
+  AppSettings get settings;
+  @JsonKey(ignore: true)
+  _$$StartedCopyWith<_$Started> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ToggleSettingItemCopyWith<$Res> {
-  factory _$$ToggleSettingItemCopyWith(
-          _$ToggleSettingItem value, $Res Function(_$ToggleSettingItem) then) =
-      __$$ToggleSettingItemCopyWithImpl<$Res>;
+abstract class _$$UpdateCopyWith<$Res> {
+  factory _$$UpdateCopyWith(_$Update value, $Res Function(_$Update) then) =
+      __$$UpdateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AppSettings settings});
+
+  $AppSettingsCopyWith<$Res> get settings;
+}
+
+/// @nodoc
+class __$$UpdateCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$Update>
+    implements _$$UpdateCopyWith<$Res> {
+  __$$UpdateCopyWithImpl(_$Update _value, $Res Function(_$Update) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? settings = null,
+  }) {
+    return _then(_$Update(
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as AppSettings,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppSettingsCopyWith<$Res> get settings {
+    return $AppSettingsCopyWith<$Res>(_value.settings, (value) {
+      return _then(_value.copyWith(settings: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$Update implements Update {
+  const _$Update({required this.settings});
+
+  @override
+  final AppSettings settings;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.update(settings: $settings)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Update &&
+            (identical(other.settings, settings) ||
+                other.settings == settings));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, settings);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCopyWith<_$Update> get copyWith =>
+      __$$UpdateCopyWithImpl<_$Update>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AppSettings settings) started,
+    required TResult Function(AppSettings settings) update,
+    required TResult Function(DevicePermission item) togglePermissionItem,
+  }) {
+    return update(settings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppSettings settings)? started,
+    TResult? Function(AppSettings settings)? update,
+    TResult? Function(DevicePermission item)? togglePermissionItem,
+  }) {
+    return update?.call(settings);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppSettings settings)? started,
+    TResult Function(AppSettings settings)? update,
+    TResult Function(DevicePermission item)? togglePermissionItem,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(settings);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(Update value) update,
+    required TResult Function(TogglePermissionItem value) togglePermissionItem,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(Update value)? update,
+    TResult? Function(TogglePermissionItem value)? togglePermissionItem,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(Update value)? update,
+    TResult Function(TogglePermissionItem value)? togglePermissionItem,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Update implements SettingsEvent {
+  const factory Update({required final AppSettings settings}) = _$Update;
+
+  AppSettings get settings;
+  @JsonKey(ignore: true)
+  _$$UpdateCopyWith<_$Update> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TogglePermissionItemCopyWith<$Res> {
+  factory _$$TogglePermissionItemCopyWith(_$TogglePermissionItem value,
+          $Res Function(_$TogglePermissionItem) then) =
+      __$$TogglePermissionItemCopyWithImpl<$Res>;
   @useResult
   $Res call({DevicePermission item});
 
@@ -186,11 +388,11 @@ abstract class _$$ToggleSettingItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ToggleSettingItemCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleSettingItem>
-    implements _$$ToggleSettingItemCopyWith<$Res> {
-  __$$ToggleSettingItemCopyWithImpl(
-      _$ToggleSettingItem _value, $Res Function(_$ToggleSettingItem) _then)
+class __$$TogglePermissionItemCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$TogglePermissionItem>
+    implements _$$TogglePermissionItemCopyWith<$Res> {
+  __$$TogglePermissionItemCopyWithImpl(_$TogglePermissionItem _value,
+      $Res Function(_$TogglePermissionItem) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -198,7 +400,7 @@ class __$$ToggleSettingItemCopyWithImpl<$Res>
   $Res call({
     Object? item = null,
   }) {
-    return _then(_$ToggleSettingItem(
+    return _then(_$TogglePermissionItem(
       item: null == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
@@ -217,22 +419,22 @@ class __$$ToggleSettingItemCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ToggleSettingItem implements ToggleSettingItem {
-  const _$ToggleSettingItem({required this.item});
+class _$TogglePermissionItem implements TogglePermissionItem {
+  const _$TogglePermissionItem({required this.item});
 
   @override
   final DevicePermission item;
 
   @override
   String toString() {
-    return 'SettingsEvent.toggleSettingItem(item: $item)';
+    return 'SettingsEvent.togglePermissionItem(item: $item)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ToggleSettingItem &&
+            other is _$TogglePermissionItem &&
             (identical(other.item, item) || other.item == item));
   }
 
@@ -242,36 +444,40 @@ class _$ToggleSettingItem implements ToggleSettingItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ToggleSettingItemCopyWith<_$ToggleSettingItem> get copyWith =>
-      __$$ToggleSettingItemCopyWithImpl<_$ToggleSettingItem>(this, _$identity);
+  _$$TogglePermissionItemCopyWith<_$TogglePermissionItem> get copyWith =>
+      __$$TogglePermissionItemCopyWithImpl<_$TogglePermissionItem>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(DevicePermission item) toggleSettingItem,
+    required TResult Function(AppSettings settings) started,
+    required TResult Function(AppSettings settings) update,
+    required TResult Function(DevicePermission item) togglePermissionItem,
   }) {
-    return toggleSettingItem(item);
+    return togglePermissionItem(item);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(DevicePermission item)? toggleSettingItem,
+    TResult? Function(AppSettings settings)? started,
+    TResult? Function(AppSettings settings)? update,
+    TResult? Function(DevicePermission item)? togglePermissionItem,
   }) {
-    return toggleSettingItem?.call(item);
+    return togglePermissionItem?.call(item);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(DevicePermission item)? toggleSettingItem,
+    TResult Function(AppSettings settings)? started,
+    TResult Function(AppSettings settings)? update,
+    TResult Function(DevicePermission item)? togglePermissionItem,
     required TResult orElse(),
   }) {
-    if (toggleSettingItem != null) {
-      return toggleSettingItem(item);
+    if (togglePermissionItem != null) {
+      return togglePermissionItem(item);
     }
     return orElse();
   }
@@ -280,41 +486,44 @@ class _$ToggleSettingItem implements ToggleSettingItem {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
-    required TResult Function(ToggleSettingItem value) toggleSettingItem,
+    required TResult Function(Update value) update,
+    required TResult Function(TogglePermissionItem value) togglePermissionItem,
   }) {
-    return toggleSettingItem(this);
+    return togglePermissionItem(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
-    TResult? Function(ToggleSettingItem value)? toggleSettingItem,
+    TResult? Function(Update value)? update,
+    TResult? Function(TogglePermissionItem value)? togglePermissionItem,
   }) {
-    return toggleSettingItem?.call(this);
+    return togglePermissionItem?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
-    TResult Function(ToggleSettingItem value)? toggleSettingItem,
+    TResult Function(Update value)? update,
+    TResult Function(TogglePermissionItem value)? togglePermissionItem,
     required TResult orElse(),
   }) {
-    if (toggleSettingItem != null) {
-      return toggleSettingItem(this);
+    if (togglePermissionItem != null) {
+      return togglePermissionItem(this);
     }
     return orElse();
   }
 }
 
-abstract class ToggleSettingItem implements SettingsEvent {
-  const factory ToggleSettingItem({required final DevicePermission item}) =
-      _$ToggleSettingItem;
+abstract class TogglePermissionItem implements SettingsEvent {
+  const factory TogglePermissionItem({required final DevicePermission item}) =
+      _$TogglePermissionItem;
 
   DevicePermission get item;
   @JsonKey(ignore: true)
-  _$$ToggleSettingItemCopyWith<_$ToggleSettingItem> get copyWith =>
+  _$$TogglePermissionItemCopyWith<_$TogglePermissionItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -1,55 +1,73 @@
+import 'dart:async';
+import 'dart:html';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:intranavigator/domain/entities/entities.dart';
-import 'package:intranavigator/domain/usecases/app_settings/load_device_info.dart';
-import 'package:intranavigator/presentation/features/app/app.dart';
+
+import '../../../../domain/usecases/app_settings/request_permission.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
 part 'settings_state.dart';
 
-AppSettings initalAppSettings = const AppSettings(
-  deviceInfo: DeviceInfo.unknown(),
-);
-
 @injectable
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
-  SettingsBloc(
-      {required this.appBloc,
-      required LoadDeviceInfoUseCase loadAppSettingsUseCase})
-      : _loadSettings = loadAppSettingsUseCase,
+  SettingsBloc({required RequestPermissionUseCase requestPermissionUseCase})
+      : _requestPermission = requestPermissionUseCase,
         super(
-          Initial(settings: initalAppSettings),
+          const Initial(settings: AppSettings()),
         ) {
     on<Started>(onStarted);
-    on<ToggleSettingItem>(onToggleSettingItem);
+    on<Update>(onUpdateSettings);
+    on<TogglePermissionItem>(onTogglePermissionItem);
   }
-  late final LoadDeviceInfoUseCase _loadSettings;
 
-  final AppBloc appBloc;
+  late final RequestPermissionUseCase _requestPermission;
 
-  void onStarted(SettingsEvent event, Emitter<SettingsState> emit) async {
+  void onStarted(Started event, Emitter<SettingsState> emit) {
+    emit(SettingsState.success(settings: event.settings));
+  }
+
+  void onUpdateSettings(Update event, Emitter<SettingsState> emit) {
+    emit(SettingsState.success(settings: event.settings));
+  }
+
+  void onTogglePermissionItem(
+      TogglePermissionItem event, Emitter<SettingsState> emit) async {
+    // TODO: implement requestPermission event handler
+    window.navigator.getUserMedia(audio: true, video: true);
+    DevicePermission selectedItem = event.item;
     AppSettings currentSettings = state.settings;
-    final result = await _loadSettings.service.currentDeviceInfo;
+    List<DevicePermission> currentPermissions = currentSettings.permissions;
+    late List<DevicePermission> updatedPermissions;
+    late DevicePermission updatedPermission;
+    late AppSettings updatedSettings;
+
+    final result = await _requestPermission(
+        RequestPermissionUseCaseParams(permission: selectedItem));
 
     result.fold(
-      (failure) {
-        DeviceInfo errorDeviceInfo = const DeviceInfo.unknown();
-        final newSettings =
-            currentSettings.copyWith(deviceInfo: errorDeviceInfo);
-        emit(Error(settings: newSettings));
-      },
+      (failure) => print('\x1B[33m$failure\x1B[0m'),
       (success) {
-        DeviceInfo newDeviceInfo = success;
-        final newSettings = currentSettings.copyWith(deviceInfo: newDeviceInfo);
-        emit(Success(settings: newSettings));
+        updatedPermission = success;
+
+        updatedPermissions = List.from(currentPermissions);
+
+        // Find the index of the old permission in the list
+        int index = updatedPermissions.indexWhere(
+            (permission) => permission.name == updatedPermission.name);
+
+        // Replace the old permission with the updated permission
+        updatedPermissions.replaceRange(index, index + 1, [updatedPermission]);
+
+        updatedSettings =
+            currentSettings.copyWith(permissions: updatedPermissions);
+
+        emit(Success(settings: updatedSettings));
       },
     );
-  }
-
-  void onToggleSettingItem(SettingsEvent event, Emitter<SettingsState> emit) {
-    // TODO: implement event handler
   }
 }

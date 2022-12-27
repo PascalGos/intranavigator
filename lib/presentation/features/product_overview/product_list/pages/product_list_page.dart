@@ -11,30 +11,34 @@ class ProductListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getDependency<ProductListBloc>(),
-      child: BlocBuilder<ProductListBloc, ProductListState>(
-          builder: ((context, state) {
-        final bloc = BlocProvider.of<ProductListBloc>(context);
-        return Scaffold(
-          body: state.when(
-            initial: () {
-              bloc.add(const Started());
-              return Container();
-            },
-            success: (items) => Column(
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) =>
+            getDependency<ProductListBloc>()..add(const Started()),
+        child: BlocBuilder<ProductListBloc, ProductListState>(
+            builder: ((context, state) {
+          if (state is Initial) {
+            return Container();
+          }
+          if (state is Loading) {
+            return const LoadingIndicator();
+          }
+          if (state is Success) {
+            return Column(
               children: [
                 const ProductListHeading(),
                 ProductListView(
-                  items: items,
+                  items: state.items,
                 ),
               ],
-            ),
-            loading: () => const LoadingIndicator(),
-            failure: () => const FailureIndicator(),
-          ),
-        );
-      })),
+            );
+          }
+          if (state is Failure) {
+            return const FailureIndicator();
+          }
+          return Container();
+        })),
+      ),
     );
   }
 }
