@@ -513,7 +513,7 @@ class __$$MotionSensorsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MotionSensors extends MotionSensors {
-  const _$MotionSensors({this.name = 'sensor', this.status}) : super._();
+  const _$MotionSensors({this.name = 'accelerometer', this.status}) : super._();
 
   @override
   @JsonKey()

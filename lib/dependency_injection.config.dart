@@ -48,7 +48,7 @@ import 'package:intranavigator/data/services/device_info_service_impl.dart'
     as _i7;
 import 'package:intranavigator/data/services/device_permission_service_impl.dart'
     as _i37;
-import 'package:intranavigator/dependency_injection.dart' as _i51;
+import 'package:intranavigator/dependency_injection.dart' as _i52;
 import 'package:intranavigator/domain/repositories/bluetooth_beacon_info_repository.dart'
     as _i35;
 import 'package:intranavigator/domain/repositories/location_repository.dart'
@@ -68,6 +68,8 @@ import 'package:intranavigator/domain/usecases/app_settings/load_device_permissi
     as _i41;
 import 'package:intranavigator/domain/usecases/app_settings/request_permission.dart'
     as _i46;
+import 'package:intranavigator/domain/usecases/app_settings/revoke_permission.dart'
+    as _i48;
 import 'package:intranavigator/domain/usecases/product_overview/load_all_product_categories.dart'
     as _i39;
 import 'package:intranavigator/domain/usecases/product_overview/load_all_products.dart'
@@ -77,7 +79,7 @@ import 'package:intranavigator/domain/usecases/shopping_list/add_product_to_shop
 import 'package:intranavigator/domain/usecases/shopping_list/load_shopping_list_items.dart'
     as _i42;
 import 'package:intranavigator/presentation/features/app/bloc/app_bloc.dart'
-    as _i50;
+    as _i51;
 import 'package:intranavigator/presentation/features/main_navigation/bloc/main_navigation_bloc.dart'
     as _i15;
 import 'package:intranavigator/presentation/features/onboarding/bloc/onboarding_bloc.dart'
@@ -91,9 +93,9 @@ import 'package:intranavigator/presentation/features/product_overview/product_li
 import 'package:intranavigator/presentation/features/product_overview/product_list/widgets/product_tile/bloc/product_tile_bloc.dart'
     as _i45;
 import 'package:intranavigator/presentation/features/settings/bloc/settings_bloc.dart'
-    as _i48;
-import 'package:intranavigator/presentation/features/shopping_list/bloc/shopping_list_bloc.dart'
     as _i49;
+import 'package:intranavigator/presentation/features/shopping_list/bloc/shopping_list_bloc.dart'
+    as _i50;
 import 'package:intranavigator/presentation/routes/router.gr.dart' as _i3;
 import 'package:shared_preferences/shared_preferences.dart' as _i25;
 
@@ -178,11 +180,16 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i46.RequestPermissionUseCase>(() =>
         _i46.RequestPermissionUseCase(
             service: gh<_i47.DevicePermissionService>()));
-    gh.factory<_i48.SettingsBloc>(() => _i48.SettingsBloc(
-        requestPermissionUseCase: gh<_i46.RequestPermissionUseCase>()));
-    gh.factory<_i49.ShoppingListBloc>(() => _i49.ShoppingListBloc(
+    gh.lazySingleton<_i48.RevokePermissionUseCase>(() =>
+        _i48.RevokePermissionUseCase(
+            service: gh<_i47.DevicePermissionService>()));
+    gh.factory<_i49.SettingsBloc>(() => _i49.SettingsBloc(
+          requestPermissionUseCase: gh<_i46.RequestPermissionUseCase>(),
+          revokePermissionUseCase: gh<_i48.RevokePermissionUseCase>(),
+        ));
+    gh.factory<_i50.ShoppingListBloc>(() => _i50.ShoppingListBloc(
         loadShoppingListItemsUsecase: gh<_i42.LoadShoppingListItemsUseCase>()));
-    gh.factory<_i50.AppBloc>(() => _i50.AppBloc(
+    gh.factory<_i51.AppBloc>(() => _i51.AppBloc(
           loadDeviceInfoUsecase: gh<_i9.LoadDeviceInfoUseCase>(),
           loadDevicePermissionsUsecase: gh<_i41.LoadDevicePermissionsUseCase>(),
         ));
@@ -190,6 +197,6 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$RouterModule extends _i51.RouterModule {}
+class _$RouterModule extends _i52.RouterModule {}
 
-class _$ExternalModule extends _i51.ExternalModule {}
+class _$ExternalModule extends _i52.ExternalModule {}

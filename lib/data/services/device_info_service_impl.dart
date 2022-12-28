@@ -27,10 +27,10 @@ class DeviceInfoServiceImpl implements DeviceInfoService {
       if (kIsWeb) {
         return _webBrowserInfo;
       }
-      if (Platform.isAndroid) {
+      if (defaultTargetPlatform == TargetPlatform.android) {
         return _androidDeviceInfo;
       }
-      if (Platform.isIOS) {
+      if (defaultTargetPlatform == TargetPlatform.iOS) {
         return _iosDeviceInfo;
       }
       return const Right(DeviceInfo.unknown());

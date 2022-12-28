@@ -10,14 +10,14 @@ import '../../services/device_permission_service.dart';
 
 @lazySingleton
 class RevokePermissionUseCase
-    extends UseCase<DevicePermission, PermissionUseCaseParams> {
+    extends UseCase<DevicePermission, RevokePermissionUseCaseParams> {
   final DevicePermissionService service;
 
   RevokePermissionUseCase({required this.service});
 
   @override
   FutureOr<Either<Failure, DevicePermission>> call(
-      PermissionUseCaseParams params) async {
+      RevokePermissionUseCaseParams params) async {
     final failureOrPermission =
         await service.revokeDevicePermission(params.permission);
 
@@ -28,10 +28,10 @@ class RevokePermissionUseCase
   }
 }
 
-class PermissionUseCaseParams extends Equatable {
+class RevokePermissionUseCaseParams extends Equatable {
   final DevicePermission permission;
 
-  const PermissionUseCaseParams({
+  const RevokePermissionUseCaseParams({
     required this.permission,
   });
 

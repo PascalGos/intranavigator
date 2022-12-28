@@ -1,8 +1,11 @@
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'dart:html' as third_party;
+
 import 'package:injectable/injectable.dart';
 import 'package:intranavigator/data/datasources/web_device_permission_local/dto/web_device_permission_dto.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
 
+import '../../../domain/entities/exceptions/exceptions.dart';
 import 'web_device_permission_local_datasource.dart';
 
 @Injectable(as: LocalWebDevicePermissionDataSource)

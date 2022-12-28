@@ -33,10 +33,10 @@ class DevicePermissionServiceImpl implements DevicePermissionService {
       if (kIsWeb) {
         return const Right(webRequiredPermissions);
       }
-      if (Platform.isAndroid) {
+      if (defaultTargetPlatform == TargetPlatform.android) {
         return const Right(androidRequiredPermissions);
       }
-      if (Platform.isIOS) {
+      if (defaultTargetPlatform == TargetPlatform.iOS) {
         return const Right(iosRequiredPermissions);
       }
       return const Left(
@@ -56,7 +56,8 @@ class DevicePermissionServiceImpl implements DevicePermissionService {
       return _requestWebDevicePermission(permission);
     }
 
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
       return _requestNativeMobileDevicePermission(permission);
     }
     return const Left(
@@ -106,7 +107,8 @@ class DevicePermissionServiceImpl implements DevicePermissionService {
       return _revokeWebDevicePermission(permission);
     }
 
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
       return _revokeNativeMobileDevicePermission(permission);
     }
     return const Left(
@@ -116,8 +118,9 @@ class DevicePermissionServiceImpl implements DevicePermissionService {
 
   FutureOr<Either<Failure, DevicePermission>>
       _revokeNativeMobileDevicePermission(DevicePermission permission) async {
-    //TODO Implement _revokeNativeMobileDevicePermission
-    throw UnimplementedError();
+    String message =
+        "Please remove the app's access to this permission in your device's settings";
+    return Left(DevicePermissionRetrievalFailure(message: message));
   }
 
   FutureOr<Either<Failure, DevicePermission>> _revokeWebDevicePermission(

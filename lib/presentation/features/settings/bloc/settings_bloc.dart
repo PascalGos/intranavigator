@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:intranavigator/domain/entities/entities.dart';
 
 import '../../../../domain/usecases/app_settings/request_permission.dart';
+import '../../../../domain/usecases/app_settings/revoke_permission.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
@@ -15,8 +16,11 @@ part 'settings_state.dart';
 
 @injectable
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
-  SettingsBloc({required RequestPermissionUseCase requestPermissionUseCase})
-      : _requestPermission = requestPermissionUseCase,
+  SettingsBloc({
+    required RequestPermissionUseCase requestPermissionUseCase,
+    required RevokePermissionUseCase revokePermissionUseCase,
+  })  : _requestPermission = requestPermissionUseCase,
+        _revokePermission = revokePermissionUseCase,
         super(
           const Initial(settings: AppSettings()),
         ) {
@@ -26,6 +30,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   }
 
   late final RequestPermissionUseCase _requestPermission;
+  late final RevokePermissionUseCase _revokePermission;
 
   void onStarted(Started event, Emitter<SettingsState> emit) {
     emit(SettingsState.success(settings: event.settings));
@@ -37,37 +42,46 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
   void onTogglePermissionItem(
       TogglePermissionItem event, Emitter<SettingsState> emit) async {
-    // TODO: implement requestPermission event handler
-    window.navigator.getUserMedia(audio: true, video: true);
     DevicePermission selectedItem = event.item;
+
     AppSettings currentSettings = state.settings;
     List<DevicePermission> currentPermissions = currentSettings.permissions;
     late List<DevicePermission> updatedPermissions;
     late DevicePermission updatedPermission;
     late AppSettings updatedSettings;
 
-    final result = await _requestPermission(
-        RequestPermissionUseCaseParams(permission: selectedItem));
+    if (selectedItem.status is! Granted) {
+      final result = await _requestPermission(
+          RequestPermissionUseCaseParams(permission: selectedItem));
 
-    result.fold(
-      (failure) => print('\x1B[33m$failure\x1B[0m'),
-      (success) {
-        updatedPermission = success;
+      result.fold(
+        (failure) => print('\x1B[33m$failure\x1B[0m'),
+        (success) {
+          updatedPermission = success;
+        },
+      );
+    } else {
+      final result = await _revokePermission(
+          RevokePermissionUseCaseParams(permission: selectedItem));
 
-        updatedPermissions = List.from(currentPermissions);
+      result.fold(
+        (failure) => print('\x1B[33m$failure\x1B[0m'),
+        (success) {
+          updatedPermission = success;
+        },
+      );
+    }
+    updatedPermissions = List.from(currentPermissions);
 
-        // Find the index of the old permission in the list
-        int index = updatedPermissions.indexWhere(
-            (permission) => permission.name == updatedPermission.name);
+    // Find the index of the old permission in the list
+    int index = updatedPermissions
+        .indexWhere((permission) => permission.name == updatedPermission.name);
 
-        // Replace the old permission with the updated permission
-        updatedPermissions.replaceRange(index, index + 1, [updatedPermission]);
+    // Replace the old permission with the updated permission
+    updatedPermissions.replaceRange(index, index + 1, [updatedPermission]);
 
-        updatedSettings =
-            currentSettings.copyWith(permissions: updatedPermissions);
+    updatedSettings = currentSettings.copyWith(permissions: updatedPermissions);
 
-        emit(Success(settings: updatedSettings));
-      },
-    );
+    emit(Success(settings: updatedSettings));
   }
 }
