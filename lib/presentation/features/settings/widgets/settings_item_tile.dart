@@ -5,19 +5,21 @@ class PermissionItemTile extends StatelessWidget {
   const PermissionItemTile({
     Key? key,
     required this.title,
+    required this.subtitle,
     required this.onChanged,
     required this.value,
   }) : super(key: key);
 
   final String title;
+  final String subtitle;
   final ValueChanged<bool>? onChanged;
   final bool value;
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Write Settings Item Tile
     return SwitchListTile(
       title: Text(title),
+      subtitle: Text(subtitle),
       onChanged: onChanged,
       value: value,
     );

@@ -1,6 +1,5 @@
-import 'package:intranavigator/domain/entities/entities.dart';
-
 import '../../../../architecture/architecture.dart';
+import '../../../../domain/entities/product/product_category.dart';
 import 'product_category_dto.dart';
 
 class ProductCategoryMapper

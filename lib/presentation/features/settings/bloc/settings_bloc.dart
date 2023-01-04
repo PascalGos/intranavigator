@@ -1,14 +1,12 @@
-import 'dart:async';
-import 'dart:html';
+// ignore_for_file: depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:intranavigator/domain/entities/entities.dart';
-
+import '../../../../domain/entities/app_settings/app_settings.dart';
+import '../../../../domain/entities/device/device.dart';
 import '../../../../domain/usecases/app_settings/request_permission.dart';
-import '../../../../domain/usecases/app_settings/revoke_permission.dart';
 
 part 'settings_bloc.freezed.dart';
 part 'settings_event.dart';
@@ -18,19 +16,16 @@ part 'settings_state.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     required RequestPermissionUseCase requestPermissionUseCase,
-    required RevokePermissionUseCase revokePermissionUseCase,
   })  : _requestPermission = requestPermissionUseCase,
-        _revokePermission = revokePermissionUseCase,
         super(
-          const Initial(settings: AppSettings()),
+          const Initial(),
         ) {
     on<Started>(onStarted);
     on<Update>(onUpdateSettings);
-    on<TogglePermissionItem>(onTogglePermissionItem);
+    on<RequestPermissionTapped>(onRequestPermissionTapped);
   }
 
   late final RequestPermissionUseCase _requestPermission;
-  late final RevokePermissionUseCase _revokePermission;
 
   void onStarted(Started event, Emitter<SettingsState> emit) {
     emit(SettingsState.success(settings: event.settings));
@@ -40,38 +35,42 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     emit(SettingsState.success(settings: event.settings));
   }
 
-  void onTogglePermissionItem(
-      TogglePermissionItem event, Emitter<SettingsState> emit) async {
-    DevicePermission selectedItem = event.item;
+  void onRequestPermissionTapped(
+      RequestPermissionTapped event, Emitter<SettingsState> emit) async {
+    final AppSettings currentSettings = getCurrentSettingsOrDefault();
+    final DevicePermission selectedItem = event.item;
 
-    AppSettings currentSettings = state.settings;
-    List<DevicePermission> currentPermissions = currentSettings.permissions;
-    late List<DevicePermission> updatedPermissions;
-    late DevicePermission updatedPermission;
-    late AppSettings updatedSettings;
+    final result = await _requestPermission(
+      RequestPermissionUseCaseParams(permission: selectedItem),
+    );
 
-    if (selectedItem.status is! Granted) {
-      final result = await _requestPermission(
-          RequestPermissionUseCaseParams(permission: selectedItem));
+    result.fold(
+      (failure) => {
+        emit(
+          Failure(
+            message: failure.message ?? "Ups something went wrong",
+          ),
+        ),
+        emit(Success(settings: currentSettings))
+      },
+      (success) {
+        final List<DevicePermission> updatedPermissions =
+            updateDevicePermission(
+          currentSettings: currentSettings,
+          updatedPermission: success,
+        );
+        emit(Success(
+            settings:
+                currentSettings.copyWith(permissions: updatedPermissions)));
+      },
+    );
+  }
 
-      result.fold(
-        (failure) => print('\x1B[33m$failure\x1B[0m'),
-        (success) {
-          updatedPermission = success;
-        },
-      );
-    } else {
-      final result = await _revokePermission(
-          RevokePermissionUseCaseParams(permission: selectedItem));
-
-      result.fold(
-        (failure) => print('\x1B[33m$failure\x1B[0m'),
-        (success) {
-          updatedPermission = success;
-        },
-      );
-    }
-    updatedPermissions = List.from(currentPermissions);
+  List<DevicePermission> updateDevicePermission(
+      {required AppSettings currentSettings,
+      required DevicePermission updatedPermission}) {
+    List<DevicePermission> updatedPermissions =
+        List<DevicePermission>.from(currentSettings.permissions);
 
     // Find the index of the old permission in the list
     int index = updatedPermissions
@@ -80,8 +79,16 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     // Replace the old permission with the updated permission
     updatedPermissions.replaceRange(index, index + 1, [updatedPermission]);
 
-    updatedSettings = currentSettings.copyWith(permissions: updatedPermissions);
+    return updatedPermissions;
+  }
 
-    emit(Success(settings: updatedSettings));
+  AppSettings getCurrentSettingsOrDefault() {
+    AppSettings currentSettings;
+    if (state is Success) {
+      currentSettings = (state as Success).settings;
+    } else {
+      currentSettings = const AppSettings();
+    }
+    return currentSettings;
   }
 }

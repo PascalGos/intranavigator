@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/presentation/features/onboarding/onboarding.dart';
 
+import '../../../../design_system/components/components.dart';
+
 class ButtonSection extends StatelessWidget {
   const ButtonSection({
     Key? key,
@@ -9,29 +11,25 @@ class ButtonSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        SizedBox(
-          width: 350,
-          child: BlocBuilder<OnboardingBloc, OnboardingState>(
-            builder: (context, state) {
-              return ElevatedButton(
-                onPressed: () => context.read<OnboardingBloc>().add(
-                      const OnboardingEvent.buttonPressed(),
-                    ),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(60),
+    return SizedBox(
+      width: 320,
+      child: BlocBuilder<OnboardingBloc, OnboardingState>(
+        builder: (context, state) {
+          return LokyElevatedButton(
+            height: 60,
+            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+            onPressed: () => context.read<OnboardingBloc>().add(
+                  const OnboardingEvent.buttonPressed(),
                 ),
-                child: Text(
-                  'NEXT',
-                  style: Theme.of(context).textTheme.button,
-                ),
-              );
-            },
-          ),
-        ),
-      ],
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Text(
+                'NEXT',
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

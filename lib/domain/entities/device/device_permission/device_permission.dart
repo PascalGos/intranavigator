@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intranavigator/domain/entities/connection/connection.dart';
 
 import 'status/device_permission_status.dart';
 
@@ -13,14 +14,6 @@ class DevicePermission with _$DevicePermission {
     @Default(DevicePermissionStatus.undetermined())
         DevicePermissionStatus status,
   }) = Location;
-  const factory DevicePermission.locationAlways({
-    @Default(DevicePermissionStatus.undetermined())
-        DevicePermissionStatus status,
-  }) = LocationAlways;
-  const factory DevicePermission.locationWhenInUse({
-    @Default(DevicePermissionStatus.undetermined())
-        DevicePermissionStatus status,
-  }) = LocationWhenInUse;
   const factory DevicePermission.motionSensors({
     @Default(DevicePermissionStatus.undetermined())
         DevicePermissionStatus status,
@@ -28,6 +21,7 @@ class DevicePermission with _$DevicePermission {
   const factory DevicePermission.bluetooth({
     @Default(DevicePermissionStatus.undetermined())
         DevicePermissionStatus status,
+    Connection? connection,
   }) = Bluetooth;
   const factory DevicePermission.bluetoothScan({
     @Default(DevicePermissionStatus.undetermined())
@@ -48,15 +42,13 @@ class DevicePermission with _$DevicePermission {
 
   String get name {
     return when(
-      location: (status) => "location",
-      locationAlways: (status) => "locationAlways",
-      locationWhenInUse: (status) => "locationWhenInUse",
-      motionSensors: (status) => "motionSensors",
-      bluetooth: (status) => "bluetooth",
-      bluetoothScan: (status) => "bluetoothScan",
-      bluetoothAdvertise: (status) => "bluetoothAdvertise",
-      bluetoothConnect: (status) => "bluetoothConnect",
-      camera: (status) => "camera",
+      location: (status) => "Location",
+      motionSensors: (status) => "Motion Sensors",
+      bluetooth: (status, connection) => "Bluetooth",
+      bluetoothScan: (status) => "BluetoothScan",
+      bluetoothAdvertise: (status) => "BluetoothAdvertise",
+      bluetoothConnect: (status) => "BluetoothConnect",
+      camera: (status) => "Camera",
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
+
+import '../../../../../domain/entities/product/product.dart';
 
 class ProductCategoryTile extends StatelessWidget {
   const ProductCategoryTile({

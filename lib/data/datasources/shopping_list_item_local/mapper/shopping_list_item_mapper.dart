@@ -1,8 +1,8 @@
 import 'package:intranavigator/architecture/architecture.dart';
 import 'package:intranavigator/data/datasources/shopping_list_item_local/dto/dto.dart';
 
-import '../../../../domain/entities/entities.dart';
-
+import '../../../../domain/entities/exceptions/exceptions.dart';
+import '../../../../domain/entities/shopping_list_item/shopping_list_item.dart';
 import '../../product_local/mapper/mapper.dart';
 
 class ShoppingListItemMapper

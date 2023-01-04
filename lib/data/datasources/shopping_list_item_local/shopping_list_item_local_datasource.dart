@@ -1,6 +1,7 @@
-import 'dto/dto.dart';
+import '../../../domain/entities/shopping_list_item/shopping_list_item.dart';
 
 abstract class ShoppingListItemLocalDataSource {
-  Future<ShoppingListItemDTO> create(ShoppingListItemDTO item);
-  Future<List<ShoppingListItemDTO>> findAll();
+  Future<ShoppingListItem> create(ShoppingListItem item);
+  Future<void> delete(String id);
+  Future<List<ShoppingListItem>> findAll();
 }

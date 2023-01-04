@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:intranavigator/data/datasources/location_local/dto/dto.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
-
 import '../../../../architecture/architecture.dart';
+import '../../../../domain/entities/exceptions/exceptions.dart';
+import '../../../../domain/entities/product/product.dart';
 import '../../location_local/mapper/mapper.dart';
 import '../dto/product_local_dto.dart';
 

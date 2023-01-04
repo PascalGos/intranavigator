@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intranavigator/design_system/components/molecules/profile_image_image_button/profile_image_button.dart';
 
+import '../../../tokens/colors.dart';
 import '../../atoms/atoms.dart';
 
 class LokyMainPageAppBar extends StatelessWidget
@@ -24,8 +25,16 @@ class LokyMainPageAppBar extends StatelessWidget
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Hello ${userName}'),
-          Text(userGreeting, style: Theme.of(context).textTheme.bodyLarge),
+          Text(
+            'Hello ${userName}',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  height: 0.5,
+                ),
+          ),
+          Text(userGreeting,
+              style: Theme.of(context).textTheme.caption!.copyWith(
+                    color: LokyColors.grey,
+                  )),
         ],
       ),
       actions: <Widget>[

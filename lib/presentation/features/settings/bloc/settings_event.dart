@@ -8,6 +8,6 @@ class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent.update({
     required AppSettings settings,
   }) = Update;
-  const factory SettingsEvent.togglePermissionItem(
-      {required DevicePermission item}) = TogglePermissionItem;
+  const factory SettingsEvent.requestPermissionTapped(
+      {required DevicePermission item}) = RequestPermissionTapped;
 }

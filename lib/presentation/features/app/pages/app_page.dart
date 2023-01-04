@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../dependency_injection.dart';
+import '../../../../design_system/foundations/themes/light_theme.dart';
 import '../../../routes/routes.dart';
 import '../app.dart';
 import '../widgets/widgets.dart';
@@ -19,16 +20,15 @@ class App extends StatelessWidget {
         appRouter,
       ),
       routeInformationParser: appRouter.defaultRouteParser(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: lightTheme,
       debugShowCheckedModeBanner: true,
       builder: (context, child) => BlocProvider(
         create: (context) => getDependency<AppBloc>(),
         child: BlocListener<AppBloc, AppState>(
           listener: (context, state) {
-            if (state is Initialized) {
-              getDependency<AppRouter>().replace(const OnboardingRoute());
+            if (state is SystemFailure) {
+              getDependency<AppRouter>().replace(
+                  SystemFailureRoute(errorMessage: state.errorMessage));
             }
           },
           child: child,

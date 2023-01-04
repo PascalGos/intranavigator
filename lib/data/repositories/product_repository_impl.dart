@@ -13,7 +13,6 @@ import '../datasources/product_remote/product_remote.dart';
 @LazySingleton(as: ProductRepository)
 class DataProductRepositoryImpl implements ProductRepository {
   final ProductRemoteDataSource remoteDataSource;
-  final ProductRemoteMapper _mapper = ProductRemoteMapper();
 
   DataProductRepositoryImpl({
     required this.remoteDataSource,
@@ -22,71 +21,97 @@ class DataProductRepositoryImpl implements ProductRepository {
   @override
   FutureOr<Either<Failure, dynamic>> aggregate(
       List<Product> entities, String field, String operation) {
-    // TODO: implement aggregate
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, Product>> create(Product entity) {
-    // TODO: implement create
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, void>> delete(id) {
-    // TODO: implement delete
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, void>> export(String filePath) {
-    // TODO: implement export
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, List<Product>>> find(Map<String, dynamic> filters) {
-    // TODO: implement find
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, List<Product>>> findAll() async {
     late List<Product> items;
     try {
-      List<ProductRemoteDTO> remoteItems = await remoteDataSource.findAll();
-      items = _mapper.toEntities(remoteItems);
+      items = await remoteDataSource.findAll();
       return Right(items);
-    } on MapperException {
-      return Left(MappingFailure());
-    } on ServerException {
-      return Left(ServerFailure());
+    } on MapperException catch (e) {
+      return Left(MappingFailure(message: e.toString()));
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.toString()));
     }
   }
 
   @override
   FutureOr<Either<Failure, void>> import(String filePath) {
-    // TODO: implement import
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, Product>> read(id) {
-    // TODO: implement read
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, List<Product>>> sort(
       List<Product> entities, String field,
       {bool ascending = true}) {
-    // TODO: implement sort
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, Product>> update(Product entity) {
-    // TODO: implement update
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 }

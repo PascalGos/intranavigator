@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
 
 import '../../../../../architecture/architecture.dart';
+import '../../../../../domain/entities/product/product.dart';
 import '../../../../../domain/usecases/product_overview/load_all_products.dart';
 
 part 'product_list_event.dart';

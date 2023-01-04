@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/dependency_injection.dart';
+import '../../../../domain/entities/user/user.dart';
 import '../../../routes/routes.dart';
+import '../../app/app.dart' as app;
 import '../bloc/main_navigation_bloc.dart';
 import '../widgets/main_page_builder.dart';
 

@@ -20,10 +20,10 @@ mixin _$DevicePermission {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -33,10 +33,9 @@ mixin _$DevicePermission {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -46,10 +45,9 @@ mixin _$DevicePermission {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -60,8 +58,6 @@ mixin _$DevicePermission {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -73,8 +69,6 @@ mixin _$DevicePermission {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -86,8 +80,6 @@ mixin _$DevicePermission {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -217,10 +209,10 @@ class _$Location extends Location {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -233,10 +225,9 @@ class _$Location extends Location {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -249,10 +240,9 @@ class _$Location extends Location {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -269,8 +259,6 @@ class _$Location extends Location {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -285,8 +273,6 @@ class _$Location extends Location {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -301,8 +287,6 @@ class _$Location extends Location {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -327,380 +311,6 @@ abstract class Location extends DevicePermission {
   @override
   @JsonKey(ignore: true)
   _$$LocationCopyWith<_$Location> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LocationAlwaysCopyWith<$Res>
-    implements $DevicePermissionCopyWith<$Res> {
-  factory _$$LocationAlwaysCopyWith(
-          _$LocationAlways value, $Res Function(_$LocationAlways) then) =
-      __$$LocationAlwaysCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({DevicePermissionStatus status});
-
-  @override
-  $DevicePermissionStatusCopyWith<$Res> get status;
-}
-
-/// @nodoc
-class __$$LocationAlwaysCopyWithImpl<$Res>
-    extends _$DevicePermissionCopyWithImpl<$Res, _$LocationAlways>
-    implements _$$LocationAlwaysCopyWith<$Res> {
-  __$$LocationAlwaysCopyWithImpl(
-      _$LocationAlways _value, $Res Function(_$LocationAlways) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = null,
-  }) {
-    return _then(_$LocationAlways(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as DevicePermissionStatus,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LocationAlways extends LocationAlways {
-  const _$LocationAlways(
-      {this.status = const DevicePermissionStatus.undetermined()})
-      : super._();
-
-  @override
-  @JsonKey()
-  final DevicePermissionStatus status;
-
-  @override
-  String toString() {
-    return 'DevicePermission.locationAlways(status: $status)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationAlways &&
-            (identical(other.status, status) || other.status == status));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, status);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LocationAlwaysCopyWith<_$LocationAlways> get copyWith =>
-      __$$LocationAlwaysCopyWithImpl<_$LocationAlways>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
-    required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
-    required TResult Function(DevicePermissionStatus status) bluetoothScan,
-    required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
-    required TResult Function(DevicePermissionStatus status) bluetoothConnect,
-    required TResult Function(DevicePermissionStatus status) camera,
-  }) {
-    return locationAlways(status);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
-    TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
-    TResult? Function(DevicePermissionStatus status)? bluetoothScan,
-    TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
-    TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
-    TResult? Function(DevicePermissionStatus status)? camera,
-  }) {
-    return locationAlways?.call(status);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
-    TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
-    TResult Function(DevicePermissionStatus status)? bluetoothScan,
-    TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
-    TResult Function(DevicePermissionStatus status)? bluetoothConnect,
-    TResult Function(DevicePermissionStatus status)? camera,
-    required TResult orElse(),
-  }) {
-    if (locationAlways != null) {
-      return locationAlways(status);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
-    required TResult Function(MotionSensors value) motionSensors,
-    required TResult Function(Bluetooth value) bluetooth,
-    required TResult Function(BluetoothScan value) bluetoothScan,
-    required TResult Function(BluetoothAdvertise value) bluetoothAdvertise,
-    required TResult Function(BluetoothConnect value) bluetoothConnect,
-    required TResult Function(Camera value) camera,
-  }) {
-    return locationAlways(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
-    TResult? Function(MotionSensors value)? motionSensors,
-    TResult? Function(Bluetooth value)? bluetooth,
-    TResult? Function(BluetoothScan value)? bluetoothScan,
-    TResult? Function(BluetoothAdvertise value)? bluetoothAdvertise,
-    TResult? Function(BluetoothConnect value)? bluetoothConnect,
-    TResult? Function(Camera value)? camera,
-  }) {
-    return locationAlways?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
-    TResult Function(MotionSensors value)? motionSensors,
-    TResult Function(Bluetooth value)? bluetooth,
-    TResult Function(BluetoothScan value)? bluetoothScan,
-    TResult Function(BluetoothAdvertise value)? bluetoothAdvertise,
-    TResult Function(BluetoothConnect value)? bluetoothConnect,
-    TResult Function(Camera value)? camera,
-    required TResult orElse(),
-  }) {
-    if (locationAlways != null) {
-      return locationAlways(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationAlways extends DevicePermission {
-  const factory LocationAlways({final DevicePermissionStatus status}) =
-      _$LocationAlways;
-  const LocationAlways._() : super._();
-
-  @override
-  DevicePermissionStatus get status;
-  @override
-  @JsonKey(ignore: true)
-  _$$LocationAlwaysCopyWith<_$LocationAlways> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LocationWhenInUseCopyWith<$Res>
-    implements $DevicePermissionCopyWith<$Res> {
-  factory _$$LocationWhenInUseCopyWith(
-          _$LocationWhenInUse value, $Res Function(_$LocationWhenInUse) then) =
-      __$$LocationWhenInUseCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({DevicePermissionStatus status});
-
-  @override
-  $DevicePermissionStatusCopyWith<$Res> get status;
-}
-
-/// @nodoc
-class __$$LocationWhenInUseCopyWithImpl<$Res>
-    extends _$DevicePermissionCopyWithImpl<$Res, _$LocationWhenInUse>
-    implements _$$LocationWhenInUseCopyWith<$Res> {
-  __$$LocationWhenInUseCopyWithImpl(
-      _$LocationWhenInUse _value, $Res Function(_$LocationWhenInUse) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = null,
-  }) {
-    return _then(_$LocationWhenInUse(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as DevicePermissionStatus,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LocationWhenInUse extends LocationWhenInUse {
-  const _$LocationWhenInUse(
-      {this.status = const DevicePermissionStatus.undetermined()})
-      : super._();
-
-  @override
-  @JsonKey()
-  final DevicePermissionStatus status;
-
-  @override
-  String toString() {
-    return 'DevicePermission.locationWhenInUse(status: $status)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LocationWhenInUse &&
-            (identical(other.status, status) || other.status == status));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, status);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LocationWhenInUseCopyWith<_$LocationWhenInUse> get copyWith =>
-      __$$LocationWhenInUseCopyWithImpl<_$LocationWhenInUse>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
-    required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
-    required TResult Function(DevicePermissionStatus status) bluetoothScan,
-    required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
-    required TResult Function(DevicePermissionStatus status) bluetoothConnect,
-    required TResult Function(DevicePermissionStatus status) camera,
-  }) {
-    return locationWhenInUse(status);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
-    TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
-    TResult? Function(DevicePermissionStatus status)? bluetoothScan,
-    TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
-    TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
-    TResult? Function(DevicePermissionStatus status)? camera,
-  }) {
-    return locationWhenInUse?.call(status);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
-    TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
-    TResult Function(DevicePermissionStatus status)? bluetoothScan,
-    TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
-    TResult Function(DevicePermissionStatus status)? bluetoothConnect,
-    TResult Function(DevicePermissionStatus status)? camera,
-    required TResult orElse(),
-  }) {
-    if (locationWhenInUse != null) {
-      return locationWhenInUse(status);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
-    required TResult Function(MotionSensors value) motionSensors,
-    required TResult Function(Bluetooth value) bluetooth,
-    required TResult Function(BluetoothScan value) bluetoothScan,
-    required TResult Function(BluetoothAdvertise value) bluetoothAdvertise,
-    required TResult Function(BluetoothConnect value) bluetoothConnect,
-    required TResult Function(Camera value) camera,
-  }) {
-    return locationWhenInUse(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
-    TResult? Function(MotionSensors value)? motionSensors,
-    TResult? Function(Bluetooth value)? bluetooth,
-    TResult? Function(BluetoothScan value)? bluetoothScan,
-    TResult? Function(BluetoothAdvertise value)? bluetoothAdvertise,
-    TResult? Function(BluetoothConnect value)? bluetoothConnect,
-    TResult? Function(Camera value)? camera,
-  }) {
-    return locationWhenInUse?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
-    TResult Function(MotionSensors value)? motionSensors,
-    TResult Function(Bluetooth value)? bluetooth,
-    TResult Function(BluetoothScan value)? bluetoothScan,
-    TResult Function(BluetoothAdvertise value)? bluetoothAdvertise,
-    TResult Function(BluetoothConnect value)? bluetoothConnect,
-    TResult Function(Camera value)? camera,
-    required TResult orElse(),
-  }) {
-    if (locationWhenInUse != null) {
-      return locationWhenInUse(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LocationWhenInUse extends DevicePermission {
-  const factory LocationWhenInUse({final DevicePermissionStatus status}) =
-      _$LocationWhenInUse;
-  const LocationWhenInUse._() : super._();
-
-  @override
-  DevicePermissionStatus get status;
-  @override
-  @JsonKey(ignore: true)
-  _$$LocationWhenInUseCopyWith<_$LocationWhenInUse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -777,10 +387,10 @@ class _$MotionSensors extends MotionSensors {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -793,10 +403,9 @@ class _$MotionSensors extends MotionSensors {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -809,10 +418,9 @@ class _$MotionSensors extends MotionSensors {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -829,8 +437,6 @@ class _$MotionSensors extends MotionSensors {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -845,8 +451,6 @@ class _$MotionSensors extends MotionSensors {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -861,8 +465,6 @@ class _$MotionSensors extends MotionSensors {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -899,10 +501,11 @@ abstract class _$$BluetoothCopyWith<$Res>
       __$$BluetoothCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DevicePermissionStatus status});
+  $Res call({DevicePermissionStatus status, Connection? connection});
 
   @override
   $DevicePermissionStatusCopyWith<$Res> get status;
+  $ConnectionCopyWith<$Res>? get connection;
 }
 
 /// @nodoc
@@ -917,29 +520,50 @@ class __$$BluetoothCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
+    Object? connection = freezed,
   }) {
     return _then(_$Bluetooth(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as DevicePermissionStatus,
+      connection: freezed == connection
+          ? _value.connection
+          : connection // ignore: cast_nullable_to_non_nullable
+              as Connection?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ConnectionCopyWith<$Res>? get connection {
+    if (_value.connection == null) {
+      return null;
+    }
+
+    return $ConnectionCopyWith<$Res>(_value.connection!, (value) {
+      return _then(_value.copyWith(connection: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$Bluetooth extends Bluetooth {
-  const _$Bluetooth({this.status = const DevicePermissionStatus.undetermined()})
+  const _$Bluetooth(
+      {this.status = const DevicePermissionStatus.undetermined(),
+      this.connection})
       : super._();
 
   @override
   @JsonKey()
   final DevicePermissionStatus status;
+  @override
+  final Connection? connection;
 
   @override
   String toString() {
-    return 'DevicePermission.bluetooth(status: $status)';
+    return 'DevicePermission.bluetooth(status: $status, connection: $connection)';
   }
 
   @override
@@ -947,11 +571,13 @@ class _$Bluetooth extends Bluetooth {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Bluetooth &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.connection, connection) ||
+                other.connection == connection));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status);
+  int get hashCode => Object.hash(runtimeType, status, connection);
 
   @JsonKey(ignore: true)
   @override
@@ -963,42 +589,40 @@ class _$Bluetooth extends Bluetooth {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
     required TResult Function(DevicePermissionStatus status) camera,
   }) {
-    return bluetooth(status);
+    return bluetooth(status, connection);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
     TResult? Function(DevicePermissionStatus status)? camera,
   }) {
-    return bluetooth?.call(status);
+    return bluetooth?.call(status, connection);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1006,7 +630,7 @@ class _$Bluetooth extends Bluetooth {
     required TResult orElse(),
   }) {
     if (bluetooth != null) {
-      return bluetooth(status);
+      return bluetooth(status, connection);
     }
     return orElse();
   }
@@ -1015,8 +639,6 @@ class _$Bluetooth extends Bluetooth {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -1031,8 +653,6 @@ class _$Bluetooth extends Bluetooth {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -1047,8 +667,6 @@ class _$Bluetooth extends Bluetooth {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -1065,11 +683,14 @@ class _$Bluetooth extends Bluetooth {
 }
 
 abstract class Bluetooth extends DevicePermission {
-  const factory Bluetooth({final DevicePermissionStatus status}) = _$Bluetooth;
+  const factory Bluetooth(
+      {final DevicePermissionStatus status,
+      final Connection? connection}) = _$Bluetooth;
   const Bluetooth._() : super._();
 
   @override
   DevicePermissionStatus get status;
+  Connection? get connection;
   @override
   @JsonKey(ignore: true)
   _$$BluetoothCopyWith<_$Bluetooth> get copyWith =>
@@ -1149,10 +770,10 @@ class _$BluetoothScan extends BluetoothScan {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -1165,10 +786,9 @@ class _$BluetoothScan extends BluetoothScan {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1181,10 +801,9 @@ class _$BluetoothScan extends BluetoothScan {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1201,8 +820,6 @@ class _$BluetoothScan extends BluetoothScan {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -1217,8 +834,6 @@ class _$BluetoothScan extends BluetoothScan {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -1233,8 +848,6 @@ class _$BluetoothScan extends BluetoothScan {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -1337,10 +950,10 @@ class _$BluetoothAdvertise extends BluetoothAdvertise {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -1353,10 +966,9 @@ class _$BluetoothAdvertise extends BluetoothAdvertise {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1369,10 +981,9 @@ class _$BluetoothAdvertise extends BluetoothAdvertise {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1389,8 +1000,6 @@ class _$BluetoothAdvertise extends BluetoothAdvertise {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -1405,8 +1014,6 @@ class _$BluetoothAdvertise extends BluetoothAdvertise {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -1421,8 +1028,6 @@ class _$BluetoothAdvertise extends BluetoothAdvertise {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -1524,10 +1129,10 @@ class _$BluetoothConnect extends BluetoothConnect {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -1540,10 +1145,9 @@ class _$BluetoothConnect extends BluetoothConnect {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1556,10 +1160,9 @@ class _$BluetoothConnect extends BluetoothConnect {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1576,8 +1179,6 @@ class _$BluetoothConnect extends BluetoothConnect {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -1592,8 +1193,6 @@ class _$BluetoothConnect extends BluetoothConnect {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -1608,8 +1207,6 @@ class _$BluetoothConnect extends BluetoothConnect {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,
@@ -1708,10 +1305,10 @@ class _$Camera extends Camera {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DevicePermissionStatus status) location,
-    required TResult Function(DevicePermissionStatus status) locationAlways,
-    required TResult Function(DevicePermissionStatus status) locationWhenInUse,
     required TResult Function(DevicePermissionStatus status) motionSensors,
-    required TResult Function(DevicePermissionStatus status) bluetooth,
+    required TResult Function(
+            DevicePermissionStatus status, Connection? connection)
+        bluetooth,
     required TResult Function(DevicePermissionStatus status) bluetoothScan,
     required TResult Function(DevicePermissionStatus status) bluetoothAdvertise,
     required TResult Function(DevicePermissionStatus status) bluetoothConnect,
@@ -1724,10 +1321,9 @@ class _$Camera extends Camera {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DevicePermissionStatus status)? location,
-    TResult? Function(DevicePermissionStatus status)? locationAlways,
-    TResult? Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult? Function(DevicePermissionStatus status)? motionSensors,
-    TResult? Function(DevicePermissionStatus status)? bluetooth,
+    TResult? Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult? Function(DevicePermissionStatus status)? bluetoothScan,
     TResult? Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult? Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1740,10 +1336,9 @@ class _$Camera extends Camera {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DevicePermissionStatus status)? location,
-    TResult Function(DevicePermissionStatus status)? locationAlways,
-    TResult Function(DevicePermissionStatus status)? locationWhenInUse,
     TResult Function(DevicePermissionStatus status)? motionSensors,
-    TResult Function(DevicePermissionStatus status)? bluetooth,
+    TResult Function(DevicePermissionStatus status, Connection? connection)?
+        bluetooth,
     TResult Function(DevicePermissionStatus status)? bluetoothScan,
     TResult Function(DevicePermissionStatus status)? bluetoothAdvertise,
     TResult Function(DevicePermissionStatus status)? bluetoothConnect,
@@ -1760,8 +1355,6 @@ class _$Camera extends Camera {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Location value) location,
-    required TResult Function(LocationAlways value) locationAlways,
-    required TResult Function(LocationWhenInUse value) locationWhenInUse,
     required TResult Function(MotionSensors value) motionSensors,
     required TResult Function(Bluetooth value) bluetooth,
     required TResult Function(BluetoothScan value) bluetoothScan,
@@ -1776,8 +1369,6 @@ class _$Camera extends Camera {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Location value)? location,
-    TResult? Function(LocationAlways value)? locationAlways,
-    TResult? Function(LocationWhenInUse value)? locationWhenInUse,
     TResult? Function(MotionSensors value)? motionSensors,
     TResult? Function(Bluetooth value)? bluetooth,
     TResult? Function(BluetoothScan value)? bluetoothScan,
@@ -1792,8 +1383,6 @@ class _$Camera extends Camera {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Location value)? location,
-    TResult Function(LocationAlways value)? locationAlways,
-    TResult Function(LocationWhenInUse value)? locationWhenInUse,
     TResult Function(MotionSensors value)? motionSensors,
     TResult Function(Bluetooth value)? bluetooth,
     TResult Function(BluetoothScan value)? bluetoothScan,

@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
+
 import 'package:intranavigator/presentation/features/main_navigation/bloc/main_navigation_bloc.dart';
 import 'package:intranavigator/presentation/features/shopping_list/shopping_list.dart';
 import 'package:intranavigator/presentation/features/shopping_list/widgets/widgets.dart';
 
+import '../../../../domain/entities/navigation_item/navigation_item.dart';
+import '../../../../domain/entities/shopping_list_item/shopping_list_item.dart';
 import '../../../routes/routes.dart';
 
 class ShoppingListView extends StatelessWidget {

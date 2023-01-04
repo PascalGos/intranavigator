@@ -4,12 +4,13 @@ import 'dart:async';
 import 'package:intranavigator/architecture/architecture.dart';
 import 'package:intranavigator/domain/entities/failures/failures.dart';
 import 'package:intranavigator/domain/repositories/repositories.dart';
-import '../../entities/entities.dart';
+
+import '../../entities/bluetooth/bluetooth_beacon/bluetooth_beacon.dart';
 
 class CheckIfCustomerIsInStoreUseCase extends UseCase<bool, NoParams> {
   CheckIfCustomerIsInStoreUseCase({required this.repository});
 
-  final BluetoothBeaconInfoRepository repository;
+  final BluetoothBeaconRepository repository;
 
   //TODO Implemet it with two repositories one that gets the device data and one that gets the database data
   @override
@@ -35,16 +36,15 @@ class CheckIfCustomerIsInStoreUseCase extends UseCase<bool, NoParams> {
     );
   }
 
-  FutureOr<Either<Failure, List<BluetoothBeaconInfo>>>
+  FutureOr<Either<Failure, List<BluetoothBeacon>>>
       scanForBeaconsWithinRange() async {
-    Either<Failure, List<BluetoothBeaconInfo>> result =
-        await repository.findAll();
+    Either<Failure, List<BluetoothBeacon>> result = await repository.findAll();
     return result;
   }
 
   Future<Either<Failure, bool>>
       checkIfAnyOfDetectedBeaconsAreAssociatedWithStore(
-          List<BluetoothBeaconInfo> detectedBeacons) async {
+          List<BluetoothBeacon> detectedBeacons) async {
     final failureOrBeaconsOfStore = await repository.findAll();
     if (failureOrBeaconsOfStore.isLeft()) {
       final failure = failureOrBeaconsOfStore

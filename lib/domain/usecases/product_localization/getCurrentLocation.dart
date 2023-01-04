@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 
 import '../../../architecture/architecture.dart';
-import '../../entities/entities.dart';
+
+import '../../entities/location/location.dart';
 import '../../repositories/repositories.dart';
 
 class GetCurrentLocationUseCase extends UseCase<LocationInfo, NoParams> {

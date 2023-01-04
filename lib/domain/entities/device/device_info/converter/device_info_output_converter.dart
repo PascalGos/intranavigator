@@ -35,12 +35,27 @@ class DeviceInfoOutputConverter {
   }
 
   static String getFormattedAndroidDeviceName(AndroidDeviceInfo deviceInfo) {
-    //TODO: Implement getFormattedAndroidDeviceName
-    throw UnimplementedError();
+    final String formattedName;
+    String space = " ";
+    formattedName = deviceInfo.brand +
+        space +
+        deviceInfo.model +
+        space +
+        deviceInfo.version.codename +
+        space +
+        deviceInfo.version.incremental;
+
+    return formattedName;
   }
 
   static String getFormattedIosDeviceName(IosDeviceInfo deviceInfo) {
-    //TODO: Implement getFormattedAndroidDeviceName
-    throw UnimplementedError();
+    final String formattedName;
+    String space = " ";
+    formattedName = (deviceInfo.name ?? "") +
+        space +
+        (deviceInfo.systemName ?? "") +
+        space +
+        (deviceInfo.systemVersion ?? "");
+    return formattedName;
   }
 }

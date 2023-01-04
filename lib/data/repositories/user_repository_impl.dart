@@ -1,72 +1,116 @@
-import 'package:injectable/injectable.dart';
-import 'package:intranavigator/domain/entities/user/user.dart';
-import 'package:intranavigator/architecture/src/failure.dart';
-import 'package:dartz/dartz.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+
+import 'package:intranavigator/architecture/src/failure.dart';
+import 'package:intranavigator/domain/entities/exceptions/exceptions.dart';
+import 'package:intranavigator/domain/entities/user/user.dart';
 import 'package:intranavigator/domain/repositories/repositories.dart';
+
+import '../../domain/entities/failures/failures.dart';
+import '../datasources/user_remote/user_remote.dart';
 
 @LazySingleton(as: UserRepository)
 class DataUserRepositoryImpl implements UserRepository {
+  final UserRemoteDataSource remoteDataSource;
+  DataUserRepositoryImpl({
+    required this.remoteDataSource,
+  });
+
   @override
   FutureOr<Either<Failure, dynamic>> aggregate(
       List<User> entities, String field, String operation) {
-    // TODO: implement aggregate
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, User>> create(User entity) {
-    // TODO: implement create
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, void>> delete(id) {
-    // TODO: implement delete
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, void>> export(String filePath) {
-    // TODO: implement export
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, List<User>>> find(Map<String, dynamic> filters) {
-    // TODO: implement find
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, List<User>>> findAll() {
-    // TODO: implement findAll
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, void>> import(String filePath) {
-    // TODO: implement import
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
-  FutureOr<Either<Failure, User>> read(id) {
-    // TODO: implement read
-    throw UnimplementedError();
+  FutureOr<Either<Failure, User>> read(id) async {
+    try {
+      final result = await remoteDataSource.read(id as String);
+      return Right(result);
+    } on MapperException catch (e) {
+      return Left(MappingFailure(message: e.toString()));
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, List<User>>> sort(List<User> entities, String field,
       {bool ascending = true}) {
-    // TODO: implement sort
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 
   @override
   FutureOr<Either<Failure, User>> update(User entity) {
-    // TODO: implement update
-    throw UnimplementedError();
+    try {
+      throw UnimplementedError();
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
+    }
   }
 }

@@ -1,5 +1,5 @@
-import 'dto/product_remote_dto.dart';
+import '../../../domain/entities/product/product.dart';
 
 abstract class ProductRemoteDataSource {
-  Future<List<ProductRemoteDTO>> findAll();
+  Future<List<Product>> findAll();
 }

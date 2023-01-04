@@ -4,7 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../architecture/architecture.dart';
-import '../../entities/entities.dart';
+
+import '../../entities/product/product.dart';
 import '../../repositories/repositories.dart';
 
 class LoadProductsOfProductCategoryUseCase

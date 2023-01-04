@@ -9,19 +9,24 @@ class TitleTextSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
           'Welcome to Loky!',
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.headline4,
         ),
         const SizedBox(
           height: 40,
         ),
-        Text(
-          'Wir begleiten dich bei deinem Einkauf quer durch jeden Gang.',
-          style: Theme.of(context).textTheme.headline6,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          child: Text(
+            'Wir begleiten dich bei deinem Einkauf quer durch jeden Gang.',
+            style: Theme.of(context).textTheme.subtitle1,
+            textAlign: TextAlign.center,
+          ),
         ),
-        const SizedBox(height: 20)
+        const SizedBox(height: 40),
       ],
     );
   }

@@ -1,0 +1,3 @@
+class LokyTypographyFoundation {
+  LokyTypographyFoundation._();
+}

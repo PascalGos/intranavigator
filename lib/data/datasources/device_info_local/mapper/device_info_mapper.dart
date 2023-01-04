@@ -3,7 +3,8 @@ import 'package:intranavigator/architecture/architecture.dart';
 import 'package:intranavigator/data/datasources/device_info_local/device_info_local.dart';
 import 'package:intranavigator/data/datasources/device_info_local/mapper/android_build_version_mapper.dart';
 
-import 'package:intranavigator/domain/entities/entities.dart';
+import '../../../../domain/entities/device/device.dart';
+import '../../../../domain/entities/exceptions/exceptions.dart';
 
 class DeviceInfoMapper
     implements ObjectMapper<third_party.BaseDeviceInfo, DeviceInfo> {

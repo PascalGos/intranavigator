@@ -1,7 +1,9 @@
 import 'package:intranavigator/architecture/architecture.dart';
 
 import 'package:device_info_plus/device_info_plus.dart' as third_party;
-import '../../../../domain/entities/entities.dart';
+
+import '../../../../domain/entities/device/device.dart';
+import '../../../../domain/entities/exceptions/exceptions.dart';
 
 class AndroidDisplayMetricsMapper
     implements

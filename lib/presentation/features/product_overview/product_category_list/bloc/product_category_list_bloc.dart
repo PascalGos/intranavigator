@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:intranavigator/architecture/architecture.dart';
 import 'package:intranavigator/domain/usecases/product_overview/load_all_product_categories.dart';
 
-import '../../../../../domain/entities/entities.dart';
+import '../../../../../domain/entities/product/product.dart';
 
 part 'product_category_list_event.dart';
 part 'product_category_list_state.dart';

@@ -4,4 +4,9 @@ class ServerException implements Exception {
   ServerException(
     this.message,
   );
+
+  @override
+  String toString() {
+    return 'Server Exception: $message';
+  }
 }

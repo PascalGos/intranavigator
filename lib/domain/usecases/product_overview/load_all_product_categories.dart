@@ -4,7 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../architecture/architecture.dart';
-import '../../entities/entities.dart';
+
+import '../../entities/product/product_category.dart';
 import '../../repositories/product_category_repository.dart';
 
 @lazySingleton

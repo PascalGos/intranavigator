@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:intranavigator/domain/repositories/repositories.dart';
 
 import '../../../architecture/architecture.dart';
-import '../../entities/entities.dart';
+import '../../entities/product/product.dart';
 
 @lazySingleton
 class LoadAllProductsUseCase extends UseCase<List<Product>, NoParams> {

@@ -3,10 +3,10 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
 
 import '../../../architecture/architecture.dart';
 import '../../services/device_permission_service.dart';
+import '../../entities/device/device.dart';
 
 @lazySingleton
 class RevokePermissionUseCase

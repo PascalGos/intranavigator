@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
+
+import '../../../../domain/entities/shopping_list_item/shopping_list_item.dart';
 
 class ShoppingListTile extends StatelessWidget {
   const ShoppingListTile({

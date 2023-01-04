@@ -7,7 +7,8 @@ import 'package:injectable/injectable.dart';
 import '../../../architecture/architecture.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../entities/entities.dart';
+import '../../entities/product/product.dart';
+import '../../entities/shopping_list_item/shopping_list_item.dart';
 import '../../repositories/repositories.dart';
 
 @lazySingleton

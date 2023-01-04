@@ -16,34 +16,35 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DevicePermissionStatus {
+  String get message => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +79,10 @@ mixin _$DevicePermissionStatus {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DevicePermissionStatusCopyWith<DevicePermissionStatus> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -85,6 +90,8 @@ abstract class $DevicePermissionStatusCopyWith<$Res> {
   factory $DevicePermissionStatusCopyWith(DevicePermissionStatus value,
           $Res Function(DevicePermissionStatus) then) =
       _$DevicePermissionStatusCopyWithImpl<$Res, DevicePermissionStatus>;
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -97,12 +104,29 @@ class _$DevicePermissionStatusCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_value.copyWith(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$DeniedCopyWith<$Res> {
+abstract class _$$DeniedCopyWith<$Res>
+    implements $DevicePermissionStatusCopyWith<$Res> {
   factory _$$DeniedCopyWith(_$Denied value, $Res Function(_$Denied) then) =
       __$$DeniedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -111,66 +135,91 @@ class __$$DeniedCopyWithImpl<$Res>
     implements _$$DeniedCopyWith<$Res> {
   __$$DeniedCopyWithImpl(_$Denied _value, $Res Function(_$Denied) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$Denied(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Denied implements Denied {
-  const _$Denied();
+  const _$Denied({this.message = "Denied"});
+
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'DevicePermissionStatus.denied()';
+    return 'DevicePermissionStatus.denied(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Denied);
+        (other.runtimeType == runtimeType &&
+            other is _$Denied &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeniedCopyWith<_$Denied> get copyWith =>
+      __$$DeniedCopyWithImpl<_$Denied>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) {
-    return denied();
+    return denied(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) {
-    return denied?.call();
+    return denied?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) {
     if (denied != null) {
-      return denied();
+      return denied(message);
     }
     return orElse();
   }
@@ -220,13 +269,24 @@ class _$Denied implements Denied {
 }
 
 abstract class Denied implements DevicePermissionStatus {
-  const factory Denied() = _$Denied;
+  const factory Denied({final String message}) = _$Denied;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$DeniedCopyWith<_$Denied> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GrantedCopyWith<$Res> {
+abstract class _$$GrantedCopyWith<$Res>
+    implements $DevicePermissionStatusCopyWith<$Res> {
   factory _$$GrantedCopyWith(_$Granted value, $Res Function(_$Granted) then) =
       __$$GrantedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -235,66 +295,91 @@ class __$$GrantedCopyWithImpl<$Res>
     implements _$$GrantedCopyWith<$Res> {
   __$$GrantedCopyWithImpl(_$Granted _value, $Res Function(_$Granted) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$Granted(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Granted implements Granted {
-  const _$Granted();
+  const _$Granted({this.message = "Granted"});
+
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'DevicePermissionStatus.granted()';
+    return 'DevicePermissionStatus.granted(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Granted);
+        (other.runtimeType == runtimeType &&
+            other is _$Granted &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GrantedCopyWith<_$Granted> get copyWith =>
+      __$$GrantedCopyWithImpl<_$Granted>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) {
-    return granted();
+    return granted(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) {
-    return granted?.call();
+    return granted?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) {
     if (granted != null) {
-      return granted();
+      return granted(message);
     }
     return orElse();
   }
@@ -344,14 +429,25 @@ class _$Granted implements Granted {
 }
 
 abstract class Granted implements DevicePermissionStatus {
-  const factory Granted() = _$Granted;
+  const factory Granted({final String message}) = _$Granted;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$GrantedCopyWith<_$Granted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RestrictedCopyWith<$Res> {
+abstract class _$$RestrictedCopyWith<$Res>
+    implements $DevicePermissionStatusCopyWith<$Res> {
   factory _$$RestrictedCopyWith(
           _$Restricted value, $Res Function(_$Restricted) then) =
       __$$RestrictedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -361,66 +457,91 @@ class __$$RestrictedCopyWithImpl<$Res>
   __$$RestrictedCopyWithImpl(
       _$Restricted _value, $Res Function(_$Restricted) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$Restricted(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Restricted implements Restricted {
-  const _$Restricted();
+  const _$Restricted({this.message = "Restricted"});
+
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'DevicePermissionStatus.restricted()';
+    return 'DevicePermissionStatus.restricted(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Restricted);
+        (other.runtimeType == runtimeType &&
+            other is _$Restricted &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RestrictedCopyWith<_$Restricted> get copyWith =>
+      __$$RestrictedCopyWithImpl<_$Restricted>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) {
-    return restricted();
+    return restricted(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) {
-    return restricted?.call();
+    return restricted?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) {
     if (restricted != null) {
-      return restricted();
+      return restricted(message);
     }
     return orElse();
   }
@@ -470,13 +591,24 @@ class _$Restricted implements Restricted {
 }
 
 abstract class Restricted implements DevicePermissionStatus {
-  const factory Restricted() = _$Restricted;
+  const factory Restricted({final String message}) = _$Restricted;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$RestrictedCopyWith<_$Restricted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LimitedCopyWith<$Res> {
+abstract class _$$LimitedCopyWith<$Res>
+    implements $DevicePermissionStatusCopyWith<$Res> {
   factory _$$LimitedCopyWith(_$Limited value, $Res Function(_$Limited) then) =
       __$$LimitedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -485,66 +617,91 @@ class __$$LimitedCopyWithImpl<$Res>
     implements _$$LimitedCopyWith<$Res> {
   __$$LimitedCopyWithImpl(_$Limited _value, $Res Function(_$Limited) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$Limited(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Limited implements Limited {
-  const _$Limited();
+  const _$Limited({this.message = "Limited"});
+
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'DevicePermissionStatus.limited()';
+    return 'DevicePermissionStatus.limited(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Limited);
+        (other.runtimeType == runtimeType &&
+            other is _$Limited &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LimitedCopyWith<_$Limited> get copyWith =>
+      __$$LimitedCopyWithImpl<_$Limited>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) {
-    return limited();
+    return limited(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) {
-    return limited?.call();
+    return limited?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) {
     if (limited != null) {
-      return limited();
+      return limited(message);
     }
     return orElse();
   }
@@ -594,14 +751,25 @@ class _$Limited implements Limited {
 }
 
 abstract class Limited implements DevicePermissionStatus {
-  const factory Limited() = _$Limited;
+  const factory Limited({final String message}) = _$Limited;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$LimitedCopyWith<_$Limited> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PermanentlyDeniedCopyWith<$Res> {
+abstract class _$$PermanentlyDeniedCopyWith<$Res>
+    implements $DevicePermissionStatusCopyWith<$Res> {
   factory _$$PermanentlyDeniedCopyWith(
           _$PermanentlyDenied value, $Res Function(_$PermanentlyDenied) then) =
       __$$PermanentlyDeniedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -611,66 +779,91 @@ class __$$PermanentlyDeniedCopyWithImpl<$Res>
   __$$PermanentlyDeniedCopyWithImpl(
       _$PermanentlyDenied _value, $Res Function(_$PermanentlyDenied) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$PermanentlyDenied(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$PermanentlyDenied implements PermanentlyDenied {
-  const _$PermanentlyDenied();
+  const _$PermanentlyDenied({this.message = "Permanently Denied"});
+
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'DevicePermissionStatus.permanentlyDenied()';
+    return 'DevicePermissionStatus.permanentlyDenied(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PermanentlyDenied);
+        (other.runtimeType == runtimeType &&
+            other is _$PermanentlyDenied &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PermanentlyDeniedCopyWith<_$PermanentlyDenied> get copyWith =>
+      __$$PermanentlyDeniedCopyWithImpl<_$PermanentlyDenied>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) {
-    return permanentlyDenied();
+    return permanentlyDenied(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) {
-    return permanentlyDenied?.call();
+    return permanentlyDenied?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) {
     if (permanentlyDenied != null) {
-      return permanentlyDenied();
+      return permanentlyDenied(message);
     }
     return orElse();
   }
@@ -720,14 +913,25 @@ class _$PermanentlyDenied implements PermanentlyDenied {
 }
 
 abstract class PermanentlyDenied implements DevicePermissionStatus {
-  const factory PermanentlyDenied() = _$PermanentlyDenied;
+  const factory PermanentlyDenied({final String message}) = _$PermanentlyDenied;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$PermanentlyDeniedCopyWith<_$PermanentlyDenied> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UndeterminedCopyWith<$Res> {
+abstract class _$$UndeterminedCopyWith<$Res>
+    implements $DevicePermissionStatusCopyWith<$Res> {
   factory _$$UndeterminedCopyWith(
           _$Undetermined value, $Res Function(_$Undetermined) then) =
       __$$UndeterminedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -737,66 +941,91 @@ class __$$UndeterminedCopyWithImpl<$Res>
   __$$UndeterminedCopyWithImpl(
       _$Undetermined _value, $Res Function(_$Undetermined) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$Undetermined(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Undetermined implements Undetermined {
-  const _$Undetermined();
+  const _$Undetermined({this.message = "Unknown"});
+
+  @override
+  @JsonKey()
+  final String message;
 
   @override
   String toString() {
-    return 'DevicePermissionStatus.undetermined()';
+    return 'DevicePermissionStatus.undetermined(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Undetermined);
+        (other.runtimeType == runtimeType &&
+            other is _$Undetermined &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UndeterminedCopyWith<_$Undetermined> get copyWith =>
+      __$$UndeterminedCopyWithImpl<_$Undetermined>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() denied,
-    required TResult Function() granted,
-    required TResult Function() restricted,
-    required TResult Function() limited,
-    required TResult Function() permanentlyDenied,
-    required TResult Function() undetermined,
+    required TResult Function(String message) denied,
+    required TResult Function(String message) granted,
+    required TResult Function(String message) restricted,
+    required TResult Function(String message) limited,
+    required TResult Function(String message) permanentlyDenied,
+    required TResult Function(String message) undetermined,
   }) {
-    return undetermined();
+    return undetermined(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? denied,
-    TResult? Function()? granted,
-    TResult? Function()? restricted,
-    TResult? Function()? limited,
-    TResult? Function()? permanentlyDenied,
-    TResult? Function()? undetermined,
+    TResult? Function(String message)? denied,
+    TResult? Function(String message)? granted,
+    TResult? Function(String message)? restricted,
+    TResult? Function(String message)? limited,
+    TResult? Function(String message)? permanentlyDenied,
+    TResult? Function(String message)? undetermined,
   }) {
-    return undetermined?.call();
+    return undetermined?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? granted,
-    TResult Function()? restricted,
-    TResult Function()? limited,
-    TResult Function()? permanentlyDenied,
-    TResult Function()? undetermined,
+    TResult Function(String message)? denied,
+    TResult Function(String message)? granted,
+    TResult Function(String message)? restricted,
+    TResult Function(String message)? limited,
+    TResult Function(String message)? permanentlyDenied,
+    TResult Function(String message)? undetermined,
     required TResult orElse(),
   }) {
     if (undetermined != null) {
-      return undetermined();
+      return undetermined(message);
     }
     return orElse();
   }
@@ -846,5 +1075,12 @@ class _$Undetermined implements Undetermined {
 }
 
 abstract class Undetermined implements DevicePermissionStatus {
-  const factory Undetermined() = _$Undetermined;
+  const factory Undetermined({final String message}) = _$Undetermined;
+
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$UndeterminedCopyWith<_$Undetermined> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,0 +1,3 @@
+class LokySizesFoundation {
+  LokySizesFoundation._();
+}

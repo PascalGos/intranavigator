@@ -6,8 +6,8 @@ import 'package:injectable/injectable.dart';
 
 import 'package:intranavigator/architecture/architecture.dart';
 
-import '../../entities/entities.dart';
 import '../../services/services.dart';
+import '../../entities/device/device.dart';
 
 @lazySingleton
 class LoadDevicePermissionsUseCase

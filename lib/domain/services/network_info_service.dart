@@ -1,3 +1,9 @@
+import 'dart:async';
+
+import 'package:dartz/dartz.dart';
+
+import '../../architecture/architecture.dart';
+
 abstract class NetworkInfoService {
-  Stream<bool> get isConnected;
+  FutureOr<Either<Failure, Stream<bool>>> get isConnected;
 }

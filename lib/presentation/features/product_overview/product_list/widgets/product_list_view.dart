@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../domain/entities/entities.dart';
+import '../../../../../domain/entities/product/product.dart';
 import '../bloc/product_list_bloc.dart';
 import 'product_tile/widgets/product_tile_widget.dart';
 

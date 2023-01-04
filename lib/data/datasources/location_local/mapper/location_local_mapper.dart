@@ -1,8 +1,9 @@
 import 'package:intranavigator/data/datasources/location_local/dto/dto.dart';
 
 import '../../../../architecture/architecture.dart';
-import '../../../../domain/entities/entities.dart';
+
 import '../../../../domain/entities/exceptions/exceptions.dart';
+import '../../../../domain/entities/location/location.dart';
 
 class LocationLocalMapper
     implements ObjectMapper<LocationLocalDTO, LocationInfo> {

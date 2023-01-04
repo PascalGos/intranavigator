@@ -165,45 +165,51 @@ abstract class Started implements AppEvent {
 mixin _$AppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initializing,
-    required TResult Function(AppSettings settings) initialized,
+    required TResult Function() initial,
+    required TResult Function(AppSettings settings, User user) success,
     required TResult Function() failure,
+    required TResult Function(String errorMessage) systemFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializing,
-    TResult? Function(AppSettings settings)? initialized,
+    TResult? Function()? initial,
+    TResult? Function(AppSettings settings, User user)? success,
     TResult? Function()? failure,
+    TResult? Function(String errorMessage)? systemFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializing,
-    TResult Function(AppSettings settings)? initialized,
+    TResult Function()? initial,
+    TResult Function(AppSettings settings, User user)? success,
     TResult Function()? failure,
+    TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initializing value) initializing,
-    required TResult Function(Initialized value) initialized,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
+    required TResult Function(SystemFailure value) systemFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initializing value)? initializing,
-    TResult? Function(Initialized value)? initialized,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
+    TResult? Function(SystemFailure value)? systemFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initializing value)? initializing,
-    TResult Function(Initialized value)? initialized,
+    TResult Function(Initial value)? initial,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
+    TResult Function(SystemFailure value)? systemFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -227,35 +233,33 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 }
 
 /// @nodoc
-abstract class _$$InitializingCopyWith<$Res> {
-  factory _$$InitializingCopyWith(
-          _$Initializing value, $Res Function(_$Initializing) then) =
-      __$$InitializingCopyWithImpl<$Res>;
+abstract class _$$InitialCopyWith<$Res> {
+  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
+      __$$InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitializingCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$Initializing>
-    implements _$$InitializingCopyWith<$Res> {
-  __$$InitializingCopyWithImpl(
-      _$Initializing _value, $Res Function(_$Initializing) _then)
+class __$$InitialCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$Initial>
+    implements _$$InitialCopyWith<$Res> {
+  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initializing implements Initializing {
-  const _$Initializing();
+class _$Initial implements Initial {
+  const _$Initial();
 
   @override
   String toString() {
-    return 'AppState.initializing()';
+    return 'AppState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initializing);
+        (other.runtimeType == runtimeType && other is _$Initial);
   }
 
   @override
@@ -264,33 +268,36 @@ class _$Initializing implements Initializing {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initializing,
-    required TResult Function(AppSettings settings) initialized,
+    required TResult Function() initial,
+    required TResult Function(AppSettings settings, User user) success,
     required TResult Function() failure,
+    required TResult Function(String errorMessage) systemFailure,
   }) {
-    return initializing();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializing,
-    TResult? Function(AppSettings settings)? initialized,
+    TResult? Function()? initial,
+    TResult? Function(AppSettings settings, User user)? success,
     TResult? Function()? failure,
+    TResult? Function(String errorMessage)? systemFailure,
   }) {
-    return initializing?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializing,
-    TResult Function(AppSettings settings)? initialized,
+    TResult Function()? initial,
+    TResult Function(AppSettings settings, User user)? success,
     TResult Function()? failure,
+    TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {
-    if (initializing != null) {
-      return initializing();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -298,71 +305,78 @@ class _$Initializing implements Initializing {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initializing value) initializing,
-    required TResult Function(Initialized value) initialized,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
+    required TResult Function(SystemFailure value) systemFailure,
   }) {
-    return initializing(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initializing value)? initializing,
-    TResult? Function(Initialized value)? initialized,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
+    TResult? Function(SystemFailure value)? systemFailure,
   }) {
-    return initializing?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initializing value)? initializing,
-    TResult Function(Initialized value)? initialized,
+    TResult Function(Initial value)? initial,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
+    TResult Function(SystemFailure value)? systemFailure,
     required TResult orElse(),
   }) {
-    if (initializing != null) {
-      return initializing(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class Initializing implements AppState {
-  const factory Initializing() = _$Initializing;
+abstract class Initial implements AppState {
+  const factory Initial() = _$Initial;
 }
 
 /// @nodoc
-abstract class _$$InitializedCopyWith<$Res> {
-  factory _$$InitializedCopyWith(
-          _$Initialized value, $Res Function(_$Initialized) then) =
-      __$$InitializedCopyWithImpl<$Res>;
+abstract class _$$SuccessCopyWith<$Res> {
+  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) =
+      __$$SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({AppSettings settings});
+  $Res call({AppSettings settings, User user});
 
   $AppSettingsCopyWith<$Res> get settings;
+  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class __$$InitializedCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$Initialized>
-    implements _$$InitializedCopyWith<$Res> {
-  __$$InitializedCopyWithImpl(
-      _$Initialized _value, $Res Function(_$Initialized) _then)
+class __$$SuccessCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$Success>
+    implements _$$SuccessCopyWith<$Res> {
+  __$$SuccessCopyWithImpl(_$Success _value, $Res Function(_$Success) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? settings = null,
+    Object? user = null,
   }) {
-    return _then(_$Initialized(
+    return _then(_$Success(
       settings: null == settings
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as AppSettings,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
     ));
   }
 
@@ -373,69 +387,83 @@ class __$$InitializedCopyWithImpl<$Res>
       return _then(_value.copyWith(settings: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$Initialized implements Initialized {
-  const _$Initialized({required this.settings});
+class _$Success implements Success {
+  const _$Success({required this.settings, required this.user});
 
   @override
   final AppSettings settings;
+  @override
+  final User user;
 
   @override
   String toString() {
-    return 'AppState.initialized(settings: $settings)';
+    return 'AppState.success(settings: $settings, user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Initialized &&
+            other is _$Success &&
             (identical(other.settings, settings) ||
-                other.settings == settings));
+                other.settings == settings) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, settings);
+  int get hashCode => Object.hash(runtimeType, settings, user);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InitializedCopyWith<_$Initialized> get copyWith =>
-      __$$InitializedCopyWithImpl<_$Initialized>(this, _$identity);
+  _$$SuccessCopyWith<_$Success> get copyWith =>
+      __$$SuccessCopyWithImpl<_$Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initializing,
-    required TResult Function(AppSettings settings) initialized,
+    required TResult Function() initial,
+    required TResult Function(AppSettings settings, User user) success,
     required TResult Function() failure,
+    required TResult Function(String errorMessage) systemFailure,
   }) {
-    return initialized(settings);
+    return success(settings, user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializing,
-    TResult? Function(AppSettings settings)? initialized,
+    TResult? Function()? initial,
+    TResult? Function(AppSettings settings, User user)? success,
     TResult? Function()? failure,
+    TResult? Function(String errorMessage)? systemFailure,
   }) {
-    return initialized?.call(settings);
+    return success?.call(settings, user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializing,
-    TResult Function(AppSettings settings)? initialized,
+    TResult Function()? initial,
+    TResult Function(AppSettings settings, User user)? success,
     TResult Function()? failure,
+    TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {
-    if (initialized != null) {
-      return initialized(settings);
+    if (success != null) {
+      return success(settings, user);
     }
     return orElse();
   }
@@ -443,45 +471,50 @@ class _$Initialized implements Initialized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initializing value) initializing,
-    required TResult Function(Initialized value) initialized,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
+    required TResult Function(SystemFailure value) systemFailure,
   }) {
-    return initialized(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initializing value)? initializing,
-    TResult? Function(Initialized value)? initialized,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
+    TResult? Function(SystemFailure value)? systemFailure,
   }) {
-    return initialized?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initializing value)? initializing,
-    TResult Function(Initialized value)? initialized,
+    TResult Function(Initial value)? initial,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
+    TResult Function(SystemFailure value)? systemFailure,
     required TResult orElse(),
   }) {
-    if (initialized != null) {
-      return initialized(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
 }
 
-abstract class Initialized implements AppState {
-  const factory Initialized({required final AppSettings settings}) =
-      _$Initialized;
+abstract class Success implements AppState {
+  const factory Success(
+      {required final AppSettings settings,
+      required final User user}) = _$Success;
 
   AppSettings get settings;
+  User get user;
   @JsonKey(ignore: true)
-  _$$InitializedCopyWith<_$Initialized> get copyWith =>
+  _$$SuccessCopyWith<_$Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -521,9 +554,10 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initializing,
-    required TResult Function(AppSettings settings) initialized,
+    required TResult Function() initial,
+    required TResult Function(AppSettings settings, User user) success,
     required TResult Function() failure,
+    required TResult Function(String errorMessage) systemFailure,
   }) {
     return failure();
   }
@@ -531,9 +565,10 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializing,
-    TResult? Function(AppSettings settings)? initialized,
+    TResult? Function()? initial,
+    TResult? Function(AppSettings settings, User user)? success,
     TResult? Function()? failure,
+    TResult? Function(String errorMessage)? systemFailure,
   }) {
     return failure?.call();
   }
@@ -541,9 +576,10 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializing,
-    TResult Function(AppSettings settings)? initialized,
+    TResult Function()? initial,
+    TResult Function(AppSettings settings, User user)? success,
     TResult Function()? failure,
+    TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -555,9 +591,10 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initializing value) initializing,
-    required TResult Function(Initialized value) initialized,
+    required TResult Function(Initial value) initial,
+    required TResult Function(Success value) success,
     required TResult Function(Failure value) failure,
+    required TResult Function(SystemFailure value) systemFailure,
   }) {
     return failure(this);
   }
@@ -565,9 +602,10 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initializing value)? initializing,
-    TResult? Function(Initialized value)? initialized,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Success value)? success,
     TResult? Function(Failure value)? failure,
+    TResult? Function(SystemFailure value)? systemFailure,
   }) {
     return failure?.call(this);
   }
@@ -575,9 +613,10 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initializing value)? initializing,
-    TResult Function(Initialized value)? initialized,
+    TResult Function(Initial value)? initial,
+    TResult Function(Success value)? success,
     TResult Function(Failure value)? failure,
+    TResult Function(SystemFailure value)? systemFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -589,4 +628,151 @@ class _$Failure implements Failure {
 
 abstract class Failure implements AppState {
   const factory Failure() = _$Failure;
+}
+
+/// @nodoc
+abstract class _$$SystemFailureCopyWith<$Res> {
+  factory _$$SystemFailureCopyWith(
+          _$SystemFailure value, $Res Function(_$SystemFailure) then) =
+      __$$SystemFailureCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$SystemFailureCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$SystemFailure>
+    implements _$$SystemFailureCopyWith<$Res> {
+  __$$SystemFailureCopyWithImpl(
+      _$SystemFailure _value, $Res Function(_$SystemFailure) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$SystemFailure(
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SystemFailure implements SystemFailure {
+  const _$SystemFailure({required this.errorMessage});
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'AppState.systemFailure(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SystemFailure &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SystemFailureCopyWith<_$SystemFailure> get copyWith =>
+      __$$SystemFailureCopyWithImpl<_$SystemFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(AppSettings settings, User user) success,
+    required TResult Function() failure,
+    required TResult Function(String errorMessage) systemFailure,
+  }) {
+    return systemFailure(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(AppSettings settings, User user)? success,
+    TResult? Function()? failure,
+    TResult? Function(String errorMessage)? systemFailure,
+  }) {
+    return systemFailure?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppSettings settings, User user)? success,
+    TResult Function()? failure,
+    TResult Function(String errorMessage)? systemFailure,
+    required TResult orElse(),
+  }) {
+    if (systemFailure != null) {
+      return systemFailure(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Success value) success,
+    required TResult Function(Failure value) failure,
+    required TResult Function(SystemFailure value) systemFailure,
+  }) {
+    return systemFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Success value)? success,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(SystemFailure value)? systemFailure,
+  }) {
+    return systemFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Success value)? success,
+    TResult Function(Failure value)? failure,
+    TResult Function(SystemFailure value)? systemFailure,
+    required TResult orElse(),
+  }) {
+    if (systemFailure != null) {
+      return systemFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SystemFailure implements AppState {
+  const factory SystemFailure({required final String errorMessage}) =
+      _$SystemFailure;
+
+  String get errorMessage;
+  @JsonKey(ignore: true)
+  _$$SystemFailureCopyWith<_$SystemFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }

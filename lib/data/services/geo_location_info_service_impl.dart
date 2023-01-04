@@ -6,7 +6,7 @@
 // import 'package:geolocator/geolocator.dart' as third_party;
 // import 'package:intranavigator/architecture/src/failure.dart';
 // import 'package:intranavigator/data/datasources/geo_location_info_local/geo_location_info_local.dart';
-// import 'package:intranavigator/domain/entities/entities.dart';
+// 
 // import 'package:intranavigator/domain/entities/failures/geo_location_info_retrieval_failure.dart';
 // import 'package:intranavigator/domain/services/services.dart';
 

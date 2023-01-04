@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:intranavigator/presentation/features/app/pages/pages.dart';
+import 'package:intranavigator/presentation/features/app/pages/systemfailure_page.dart';
 
 import '../features/onboarding/onboarding.dart';
 import '../features/main_navigation/main_navigation.dart';
@@ -28,6 +29,13 @@ import '../features/settings/settings.dart';
       ],
     ),
     mainNavigationRoutergroup,
+    AutoRoute(
+      path: '/system_failure',
+      page: SystemFailurePage,
+      children: [
+        RedirectRoute(path: '*', redirectTo: ''),
+      ],
+    ),
     RedirectRoute(path: '*', redirectTo: '/onboarding'),
   ],
 )

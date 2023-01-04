@@ -3,21 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../design_system/components/components.dart';
+import '../../../../domain/entities/user/user.dart';
+import '../../app/bloc/app_bloc.dart';
 import '../bloc/main_navigation_bloc.dart';
 
 class AppBarBuilder extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarBuilder({super.key});
+  const AppBarBuilder({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MainNavigationBloc, MainNavigationState>(
       builder: (context, state) {
+        final user = (context.read<AppBloc>().state as Success).user;
         return state.when(
-          mainPageSelected: (destination) => const LokyMainPageAppBar(
-            userName: 'Julian',
+          mainPageSelected: (destination) => LokyMainPageAppBar(
+            userName: user.username,
             userGreeting: 'Good Morning',
-            profileImageProvider: NetworkImage(
-                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80'),
+            profileImageProvider: AssetImage(
+              user.imagePath,
+            ),
           ),
           detailPageSelected: (destination) => LokyDetailPageAppBar(
             title: destination.title,

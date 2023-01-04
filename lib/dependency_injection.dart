@@ -2,12 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cross_connectivity/cross_connectivity.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_web_bluetooth/flutter_web_bluetooth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intranavigator/data/datasources/bluetooth_local/bluetooth_local.dart';
 import 'package:intranavigator/data/datasources/product_remote/config/config.dart';
-import 'package:intranavigator/domain/entities/app_settings/app_settings.dart';
+
 import 'package:intranavigator/presentation/routes/router.gr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'data/datasources/device_permission_local/device_permission_local.dart';
+
+import 'data/datasources/user_remote/config/fake_setup.dart';
 import 'dependency_injection.config.dart';
 
 final getDependency = GetIt.instance;
@@ -19,6 +25,7 @@ Future<void> configureDependencies(String environment) async {
   );
 
   RemoteProductFakeFirebaseFirestoreInitializer.initialize(getDependency());
+  RemoteUserFakeFirebaseFirestoreInitializer.initialize(getDependency());
 }
 
 abstract class Env {
@@ -38,12 +45,27 @@ abstract class RouterModule {
 }
 
 @module
+abstract class DataSources {
+  DevicePermissionLocalDatasource get localDevicePermissionDataSource =>
+      DevicePermissionLocalDatasourceImpl();
+  BluetoothLocalDataSource get localBluetoothDataSource =>
+      BluetoothLocalDataSourceImpl();
+}
+
+@module
 abstract class ExternalModule {
   @lazySingleton
   Connectivity get connectivity => Connectivity();
 
   @lazySingleton
   DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();
+
+  @lazySingleton
+  FlutterWebBluetoothInterface get webBluetoothHandler =>
+      FlutterWebBluetooth.instance;
+
+  @lazySingleton
+  FlutterBluePlus get mobileBluetoothHandler => FlutterBluePlus.instance;
 
   @Singleton(
     as: FirebaseFirestore,

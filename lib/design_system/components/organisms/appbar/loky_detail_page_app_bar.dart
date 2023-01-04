@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../tokens/colors.dart';
+
 class LokyDetailPageAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   const LokyDetailPageAppBar({
@@ -16,11 +18,17 @@ class LokyDetailPageAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title),
-      centerTitle: true,
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.titleLarge!.copyWith(height: 2.0),
+      ),
+      centerTitle: false,
       automaticallyImplyLeading: true,
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
+        icon: Icon(
+          Icons.arrow_back,
+          color: LokyColors.onSurfaceColor,
+        ),
         onPressed: onBackButtonPressed,
       ),
     );

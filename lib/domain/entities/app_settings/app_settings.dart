@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
+import 'package:intranavigator/domain/entities/device/device_permission/device_permission.dart';
+
+import '../device/device_info/device_info.dart';
 
 part 'app_settings.freezed.dart';
 

@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
+  String get uid => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
+  String get imagePath => throw _privateConstructorUsedError;
+  LocationInfo? get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,10 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String id, String username, String email});
+  $Res call(
+      {String uid, String username, String imagePath, LocationInfo? location});
+
+  $LocationInfoCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -45,24 +49,41 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? uid = null,
     Object? username = null,
-    Object? email = null,
+    Object? imagePath = null,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
               as String,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationInfo?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationInfoCopyWith<$Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $LocationInfoCopyWith<$Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
   }
 }
 
@@ -72,7 +93,11 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String username, String email});
+  $Res call(
+      {String uid, String username, String imagePath, LocationInfo? location});
+
+  @override
+  $LocationInfoCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -84,23 +109,28 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? uid = null,
     Object? username = null,
-    Object? email = null,
+    Object? imagePath = null,
+    Object? location = freezed,
   }) {
     return _then(_$_User(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
               as String,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationInfo?,
     ));
   }
 }
@@ -109,18 +139,23 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 class _$_User implements _User {
   const _$_User(
-      {required this.id, required this.username, required this.email});
+      {required this.uid,
+      required this.username,
+      required this.imagePath,
+      this.location});
 
   @override
-  final String id;
+  final String uid;
   @override
   final String username;
   @override
-  final String email;
+  final String imagePath;
+  @override
+  final LocationInfo? location;
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username, email: $email)';
+    return 'User(uid: $uid, username: $username, imagePath: $imagePath, location: $location)';
   }
 
   @override
@@ -128,14 +163,18 @@ class _$_User implements _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_User &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.username, username) ||
                 other.username == username) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, email);
+  int get hashCode =>
+      Object.hash(runtimeType, uid, username, imagePath, location);
 
   @JsonKey(ignore: true)
   @override
@@ -146,16 +185,19 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String id,
+      {required final String uid,
       required final String username,
-      required final String email}) = _$_User;
+      required final String imagePath,
+      final LocationInfo? location}) = _$_User;
 
   @override
-  String get id;
+  String get uid;
   @override
   String get username;
   @override
-  String get email;
+  String get imagePath;
+  @override
+  LocationInfo? get location;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

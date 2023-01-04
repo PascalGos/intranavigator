@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:intranavigator/architecture/architecture.dart';
 import 'package:intranavigator/domain/repositories/shopping_list_item_repository.dart';
 
-import '../../entities/entities.dart';
+import '../../entities/shopping_list_item/shopping_list_item.dart';
 
 @lazySingleton
 class LoadShoppingListItemsUseCase

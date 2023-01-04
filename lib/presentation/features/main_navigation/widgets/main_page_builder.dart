@@ -2,14 +2,18 @@ import 'package:auto_route/auto_route.dart' as auto_route;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../domain/entities/user/user.dart';
 import '../bloc/main_navigation_bloc.dart';
 import 'app_bar_builder.dart';
 import 'bottom_navigation_builder.dart';
 import 'page_body_builder.dart';
 
 class MainPageBuilder extends StatelessWidget {
-  const MainPageBuilder(
-      {super.key, required this.child, required this.animation});
+  const MainPageBuilder({
+    super.key,
+    required this.child,
+    required this.animation,
+  });
   final Widget child;
   final Animation<double> animation;
 
@@ -20,7 +24,7 @@ class MainPageBuilder extends StatelessWidget {
       //BUG: onWillPop with a function is called every time
       // onWillPop: onWillPop(context),
       child: Scaffold(
-        appBar: const AppBarBuilder(),
+        appBar: AppBarBuilder(),
         body: PageBodyBuilder(
           animation: animation,
           child: child,

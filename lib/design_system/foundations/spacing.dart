@@ -1,0 +1,3 @@
+class LokySpacingFoundation {
+  LokySpacingFoundation._();
+}

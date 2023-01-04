@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/design_system/components/components.dart';
 
-import '../../../../domain/entities/entities.dart';
+import '../../../../domain/entities/navigation_item/navigation_item.dart';
 import '../bloc/main_navigation_bloc.dart';
 import 'bottom_navigation_items.dart';
 

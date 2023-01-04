@@ -1,24 +1,22 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'dart:async';
 
-import 'package:device_info_plus/device_info_plus.dart' as third_party;
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intranavigator/architecture/src/failure.dart';
 import 'package:intranavigator/domain/services/device_info_service.dart';
 
-import '../../domain/entities/entities.dart';
+import '../../domain/entities/device/device.dart';
 import '../datasources/device_info_local/device_info_local.dart';
+import '../../domain/entities/exceptions/exceptions.dart';
+import '../../domain/entities/failures/failures.dart';
 
 @LazySingleton(as: DeviceInfoService)
 class DeviceInfoServiceImpl implements DeviceInfoService {
-  final third_party.DeviceInfoPlugin deviceInfoPlugin;
-  final DeviceInfoMapper _mapper = DeviceInfoMapper();
+  final DeviceInfoLocalDataSource localDatasource;
 
   DeviceInfoServiceImpl({
-    required this.deviceInfoPlugin,
+    required this.localDatasource,
   });
 
   @override
@@ -41,34 +39,34 @@ class DeviceInfoServiceImpl implements DeviceInfoService {
 
   FutureOr<Either<Failure, AndroidDeviceInfo>> get _androidDeviceInfo async {
     try {
-      final result = await deviceInfoPlugin.androidInfo;
-      AndroidDeviceInfo deviceInfo =
-          (_mapper.toEntity(result)) as AndroidDeviceInfo;
-      return Right(deviceInfo);
-    } on MapperException {
-      return const Left(MappingFailure());
-    } catch (e) {
+      final result = await localDatasource.androidDeviceInfo;
+      return Right(result);
+    } on DeviceException catch (e) {
       return Left(DeviceInfoRetrievalFailure(message: e.toString()));
+    } on MapperException catch (e) {
+      return Left(MappingFailure(message: e.toString()));
     }
   }
 
   FutureOr<Either<Failure, IosDeviceInfo>> get _iosDeviceInfo async {
     try {
-      final result = await deviceInfoPlugin.iosInfo;
-      IosDeviceInfo deviceInfo = (_mapper.toEntity(result)) as IosDeviceInfo;
-      return Right(deviceInfo);
-    } catch (e) {
+      final result = await localDatasource.iosDeviceInfo;
+      return Right(result);
+    } on DeviceException catch (e) {
       return Left(DeviceInfoRetrievalFailure(message: e.toString()));
+    } on MapperException catch (e) {
+      return Left(MappingFailure(message: e.toString()));
     }
   }
 
   FutureOr<Either<Failure, WebDeviceInfo>> get _webBrowserInfo async {
     try {
-      final result = await deviceInfoPlugin.webBrowserInfo;
-      WebDeviceInfo deviceInfo = (_mapper.toEntity(result)) as WebDeviceInfo;
-      return Right(deviceInfo);
-    } catch (e) {
+      final result = await localDatasource.webBrowserInfo;
+      return Right(result);
+    } on DeviceException catch (e) {
       return Left(DeviceInfoRetrievalFailure(message: e.toString()));
+    } on MapperException catch (e) {
+      return Left(MappingFailure(message: e.toString()));
     }
   }
 }

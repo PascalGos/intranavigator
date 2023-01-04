@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
 
 import '../../../../architecture/architecture.dart';
+import '../../../../domain/entities/exceptions/exceptions.dart';
+import '../../../../domain/entities/location/location.dart';
+import '../../../../domain/entities/product/product.dart';
 import '../dto/product_remote_dto.dart';
 
 class ProductRemoteMapper implements ObjectMapper<ProductRemoteDTO, Product> {

@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 
 import 'package:intranavigator/architecture/architecture.dart';
 
-import '../../entities/entities.dart';
+import '../../entities/device/device.dart';
 import '../../services/services.dart';
 
 @lazySingleton

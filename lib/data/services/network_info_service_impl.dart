@@ -1,11 +1,17 @@
-import 'package:cross_connectivity/cross_connectivity.dart';
+import 'dart:async';
+
+import 'package:dartz/dartz.dart';
+import 'package:intranavigator/data/datasources/connectivity_local/connectivity_local.dart';
 import 'package:intranavigator/domain/services/network_info_service.dart';
 
-class NetworkInfoServiceImpl implements NetworkInfoService {
-  final Connectivity connectivity;
+import '../../architecture/architecture.dart';
 
-  NetworkInfoServiceImpl(this.connectivity);
+class NetworkInfoServiceImpl implements NetworkInfoService {
+  final ConnectivityLocalDatabase localDatabase;
+
+  NetworkInfoServiceImpl(this.localDatabase);
 
   @override
-  Stream<bool> get isConnected => connectivity.isConnected;
+  FutureOr<Either<Failure, Stream<bool>>> get isConnected =>
+      Right(localDatabase.isConnected);
 }

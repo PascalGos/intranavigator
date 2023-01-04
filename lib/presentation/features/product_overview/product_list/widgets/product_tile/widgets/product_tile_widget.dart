@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/dependency_injection.dart';
-import 'package:intranavigator/domain/entities/entities.dart';
+import 'package:intranavigator/presentation/features/shopping_list/shopping_list.dart'
+    as shopping_list;
 
+import '../../../../../../../domain/entities/product/product.dart';
 import '../bloc/product_tile_bloc.dart';
 
 class ProductTile extends StatelessWidget {
@@ -52,10 +54,18 @@ class ProductTile extends StatelessWidget {
                     ),
                   ),
                   loading: () => const CircularProgressIndicator(),
-                  success: (item) => const Icon(
-                    Icons.check,
-                    color: Colors.green,
+                  success: (product) => IconButton(
+                    icon: const Icon(Icons.add),
+                    color: Colors.blue,
+                    onPressed: () => bloc.add(
+                      AddButtonPressed(item: item),
+                    ),
                   ),
+                  // (item) => const Icon(
+                  //   Icons.check,
+                  //   color: Colors.green,
+                  // ),
+
                   failure: () => IconButton(
                       icon: const Icon(
                         Icons.cancel,
