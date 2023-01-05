@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intranavigator/domain/entities/shopping_list_item/shopping_list_item.dart';
-import 'package:intranavigator/domain/usecases/shopping_list/delete_product_from_shopping_list.dart';
+import 'package:intranavigator/domain/usecases/shopping_list_manager/delete_product_from_shopping_list.dart';
 
-import 'package:intranavigator/domain/usecases/shopping_list/load_shopping_list_items.dart';
+import 'package:intranavigator/domain/usecases/shopping_list_manager/load_shopping_list_items.dart';
 
 import '../../../../architecture/architecture.dart';
 

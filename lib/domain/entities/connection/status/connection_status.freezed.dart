@@ -120,8 +120,8 @@ class __$$UnknownCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Unknown implements Unknown {
-  const _$Unknown();
+class _$Unknown extends Unknown {
+  const _$Unknown() : super._();
 
   @override
   String toString() {
@@ -230,8 +230,9 @@ class _$Unknown implements Unknown {
   }
 }
 
-abstract class Unknown implements ConnectionStatus {
+abstract class Unknown extends ConnectionStatus {
   const factory Unknown() = _$Unknown;
+  const Unknown._() : super._();
 }
 
 /// @nodoc
@@ -252,8 +253,8 @@ class __$$UnavailableCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Unavailable implements Unavailable {
-  const _$Unavailable();
+class _$Unavailable extends Unavailable {
+  const _$Unavailable() : super._();
 
   @override
   String toString() {
@@ -362,8 +363,9 @@ class _$Unavailable implements Unavailable {
   }
 }
 
-abstract class Unavailable implements ConnectionStatus {
+abstract class Unavailable extends ConnectionStatus {
   const factory Unavailable() = _$Unavailable;
+  const Unavailable._() : super._();
 }
 
 /// @nodoc
@@ -384,8 +386,8 @@ class __$$UnauthorizedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Unauthorized implements Unauthorized {
-  const _$Unauthorized();
+class _$Unauthorized extends Unauthorized {
+  const _$Unauthorized() : super._();
 
   @override
   String toString() {
@@ -494,8 +496,9 @@ class _$Unauthorized implements Unauthorized {
   }
 }
 
-abstract class Unauthorized implements ConnectionStatus {
+abstract class Unauthorized extends ConnectionStatus {
   const factory Unauthorized() = _$Unauthorized;
+  const Unauthorized._() : super._();
 }
 
 /// @nodoc
@@ -516,8 +519,8 @@ class __$$TurningOnCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TurningOn implements TurningOn {
-  const _$TurningOn();
+class _$TurningOn extends TurningOn {
+  const _$TurningOn() : super._();
 
   @override
   String toString() {
@@ -626,8 +629,9 @@ class _$TurningOn implements TurningOn {
   }
 }
 
-abstract class TurningOn implements ConnectionStatus {
+abstract class TurningOn extends ConnectionStatus {
   const factory TurningOn() = _$TurningOn;
+  const TurningOn._() : super._();
 }
 
 /// @nodoc
@@ -646,8 +650,8 @@ class __$$OnCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$On implements On {
-  const _$On();
+class _$On extends On {
+  const _$On() : super._();
 
   @override
   String toString() {
@@ -756,8 +760,9 @@ class _$On implements On {
   }
 }
 
-abstract class On implements ConnectionStatus {
+abstract class On extends ConnectionStatus {
   const factory On() = _$On;
+  const On._() : super._();
 }
 
 /// @nodoc
@@ -778,8 +783,8 @@ class __$$TurningOffCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TurningOff implements TurningOff {
-  const _$TurningOff();
+class _$TurningOff extends TurningOff {
+  const _$TurningOff() : super._();
 
   @override
   String toString() {
@@ -888,8 +893,9 @@ class _$TurningOff implements TurningOff {
   }
 }
 
-abstract class TurningOff implements ConnectionStatus {
+abstract class TurningOff extends ConnectionStatus {
   const factory TurningOff() = _$TurningOff;
+  const TurningOff._() : super._();
 }
 
 /// @nodoc
@@ -908,8 +914,8 @@ class __$$OffCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Off implements Off {
-  const _$Off();
+class _$Off extends Off {
+  const _$Off() : super._();
 
   @override
   String toString() {
@@ -1018,6 +1024,7 @@ class _$Off implements Off {
   }
 }
 
-abstract class Off implements ConnectionStatus {
+abstract class Off extends ConnectionStatus {
   const factory Off() = _$Off;
+  const Off._() : super._();
 }

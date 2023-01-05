@@ -55,6 +55,7 @@ class OnboardingPage extends StatelessWidget {
                     children: const [
                       TitleTextSection(),
                       ButtonSection(),
+                      SizedBox(height: 20)
                     ],
                   ),
                 ),

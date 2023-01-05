@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:intranavigator/presentation/features/app/pages/pages.dart';
 import 'package:intranavigator/presentation/features/app/pages/systemfailure_page.dart';
+import 'package:intranavigator/presentation/features/store_map/store_map.dart';
 
 import '../features/onboarding/onboarding.dart';
 import '../features/main_navigation/main_navigation.dart';
-import '../features/product_localization/product_localization.dart';
 import '../features/product_overview/product_overview.dart';
 import '../features/shopping_list/shopping_list.dart';
 import '../features/favorites/favorites.dart';
@@ -61,7 +61,7 @@ const mainNavigationRoutergroup = AutoRoute(
       page: EmptyRouterPage,
       children: [
         AutoRoute(path: '', page: ShoppingListPage),
-        AutoRoute(path: 'locate-product', page: ProductLocalizationPage),
+        AutoRoute(path: 'locate-product', page: StoreMapPage),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),

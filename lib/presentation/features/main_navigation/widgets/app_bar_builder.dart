@@ -16,7 +16,8 @@ class AppBarBuilder extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MainNavigationBloc, MainNavigationState>(
       builder: (context, state) {
-        final user = (context.read<AppBloc>().state as Success).user;
+        //BUG: Fix for different States then Success
+        User user = (context.read<AppBloc>().state as Success).user;
         return state.when(
           mainPageSelected: (destination) => LokyMainPageAppBar(
             userName: user.username,

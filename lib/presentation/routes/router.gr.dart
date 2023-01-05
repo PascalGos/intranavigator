@@ -24,14 +24,14 @@ import 'package:intranavigator/presentation/features/main_navigation/main_naviga
     as _i3;
 import 'package:intranavigator/presentation/features/onboarding/onboarding.dart'
     as _i2;
-import 'package:intranavigator/presentation/features/product_localization/product_localization.dart'
-    as _i8;
 import 'package:intranavigator/presentation/features/product_overview/product_overview.dart'
     as _i6;
 import 'package:intranavigator/presentation/features/settings/settings.dart'
     as _i10;
 import 'package:intranavigator/presentation/features/shopping_list/shopping_list.dart'
     as _i7;
+import 'package:intranavigator/presentation/features/store_map/store_map.dart'
+    as _i8;
 
 class AppRouter extends _i11.RootStackRouter {
   AppRouter([_i12.GlobalKey<_i12.NavigatorState>? navigatorKey])
@@ -103,10 +103,10 @@ class AppRouter extends _i11.RootStackRouter {
         child: const _i7.ShoppingListPage(),
       );
     },
-    ProductLocalizationRoute.name: (routeData) {
+    StoreMapRoute.name: (routeData) {
       return _i11.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i8.ProductLocalizationPage(),
+        child: const _i8.StoreMapPage(),
       );
     },
     FavoritesRoute.name: (routeData) {
@@ -192,7 +192,7 @@ class AppRouter extends _i11.RootStackRouter {
                   parent: ShoppingCartRouter.name,
                 ),
                 _i11.RouteConfig(
-                  ProductLocalizationRoute.name,
+                  StoreMapRoute.name,
                   path: 'locate-product',
                   parent: ShoppingCartRouter.name,
                 ),
@@ -419,15 +419,15 @@ class ShoppingListRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.ProductLocalizationPage]
-class ProductLocalizationRoute extends _i11.PageRouteInfo<void> {
-  const ProductLocalizationRoute()
+/// [_i8.StoreMapPage]
+class StoreMapRoute extends _i11.PageRouteInfo<void> {
+  const StoreMapRoute()
       : super(
-          ProductLocalizationRoute.name,
+          StoreMapRoute.name,
           path: 'locate-product',
         );
 
-  static const String name = 'ProductLocalizationRoute';
+  static const String name = 'StoreMapRoute';
 }
 
 /// generated route for

@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../../../../domain/entities/product/product.dart';
 import '../../../../../../../domain/entities/shopping_list_item/shopping_list_item.dart';
-import '../../../../../../../domain/usecases/shopping_list/add_product_to_shopping_list.dart';
+import '../../../../../../../domain/usecases/shopping_list_manager/add_product_to_shopping_list.dart';
 
 part 'product_tile_event.dart';
 part 'product_tile_state.dart';

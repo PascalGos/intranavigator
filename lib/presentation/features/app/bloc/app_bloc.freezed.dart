@@ -19,32 +19,41 @@ mixin _$AppEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() bluetoothConnectionStreamStartStopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? bluetoothConnectionStreamStartStopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? bluetoothConnectionStreamStartStopEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(BluetoothConnectionStreamStartEvent value)
+        bluetoothConnectionStreamStartStopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
+    TResult? Function(BluetoothConnectionStreamStartEvent value)?
+        bluetoothConnectionStreamStartStopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(BluetoothConnectionStreamStartEvent value)?
+        bluetoothConnectionStreamStartStopEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,6 +113,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() bluetoothConnectionStreamStartStopEvent,
   }) {
     return started();
   }
@@ -112,6 +122,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function()? bluetoothConnectionStreamStartStopEvent,
   }) {
     return started?.call();
   }
@@ -120,6 +131,7 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? bluetoothConnectionStreamStartStopEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -132,6 +144,8 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Started value) started,
+    required TResult Function(BluetoothConnectionStreamStartEvent value)
+        bluetoothConnectionStreamStartStopEvent,
   }) {
     return started(this);
   }
@@ -140,6 +154,8 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Started value)? started,
+    TResult? Function(BluetoothConnectionStreamStartEvent value)?
+        bluetoothConnectionStreamStartStopEvent,
   }) {
     return started?.call(this);
   }
@@ -148,6 +164,8 @@ class _$Started implements Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Started value)? started,
+    TResult Function(BluetoothConnectionStreamStartEvent value)?
+        bluetoothConnectionStreamStartStopEvent,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -162,12 +180,122 @@ abstract class Started implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$BluetoothConnectionStreamStartEventCopyWith<$Res> {
+  factory _$$BluetoothConnectionStreamStartEventCopyWith(
+          _$BluetoothConnectionStreamStartEvent value,
+          $Res Function(_$BluetoothConnectionStreamStartEvent) then) =
+      __$$BluetoothConnectionStreamStartEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BluetoothConnectionStreamStartEventCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$BluetoothConnectionStreamStartEvent>
+    implements _$$BluetoothConnectionStreamStartEventCopyWith<$Res> {
+  __$$BluetoothConnectionStreamStartEventCopyWithImpl(
+      _$BluetoothConnectionStreamStartEvent _value,
+      $Res Function(_$BluetoothConnectionStreamStartEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$BluetoothConnectionStreamStartEvent
+    implements BluetoothConnectionStreamStartEvent {
+  const _$BluetoothConnectionStreamStartEvent();
+
+  @override
+  String toString() {
+    return 'AppEvent.bluetoothConnectionStreamStartStopEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BluetoothConnectionStreamStartEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() bluetoothConnectionStreamStartStopEvent,
+  }) {
+    return bluetoothConnectionStreamStartStopEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? bluetoothConnectionStreamStartStopEvent,
+  }) {
+    return bluetoothConnectionStreamStartStopEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? bluetoothConnectionStreamStartStopEvent,
+    required TResult orElse(),
+  }) {
+    if (bluetoothConnectionStreamStartStopEvent != null) {
+      return bluetoothConnectionStreamStartStopEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(BluetoothConnectionStreamStartEvent value)
+        bluetoothConnectionStreamStartStopEvent,
+  }) {
+    return bluetoothConnectionStreamStartStopEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(BluetoothConnectionStreamStartEvent value)?
+        bluetoothConnectionStreamStartStopEvent,
+  }) {
+    return bluetoothConnectionStreamStartStopEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(BluetoothConnectionStreamStartEvent value)?
+        bluetoothConnectionStreamStartStopEvent,
+    required TResult orElse(),
+  }) {
+    if (bluetoothConnectionStreamStartStopEvent != null) {
+      return bluetoothConnectionStreamStartStopEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BluetoothConnectionStreamStartEvent implements AppEvent {
+  const factory BluetoothConnectionStreamStartEvent() =
+      _$BluetoothConnectionStreamStartEvent;
+}
+
+/// @nodoc
 mixin _$AppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(AppSettings settings, User user) success,
-    required TResult Function() failure,
+    required TResult Function(String? message) failure,
     required TResult Function(String errorMessage) systemFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -175,7 +303,7 @@ mixin _$AppState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(AppSettings settings, User user)? success,
-    TResult? Function()? failure,
+    TResult? Function(String? message)? failure,
     TResult? Function(String errorMessage)? systemFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -183,7 +311,7 @@ mixin _$AppState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(AppSettings settings, User user)? success,
-    TResult Function()? failure,
+    TResult Function(String? message)? failure,
     TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) =>
@@ -270,7 +398,7 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(AppSettings settings, User user) success,
-    required TResult Function() failure,
+    required TResult Function(String? message) failure,
     required TResult Function(String errorMessage) systemFailure,
   }) {
     return initial();
@@ -281,7 +409,7 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(AppSettings settings, User user)? success,
-    TResult? Function()? failure,
+    TResult? Function(String? message)? failure,
     TResult? Function(String errorMessage)? systemFailure,
   }) {
     return initial?.call();
@@ -292,7 +420,7 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(AppSettings settings, User user)? success,
-    TResult Function()? failure,
+    TResult Function(String? message)? failure,
     TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {
@@ -436,7 +564,7 @@ class _$Success implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(AppSettings settings, User user) success,
-    required TResult Function() failure,
+    required TResult Function(String? message) failure,
     required TResult Function(String errorMessage) systemFailure,
   }) {
     return success(settings, user);
@@ -447,7 +575,7 @@ class _$Success implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(AppSettings settings, User user)? success,
-    TResult? Function()? failure,
+    TResult? Function(String? message)? failure,
     TResult? Function(String errorMessage)? systemFailure,
   }) {
     return success?.call(settings, user);
@@ -458,7 +586,7 @@ class _$Success implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(AppSettings settings, User user)? success,
-    TResult Function()? failure,
+    TResult Function(String? message)? failure,
     TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {
@@ -522,6 +650,8 @@ abstract class Success implements AppState {
 abstract class _$$FailureCopyWith<$Res> {
   factory _$$FailureCopyWith(_$Failure value, $Res Function(_$Failure) then) =
       __$$FailureCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -530,36 +660,60 @@ class __$$FailureCopyWithImpl<$Res>
     implements _$$FailureCopyWith<$Res> {
   __$$FailureCopyWithImpl(_$Failure _value, $Res Function(_$Failure) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$Failure(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Failure implements Failure {
-  const _$Failure();
+  const _$Failure({this.message});
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'AppState.failure()';
+    return 'AppState.failure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Failure);
+        (other.runtimeType == runtimeType &&
+            other is _$Failure &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FailureCopyWith<_$Failure> get copyWith =>
+      __$$FailureCopyWithImpl<_$Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(AppSettings settings, User user) success,
-    required TResult Function() failure,
+    required TResult Function(String? message) failure,
     required TResult Function(String errorMessage) systemFailure,
   }) {
-    return failure();
+    return failure(message);
   }
 
   @override
@@ -567,10 +721,10 @@ class _$Failure implements Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(AppSettings settings, User user)? success,
-    TResult? Function()? failure,
+    TResult? Function(String? message)? failure,
     TResult? Function(String errorMessage)? systemFailure,
   }) {
-    return failure?.call();
+    return failure?.call(message);
   }
 
   @override
@@ -578,12 +732,12 @@ class _$Failure implements Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(AppSettings settings, User user)? success,
-    TResult Function()? failure,
+    TResult Function(String? message)? failure,
     TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure();
+      return failure(message);
     }
     return orElse();
   }
@@ -627,7 +781,12 @@ class _$Failure implements Failure {
 }
 
 abstract class Failure implements AppState {
-  const factory Failure() = _$Failure;
+  const factory Failure({final String? message}) = _$Failure;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$FailureCopyWith<_$Failure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -697,7 +856,7 @@ class _$SystemFailure implements SystemFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(AppSettings settings, User user) success,
-    required TResult Function() failure,
+    required TResult Function(String? message) failure,
     required TResult Function(String errorMessage) systemFailure,
   }) {
     return systemFailure(errorMessage);
@@ -708,7 +867,7 @@ class _$SystemFailure implements SystemFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(AppSettings settings, User user)? success,
-    TResult? Function()? failure,
+    TResult? Function(String? message)? failure,
     TResult? Function(String errorMessage)? systemFailure,
   }) {
     return systemFailure?.call(errorMessage);
@@ -719,7 +878,7 @@ class _$SystemFailure implements SystemFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(AppSettings settings, User user)? success,
-    TResult Function()? failure,
+    TResult Function(String? message)? failure,
     TResult Function(String errorMessage)? systemFailure,
     required TResult orElse(),
   }) {

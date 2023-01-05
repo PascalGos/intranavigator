@@ -61,6 +61,7 @@ app.AppBloc getAppBloc(BuildContext context) {
 
 AppSettings getAppSettings(BuildContext context) {
   final appBloc = getAppBloc(context);
+  //BUG: Fix for different States then Success
   final result = (appBloc.state as app.Success).settings;
   return result;
 }

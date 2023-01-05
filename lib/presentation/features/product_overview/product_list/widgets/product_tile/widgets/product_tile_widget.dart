@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intranavigator/dependency_injection.dart';
-import 'package:intranavigator/presentation/features/shopping_list/shopping_list.dart'
-    as shopping_list;
 
 import '../../../../../../../domain/entities/product/product.dart';
 import '../bloc/product_tile_bloc.dart';
