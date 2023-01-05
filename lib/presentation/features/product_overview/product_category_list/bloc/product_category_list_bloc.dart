@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intranavigator/architecture/architecture.dart';
-import 'package:intranavigator/domain/usecases/product_overview/load_all_product_categories.dart';
+import 'package:intranavigator/domain/usecases/product_manager/load_all_product_categories.dart';
 
 import '../../../../../domain/entities/product/product.dart';
 
